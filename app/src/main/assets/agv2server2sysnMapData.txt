@@ -1,0 +1,148 @@
+{
+    "floor": 6,
+    "map": {
+        "mapCode": "20170606111111",
+        "waypoints": [
+            {
+                "goal_timeout": 0,
+                "pose": {
+                    "position": {
+                        "z": 0,
+                        "y": -0.8102628499631921,
+                        "x": 2.8602422782736436
+                    },
+                    "orientation": {
+                        "w": 0.17221235548465064,
+                        "z": 0.9850598248019138,
+                        "y": 0,
+                        "x": 0
+                    }
+                },
+                "close_enough": 0,
+                "failure_mode": "NONE",
+                "header": {
+                    "seq": 1,
+                    "stamp": {
+                        "secs": 1494482683,
+                        "nsecs": 957325935
+                    },
+                    "frame_id": "map"
+                },
+                "classify": "A",
+                "name": "map_4_A_403"
+            },
+            {
+                "goal_timeout": 0,
+                "pose": {
+                    "position": {
+                        "z": 0,
+                        "y": -0.39162504996972797,
+                        "x": 4.119879918417171
+                    },
+                    "orientation": {
+                        "w": 0.9925723751909039,
+                        "z": 0.12154919734400417,
+                        "y": 0,
+                        "x": 0
+                    }
+                },
+                "close_enough": 0,
+                "failure_mode": "NONE",
+                "header": {
+                    "seq": 2,
+                    "stamp": {
+                        "secs": 1494482737,
+                        "nsecs": 82062005
+                    },
+                    "frame_id": "map"
+                },
+                "classify": "B",
+                "name": "map_b"
+            },
+            {
+                "goal_timeout": 0,
+                "pose": {
+                    "position": {
+                        "z": 0,
+                        "y": 0.7415742250325088,
+                        "x": 3.801334005357302
+                    },
+                    "orientation": {
+                        "w": 0.6006457560296239,
+                        "z": 0.7995148502928555,
+                        "y": 0,
+                        "x": 0
+                    }
+                },
+                "close_enough": 0,
+                "failure_mode": "NONE",
+                "header": {
+                    "seq": 3,
+                    "stamp": {
+                        "secs": 1494482773,
+                        "nsecs": 242420911
+                    },
+                    "frame_id": "map"
+                },
+                "classify": "C",
+                "name": "map_c"
+            },
+            {
+                "goal_timeout": 0,
+                "pose": {
+                    "position": {
+                        "z": 0,
+                        "y": 0.059577807928737736,
+                        "x": -0.23101512046212858
+                    },
+                    "orientation": {
+                        "w": 0.9994535234062796,
+                        "z": -0.030639017710174105,
+                        "y": 0,
+                        "x": 0
+                    }
+                },
+                "close_enough": 0,
+                "failure_mode": "NONE",
+                "header": {
+                    "seq": 4,
+                    "stamp": {
+                        "secs": 1494482836,
+                        "nsecs": 594048023
+                    },
+                    "frame_id": "map"
+                },
+                "classify": "A",
+                "name": "map_d"
+            },
+            {
+                "goal_timeout": 0,
+                "pose": {
+                    "position": {
+                        "z": 0,
+                        "y": 0.39459103526489114,
+                        "x": 2.373866946765057
+                    },
+                    "orientation": {
+                        "w": 0.9978755407086826,
+                        "z": 0.06512074261007626,
+                        "y": 0,
+                        "x": 0
+                    }
+                },
+                "close_enough": 0,
+                "failure_mode": "NONE",
+                "header": {
+                    "seq": 5,
+                    "stamp": {
+                        "secs": 1494482884,
+                        "nsecs": 752923011
+                    },
+                    "frame_id": "map"
+                },
+                "classify": "A",
+                "name": "map_e"
+            }
+        ]
+    }
+}
