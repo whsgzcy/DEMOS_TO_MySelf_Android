@@ -6,7 +6,7 @@ import java.util.List;
  * Created by super_yu on 2017/6/9.
  */
 
-public class Json2MapResult {
+public class MapResult {
 
 
     private List<WaypointsBean> waypoints;

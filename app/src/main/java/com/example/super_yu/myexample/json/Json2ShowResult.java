@@ -10,133 +10,149 @@ public class Json2ShowResult {
 
 
     /**
-     * floor : 4
-     * room : {"A":[{"room_bumber":"403","map_name":"map_4_A_403"},{"room_bumber":"406","map_name":"map_4_A_406"},{"room_bumber":"407","map_name":"map_4_A_407"}],"B":[{"room_bumber":"401","map_name":"map_4_B_401"},{"room_bumber":"402","map_name":"map_4_B_402"},{"room_bumber":"404","map_name":"map_4_B_404"}],"Z":[{"room_bumber":"405","map_name":"map_4_Z_405"},{"room_bumber":"409","map_name":"map_4_Z_409"},{"room_bumber":"401","map_name":"map_4_Z_401"}]}
+     * mapInfo : {"floor":4,"room":{"A":[{"room_bumber":"403","map_name":"map_4_A_403"},{"room_bumber":"406","map_name":"map_4_A_406"},{"room_bumber":"407","map_name":"map_4_A_407"}],"B":[{"room_bumber":"401","map_name":"map_4_B_401"},{"room_bumber":"402","map_name":"map_4_B_402"},{"room_bumber":"404","map_name":"map_4_B_404"}],"Z":[{"room_bumber":"405","map_name":"map_4_Z_405"},{"room_bumber":"409","map_name":"map_4_Z_409"},{"room_bumber":"401","map_name":"map_4_Z_401"}]}}
      */
 
-    private int floor;
-    private RoomBean room;
+    private MapInfoBean mapInfo;
 
-    public int getFloor() {
-        return floor;
+    public MapInfoBean getMapInfo() {
+        return mapInfo;
     }
 
-    public void setFloor(int floor) {
-        this.floor = floor;
+    public void setMapInfo(MapInfoBean mapInfo) {
+        this.mapInfo = mapInfo;
     }
 
-    public RoomBean getRoom() {
-        return room;
-    }
+    public static class MapInfoBean {
+        /**
+         * floor : 4
+         * room : {"A":[{"room_bumber":"403","map_name":"map_4_A_403"},{"room_bumber":"406","map_name":"map_4_A_406"},{"room_bumber":"407","map_name":"map_4_A_407"}],"B":[{"room_bumber":"401","map_name":"map_4_B_401"},{"room_bumber":"402","map_name":"map_4_B_402"},{"room_bumber":"404","map_name":"map_4_B_404"}],"Z":[{"room_bumber":"405","map_name":"map_4_Z_405"},{"room_bumber":"409","map_name":"map_4_Z_409"},{"room_bumber":"401","map_name":"map_4_Z_401"}]}
+         */
 
-    public void setRoom(RoomBean room) {
-        this.room = room;
-    }
+        private int floor;
+        private RoomBean room;
 
-    public static class RoomBean {
-        private List<ABean> A;
-        private List<BBean> B;
-        private List<ZBean> Z;
-
-        public List<ABean> getA() {
-            return A;
+        public int getFloor() {
+            return floor;
         }
 
-        public void setA(List<ABean> A) {
-            this.A = A;
+        public void setFloor(int floor) {
+            this.floor = floor;
         }
 
-        public List<BBean> getB() {
-            return B;
+        public RoomBean getRoom() {
+            return room;
         }
 
-        public void setB(List<BBean> B) {
-            this.B = B;
+        public void setRoom(RoomBean room) {
+            this.room = room;
         }
 
-        public List<ZBean> getZ() {
-            return Z;
-        }
+        public static class RoomBean {
+            private List<ABean> A;
+            private List<BBean> B;
+            private List<CBean> C;
 
-        public void setZ(List<ZBean> Z) {
-            this.Z = Z;
-        }
-
-        public static class ABean {
-            /**
-             * room_bumber : 403
-             * map_name : map_4_A_403
-             */
-
-            private String room_bumber;
-            private String map_name;
-
-            public String getRoom_bumber() {
-                return room_bumber;
+            public List<ABean> getA() {
+                return A;
             }
 
-            public void setRoom_bumber(String room_bumber) {
-                this.room_bumber = room_bumber;
+            public void setA(List<ABean> A) {
+                this.A = A;
             }
 
-            public String getMap_name() {
-                return map_name;
+            public List<BBean> getB() {
+                return B;
             }
 
-            public void setMap_name(String map_name) {
-                this.map_name = map_name;
-            }
-        }
-
-        public static class BBean {
-            /**
-             * room_bumber : 401
-             * map_name : map_4_B_401
-             */
-
-            private String room_bumber;
-            private String map_name;
-
-            public String getRoom_bumber() {
-                return room_bumber;
+            public void setB(List<BBean> B) {
+                this.B = B;
             }
 
-            public void setRoom_bumber(String room_bumber) {
-                this.room_bumber = room_bumber;
+            public List<CBean> getC() {
+                return C;
             }
 
-            public String getMap_name() {
-                return map_name;
+            public void setC(List<CBean> C) {
+                this.C = C;
             }
 
-            public void setMap_name(String map_name) {
-                this.map_name = map_name;
+            public static class ABean {
+                /**
+                 * room_bumber : 403
+                 * map_name : map_4_A_403
+                 */
+
+                private String room_bumber;
+                private String map_name;
+
+                public String getRoom_bumber() {
+                    return room_bumber;
+                }
+
+                public void setRoom_bumber(String room_bumber) {
+                    this.room_bumber = room_bumber;
+                }
+
+                public String getMap_name() {
+                    return map_name;
+                }
+
+                public void setMap_name(String map_name) {
+                    this.map_name = map_name;
+                }
             }
-        }
 
-        public static class ZBean {
-            /**
-             * room_bumber : 405
-             * map_name : map_4_Z_405
-             */
+            public static class BBean {
+                /**
+                 * room_bumber : 401
+                 * map_name : map_4_B_401
+                 */
 
-            private String room_bumber;
-            private String map_name;
+                private String room_bumber;
+                private String map_name;
 
-            public String getRoom_bumber() {
-                return room_bumber;
+                public String getRoom_bumber() {
+                    return room_bumber;
+                }
+
+                public void setRoom_bumber(String room_bumber) {
+                    this.room_bumber = room_bumber;
+                }
+
+                public String getMap_name() {
+                    return map_name;
+                }
+
+                public void setMap_name(String map_name) {
+                    this.map_name = map_name;
+                }
             }
 
-            public void setRoom_bumber(String room_bumber) {
-                this.room_bumber = room_bumber;
-            }
+            public static class CBean {
+                /**
+                 * room_bumber : 405
+                 * map_name : map_4_Z_405
+                 */
 
-            public String getMap_name() {
-                return map_name;
-            }
+                private String room_bumber;
+                private String map_name;
 
-            public void setMap_name(String map_name) {
-                this.map_name = map_name;
+                public String getRoom_bumber() {
+                    return room_bumber;
+                }
+
+                public void setRoom_bumber(String room_bumber) {
+                    this.room_bumber = room_bumber;
+                }
+
+                public String getMap_name() {
+                    return map_name;
+                }
+
+                public void setMap_name(String map_name) {
+                    this.map_name = map_name;
+                }
             }
         }
     }

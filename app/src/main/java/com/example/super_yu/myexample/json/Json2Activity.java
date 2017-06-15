@@ -8,13 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.super_yu.myexample.MainActivity;
 import com.example.super_yu.myexample.R;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Json2Activity extends AppCompatActivity {
 
@@ -36,13 +37,75 @@ public class Json2Activity extends AppCompatActivity {
                         String jsonString = getJson(Json2Activity.this, "mapData.txt");
                         Log.d(TAG, "Json2Activitym jsonString = " + jsonString);
                         // json解析
-                        Json2MapResult json2MapResult = new Json2MapResult();
+                        MapResult json2MapResult = new MapResult();
                         Gson gson = new Gson();
-                        json2MapResult = gson.fromJson(jsonString, Json2MapResult.class);
-                        // 设置Json2Result
-                        Json2ShowResult json2ShowResult = new Json2ShowResult();
+                        json2MapResult = gson.fromJson(jsonString, MapResult.class);
 
-//                        json2Resul
+                        // 获取站点数据 List
+                        List<String> mWayPointsList = new ArrayList<String>();
+                        for(int i = 0; i < json2MapResult.getWaypoints().size(); i++){
+                            mWayPointsList.add(json2MapResult.getWaypoints().get(i).getName());
+                        }
+
+                        // map_6_A_601,map_6_B_602,map_6_A_603,map_6_B_604,map_6_A_605,map_6_C_606
+                        Json2ShowResult json2ShowResult = new Json2ShowResult();
+//                        List<Json2ShowResult.MapInfoBean> mapInfoBeenList = new ArrayList<Json2ShowResult.MapInfoBean>();
+                        Json2ShowResult.MapInfoBean mapInfo = new Json2ShowResult.MapInfoBean();
+
+                        String point = mWayPointsList.get(0).toString();
+                        int floor = StringHelper.str2Floor(point);
+                        // 默认只有固定一层楼
+                        mapInfo.setFloor(floor);
+
+                        Json2ShowResult.MapInfoBean.RoomBean roomBean = new Json2ShowResult.MapInfoBean.RoomBean();
+
+                        List<Json2ShowResult.MapInfoBean.RoomBean.ABean> mABeanList = new ArrayList<Json2ShowResult.MapInfoBean.RoomBean.ABean>();
+                        List<Json2ShowResult.MapInfoBean.RoomBean.BBean> mBBeanList = new ArrayList<Json2ShowResult.MapInfoBean.RoomBean.BBean>();
+                        List<Json2ShowResult.MapInfoBean.RoomBean.CBean> mCBeanList = new ArrayList<Json2ShowResult.MapInfoBean.RoomBean.CBean>();
+
+                        for(int i = 0; i < mWayPointsList.size(); i++) {
+                            // 分类 calssify
+                            String classify = StringHelper.str2Classify(mWayPointsList.get(i));
+                            // "A"
+                            if(classify.equals("A")){
+                                Json2ShowResult.MapInfoBean.RoomBean.ABean A = new Json2ShowResult.MapInfoBean.RoomBean.ABean();
+                                String map_name = mWayPointsList.get(i).toString();
+                                String room = StringHelper.str2Room(map_name);
+                                A.setMap_name(map_name);
+                                A.setRoom_bumber(room);
+                                mABeanList.add(A);
+                            }
+                            // "B"
+                            if(classify.equals("B")){
+                                Json2ShowResult.MapInfoBean.RoomBean.BBean B = new Json2ShowResult.MapInfoBean.RoomBean.BBean();
+                                String map_name = mWayPointsList.get(i).toString();
+                                String room = StringHelper.str2Room(map_name);
+                                B.setMap_name(map_name);
+                                B.setRoom_bumber(room);
+                                mBBeanList.add(B);
+                            }
+                            // "C"
+                            if(classify.equals("C")){
+                                Json2ShowResult.MapInfoBean.RoomBean.CBean C = new Json2ShowResult.MapInfoBean.RoomBean.CBean();
+                                String map_name = mWayPointsList.get(i).toString();
+                                String room = StringHelper.str2Room(map_name);
+                                C.setMap_name(map_name);
+                                C.setRoom_bumber(room);
+                                mCBeanList.add(C);
+                            }
+                            // "D"
+                            if(classify.equals("D")){
+
+                            }
+                        }
+
+                        roomBean.setA(mABeanList);
+                        roomBean.setB(mBBeanList);
+                        roomBean.setC(mCBeanList);
+
+                        mapInfo.setRoom(roomBean);
+
+                        json2ShowResult.setMapInfo(mapInfo);
 
                     }
                 });

@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
 
@@ -26,14 +25,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".json.Json2Activity" />
-        <activity android:name=".notification.Notification2Activity"></activity>
-
-        <activity android:name="com.example.super_yu.myexample.notification.SimpleNotificationActivity" />
-        <activity android:name="com.example.super_yu.myexample.notification.NotificationPriorityActivity" />
-        <activity android:name="com.example.super_yu.myexample.notification.TaskStackBuilderActivity" />
+        <activity android:name=".notification.Notification2Activity" />
+        <activity android:name=".notification.SimpleNotificationActivity" />
+        <activity android:name=".notification.NotificationPriorityActivity" />
+        <activity android:name=".notification.TaskStackBuilderActivity" />
         <!-- parentActivityName 属性用于点击 Notification 跳转到 Activity 按返回键时返回的界面 -->
         <activity
-            android:name="com.example.super_yu.myexample.notification.result.NormalResultActivity"
+            android:name=".notification.result.NormalResultActivity"
             android:parentActivityName=".notification.Notification2Activity">
 
             <!-- 兼容 Android 4.0.3 及更早的版本 -->
@@ -43,23 +41,25 @@
         </activity>
         <!-- <activity android:name=".ResultActivity"></activity> -->
         <activity
-            android:name="com.example.super_yu.myexample.notification.result.SpecailResultActivity"
+            android:name=".notification.result.SpecailResultActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:taskAffinity="" />
-        <activity android:name="com.example.super_yu.myexample.notification.ProgressNotifyActivity" />
-        <activity android:name="com.example.super_yu.myexample.notification.NotificationEffectActivity" />
-        <activity android:name="com.example.super_yu.myexample.notification.SimplestNotificationActivity" />
-        <activity android:name="com.example.super_yu.myexample.notification.NotificationStyleActivity" />
-        <activity android:name="com.example.super_yu.myexample.notification.NotificationListenerServiceActivity"></activity>
+        <activity android:name=".notification.ProgressNotifyActivity" />
+        <activity android:name=".notification.NotificationEffectActivity" />
+        <activity android:name=".notification.SimplestNotificationActivity" />
+        <activity android:name=".notification.NotificationStyleActivity" />
+        <activity android:name=".notification.NotificationListenerServiceActivity" />
 
         <service
-            android:name="com.example.super_yu.myexample.notification.MyNotificationListenerService"
+            android:name=".notification.MyNotificationListenerService"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
+
+        <activity android:name=".socket.Socket2Activity"></activity>
     </application>
 
 </manifest>

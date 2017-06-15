@@ -1,7 +1,5 @@
 {
-    "floor": 6,
-    "map": {
-        "mapCode": "20170606111111",
+    "code": 6,
         "waypoints": [
             {
                 "goal_timeout": 0,
@@ -144,5 +142,4 @@
                 "name": "map_e"
             }
         ]
-    }
 }
