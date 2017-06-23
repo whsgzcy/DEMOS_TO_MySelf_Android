@@ -23,4 +23,10 @@
         android:layout_height="wrap_content"
         android:text="socket" />
 
+    <Button
+        android:id="@+id/files"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="select files" />
+
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.super_yu.myexample.files.SFiles2Activity;
 import com.example.super_yu.myexample.json.Json2Activity;
 import com.example.super_yu.myexample.notification.Notification2Activity;
 import com.example.super_yu.myexample.socket.Socket2Activity;
@@ -47,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Socket2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button filesBtn = (Button)findViewById(R.id.files);
+        filesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SFiles2Activity.class);
                 startActivity(intent);
             }
         });
