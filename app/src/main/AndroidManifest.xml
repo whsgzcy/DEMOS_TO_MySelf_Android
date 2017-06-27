@@ -61,7 +61,8 @@
 
         <activity android:name=".socket.Socket2Activity" />
         <activity android:name=".push.Push2Activity" />
-        <activity android:name=".files.SFiles2Activity"></activity>
+        <activity android:name=".files.SFiles2Activity" />
+        <activity android:name=".anim.Anim2Activity"></activity>
     </application>
 
 </manifest>
