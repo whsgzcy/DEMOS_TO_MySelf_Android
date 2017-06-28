@@ -222,7 +222,7 @@ public class BackgroundMusic {
         MediaPlayer mediaPlayer = null;
         try {
             mediaPlayer = MediaPlayer.create(context, path);
-            mediaPlayer.prepare();
+//            mediaPlayer.prepare();
             mediaPlayer.setVolume(mLeftVolume, mRightVolume);
         } catch (Exception e) {
             mediaPlayer = null;

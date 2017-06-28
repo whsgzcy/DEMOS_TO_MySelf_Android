@@ -25,8 +25,6 @@ public class Remarker2Activity extends AppCompatActivity implements View.OnClick
     private Camera camera;
     private Boolean isShanshuo = false;
 
-    private AudioManager audioManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +51,6 @@ public class Remarker2Activity extends AppCompatActivity implements View.OnClick
 
         // 开启闪关灯闪烁
         mShineThread.start();
-
-        audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
-
-
     }
 
 //    private MediaPlayer accessFile() {
@@ -86,8 +80,10 @@ public class Remarker2Activity extends AppCompatActivity implements View.OnClick
                 vibrator.cancel();
                 break;
             case R.id.ring:
+                BackgroundMusic.getInstance(this).playBackgroundMusic(this,R.raw.hello,true);
                 break;
             case R.id.cancel_ring:
+                BackgroundMusic.getInstance(this).stopBackgroundMusic();
                 break;
             case R.id.shine:
                 isShanshuo = true;
