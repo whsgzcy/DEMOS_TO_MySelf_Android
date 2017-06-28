@@ -41,4 +41,10 @@
         android:layout_height="wrap_content"
         android:text="dialog" />
 
+    <Button
+        android:id="@+id/remarker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="remarker" />
+
 </LinearLayout>

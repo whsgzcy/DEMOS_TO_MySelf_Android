@@ -13,6 +13,7 @@ import com.example.super_yu.myexample.dialog.Dialog2Activity;
 import com.example.super_yu.myexample.files.SFiles2Activity;
 import com.example.super_yu.myexample.json.Json2Activity;
 import com.example.super_yu.myexample.notification.Notification2Activity;
+import com.example.super_yu.myexample.remedia.Remarker2Activity;
 import com.example.super_yu.myexample.socket.Socket2Activity;
 
 import java.lang.reflect.Constructor;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button jsonBtn = (Button)findViewById(R.id.json);
+        Button jsonBtn = (Button) findViewById(R.id.json);
         jsonBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button notificationBtn = (Button)findViewById(R.id.notification);
+        Button notificationBtn = (Button) findViewById(R.id.notification);
         notificationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button socketBtn = (Button)findViewById(R.id.socket);
+        Button socketBtn = (Button) findViewById(R.id.socket);
         socketBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button filesBtn = (Button)findViewById(R.id.files);
+        Button filesBtn = (Button) findViewById(R.id.files);
         filesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button animBtn = (Button)findViewById(R.id.anim);
+        Button animBtn = (Button) findViewById(R.id.anim);
         animBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,11 +73,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button dialogBtn = (Button)findViewById(R.id.dialog);
+        Button dialogBtn = (Button) findViewById(R.id.dialog);
         dialogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Dialog2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button remarkerBtn = (Button) findViewById(R.id.remarker);
+        remarkerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Remarker2Activity.class);
                 startActivity(intent);
             }
         });

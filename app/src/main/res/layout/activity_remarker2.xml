@@ -30,4 +30,16 @@
         android:layout_height="wrap_content"
         android:text="取消响铃" />
 
+    <Button
+        android:id="@+id/shine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="led" />
+
+    <Button
+        android:id="@+id/cancel_shine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取消led" />
+
 </LinearLayout>
