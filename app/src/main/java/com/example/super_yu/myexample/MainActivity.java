@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.super_yu.myexample.anim.Anim2Activity;
+import com.example.super_yu.myexample.dialog.Dialog2Activity;
 import com.example.super_yu.myexample.files.SFiles2Activity;
 import com.example.super_yu.myexample.json.Json2Activity;
 import com.example.super_yu.myexample.notification.Notification2Activity;
@@ -67,6 +68,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Anim2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button dialogBtn = (Button)findViewById(R.id.dialog);
+        dialogBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Dialog2Activity.class);
                 startActivity(intent);
             }
         });
