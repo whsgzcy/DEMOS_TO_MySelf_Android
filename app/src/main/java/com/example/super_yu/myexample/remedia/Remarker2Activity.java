@@ -21,24 +21,17 @@ public class Remarker2Activity extends AppCompatActivity implements View.OnClick
 
     private Vibrator vibrator;
     private boolean shouldPlayBeep;
-    private MediaPlayer mediaPlayer;
 
     private Camera camera;
     private Boolean isShanshuo = false;
+
+    private AudioManager audioManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remarker2);
-
-        this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
-        AudioManager audioService = (AudioManager) this
-                .getSystemService(Context.AUDIO_SERVICE);
-        if (audioService.getRingerMode() != AudioManager.RINGER_MODE_NORMAL) {
-            shouldPlayBeep = false;
-        }
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         Button shakeBtn = (Button) findViewById(R.id.shake);
         Button shakeCancleBtn = (Button) findViewById(R.id.cancel_shake);
@@ -58,7 +51,11 @@ public class Remarker2Activity extends AppCompatActivity implements View.OnClick
         shineBtn.setOnClickListener(this);
         shineCancleBtn.setOnClickListener(this);
 
+        // 开启闪关灯闪烁
         mShineThread.start();
+
+        audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+
 
     }
 
