@@ -9,10 +9,13 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -62,7 +65,9 @@
         <activity android:name=".socket.Socket2Activity" />
         <activity android:name=".push.Push2Activity" />
         <activity android:name=".files.SFiles2Activity" />
-        <activity android:name=".anim.Anim2Activity"></activity>
+        <activity android:name=".anim.Anim2Activity" />
+        <activity android:name=".remedia.Remarker2Activity" />
+        <activity android:name=".dialog.Dialog2Activity"></activity>
     </application>
 
 </manifest>
