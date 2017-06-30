@@ -1,4 +1,4 @@
-package com.example.super_yu.myexample.serialp;
+package weiqian.hardware;
 
 public class CanFrame {
 	public  int can_id;

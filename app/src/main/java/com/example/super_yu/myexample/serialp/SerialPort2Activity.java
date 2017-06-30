@@ -1,7 +1,10 @@
 package com.example.super_yu.myexample.serialp;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,7 +12,14 @@ import android.widget.TextView;
 
 import com.example.super_yu.myexample.R;
 
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+import weiqian.hardware.SerialPort;
+
 public class SerialPort2Activity extends AppCompatActivity implements View.OnClickListener {
+
+    private static final String TAG = "whsgzcy";
 
     private TextView mSerial;
     private TextView mBaud;
@@ -59,23 +69,40 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
 
         mSerialPort = new SerialPort();
 
-//        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(
-//                1);
-//        Runnable command = new Runnable() {
-//            @Override
-//            public void run() {
-//                if (mIsStop) {
-//                    byte[] buffer = new byte[64];
-//                    int size = mSerialPort.read(buffer, buffer.length);
-//
-//
-//                }
-//            }
-//        };
-//        scheduledThreadPoolExecutor.scheduleAtFixedRate(command, 1, 2,
-//                TimeUnit.SECONDS);
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(
+                1);
+        Runnable command = new Runnable() {
+            @Override
+            public void run() {
+                if (mIsStop) {
+
+                    String msg = mSerialPort.read();
+
+                    Message message = new Message();
+                    message.what = 1;
+                    message.obj = msg;
+
+                    mHandler.sendMessage(message);
+                }
+            }
+        };
+        scheduledThreadPoolExecutor.scheduleAtFixedRate(command, 1, 1,
+                TimeUnit.SECONDS);
 
     }
+
+    Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1:
+                    mState.setText(msg.obj.toString());
+                    break;
+            }
+        }
+    };
 
     @Override
     public void onClick(View v) {
@@ -85,7 +112,8 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                 String data = mCmd.getText().toString();
                 byte[] c = HexToByte(data);
                 int l = c.length;
-                mSerialPort.write(c, l);
+                int b = mSerialPort.write(c, l);
+                Log.d(TAG, "SerialPort2Activity send = " + b);
                 break;
             case R.id.open:
                 mSend.setEnabled(true);
@@ -105,7 +133,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
     }
 
     //16进制字符串转换为byte[]
-    public byte[] HexToByte(String hexString){
+    public byte[] HexToByte(String hexString) {
         int len = hexString.length();
         byte[] b = new byte[len / 2];
         for (int i = 0; i < len; i += 2) {
@@ -115,4 +143,32 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
         }
         return b;
     }
+
+//    protected void onDataReceived(byte[] buffer, int size) {
+//        final byte[] nbuffer = buffer.clone();
+//        final int nsize = size;
+//        String msg = bytesToHexString(nbuffer, nsize);
+//        Message message = new Message();
+//        message.obj = msg;
+//        message.what = 1;
+//        mHandler.sendMessage(message);
+//    }
+//
+//    private String bytesToHexString(byte[] bArray, int size) {
+//
+//        return new String(bArray);
+
+//        StringBuffer strBuf = new StringBuffer(bArray.length);
+//        String strTemp;
+//        for (int i = 0; i < size; i++) {
+//            strTemp = Integer.toHexString(0xAA & bArray[i]);
+//            strBuf.append("0x");
+//            if (strTemp.length() < 2) {
+//                strBuf.append(0);
+//            }
+//            strBuf.append(strTemp.toUpperCase());
+//            strBuf.append(" ");
+//        }
+//        return strBuf.toString();
+//    }
 }
