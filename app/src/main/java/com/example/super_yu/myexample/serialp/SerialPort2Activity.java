@@ -82,10 +82,6 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
 
                     mHandler.sendMessage(message);
 
-                    byte[] c = HexToByte("f1");
-                    int l = c.length;
-                    int b = mSerialPort.write(c, l);
-
                     byte[] d = HexToByte("aa");
                     int m = d.length;
                     int f = mSerialPort.write(d, m);
@@ -119,6 +115,18 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                 int l = c.length;
                 int b = mSerialPort.write(c, l);
                 Log.d(TAG, "SerialPort2Activity send = " + b);
+
+                mSend.setClickable(false);
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        byte[] cc = HexToByte("f1");
+                        int ll = cc.length;
+                        int bb = mSerialPort.write(cc, ll);
+                        mSend.setClickable(true);
+                    }
+                },2000);
+
                 break;
             case R.id.open:
                 mSend.setEnabled(true);
