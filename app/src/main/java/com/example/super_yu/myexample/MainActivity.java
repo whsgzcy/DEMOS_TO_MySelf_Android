@@ -11,6 +11,7 @@ import com.example.super_yu.myexample.dialog.Dialog2Activity;
 import com.example.super_yu.myexample.files.SFiles2Activity;
 import com.example.super_yu.myexample.json.Json2Activity;
 import com.example.super_yu.myexample.notification.Notification2Activity;
+import com.example.super_yu.myexample.recylerview.RefreshRecyclerview2Activity;
 import com.example.super_yu.myexample.remedia.Remarker2Activity;
 import com.example.super_yu.myexample.serialp.SerialPort2Activity;
 import com.example.super_yu.myexample.socket.Socket2Activity;
@@ -90,6 +91,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SerialPort2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button refreshBtn = (Button) findViewById(R.id.refresh);
+        refreshBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RefreshRecyclerview2Activity.class);
                 startActivity(intent);
             }
         });

@@ -27,7 +27,6 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
     private TextView mCompile;
     private TextView mStop;
     private TextView mState;
-    private EditText mCmd;
     private Button mSend;
     private Button mOpen;
     private Button mClose;
@@ -54,7 +53,6 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
         mCompile.setText("none");
         mStop.setText("1");
 
-        mCmd = (EditText) findViewById(R.id.cmd);
         mSend = (Button) findViewById(R.id.send);
 
         mOpen = (Button) findViewById(R.id.open);
@@ -83,6 +81,14 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                     message.obj = msg;
 
                     mHandler.sendMessage(message);
+
+                    byte[] c = HexToByte("f1");
+                    int l = c.length;
+                    int b = mSerialPort.write(c, l);
+
+                    byte[] d = HexToByte("aa");
+                    int m = d.length;
+                    int f = mSerialPort.write(d, m);
                 }
             }
         };
@@ -109,8 +115,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
 
         switch (v.getId()) {
             case R.id.send:
-                String data = mCmd.getText().toString();
-                byte[] c = HexToByte(data);
+                byte[] c = HexToByte("01");
                 int l = c.length;
                 int b = mSerialPort.write(c, l);
                 Log.d(TAG, "SerialPort2Activity send = " + b);

@@ -72,7 +72,8 @@
         <activity android:name=".anim.Anim2Activity" />
         <activity android:name=".remedia.Remarker2Activity" />
         <activity android:name=".dialog.Dialog2Activity" />
-        <activity android:name=".serialp.SerialPort2Activity"></activity>
+        <activity android:name=".serialp.SerialPort2Activity" />
+        <activity android:name=".recylerview.RefreshRecyclerview2Activity"></activity>
     </application>
 
 </manifest>

@@ -35,27 +35,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/cmd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <Button
         android:id="@+id/send"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="发送" />
+        android:text="开门" />
 
     <Button
         android:id="@+id/open"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="打开" />
+        android:text="打开串口" />
 
     <Button
         android:id="@+id/close"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="关闭" />
+        android:text="关闭串口" />
 
 </LinearLayout>

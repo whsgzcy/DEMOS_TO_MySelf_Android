@@ -53,4 +53,10 @@
         android:layout_height="wrap_content"
         android:text="serialport" />
 
+    <Button
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="recylerview 下拉刷新" />
+
 </LinearLayout>
