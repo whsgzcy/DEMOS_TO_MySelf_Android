@@ -1,8 +1,6 @@
 package com.example.super_yu.myexample.eventbus;
 
-/**
- * Created by Administrator on 2016/8/15 0015.
- */
+
 public class MessageEvent {
 
     private String message;
