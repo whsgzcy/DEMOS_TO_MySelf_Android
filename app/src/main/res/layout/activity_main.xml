@@ -59,4 +59,16 @@
         android:layout_height="wrap_content"
         android:text="recylerview 下拉刷新" />
 
+    <Button
+        android:id="@+id/events"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="事件总线" />
+
+    <Button
+        android:id="@+id/customview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义控件" />
+
 </LinearLayout>

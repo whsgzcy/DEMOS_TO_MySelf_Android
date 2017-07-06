@@ -75,7 +75,8 @@
         <activity android:name=".serialp.SerialPort2Activity" />
         <activity android:name=".recylerview.RefreshRecyclerview2Activity" />
         <activity android:name=".eventbus.EventBus2Activity" />
-        <activity android:name=".eventbus.EventsBus4Activity"></activity>
+        <activity android:name=".eventbus.EventsBus4Activity" />
+        <activity android:name=".customview.CustomView2Activity"></activity>
     </application>
 
 </manifest>

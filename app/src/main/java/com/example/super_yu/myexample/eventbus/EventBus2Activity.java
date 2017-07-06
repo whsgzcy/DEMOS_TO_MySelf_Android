@@ -1,5 +1,6 @@
 package com.example.super_yu.myexample.eventbus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -58,7 +59,8 @@ public class EventBus2Activity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(EventBus2Activity.this, EventsBus4Activity.class);
+                startActivity(intent);
             }
         });
     }
