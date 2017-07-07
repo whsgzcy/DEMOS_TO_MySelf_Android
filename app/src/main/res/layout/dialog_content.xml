@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="主人，我到了"
+        android:textSize="@dimen/x30" />
+
+    <com.example.super_yu.myexample.customview.IdentifyingCodeView
+        android:id="@+id/wrod"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x50"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y26"
+        app:icv_et_bg_focus="@drawable/shape_icv_et_bg_focus"
+        app:icv_et_bg_normal="@drawable/shape_icv_et_bg_normal"
+        app:icv_et_divider_drawable="@drawable/shape_divider_identifying"
+        app:icv_et_number="6"
+        app:icv_et_text_color="#000000"
+        app:icv_et_text_size="@dimen/x25"
+        app:icv_et_width="@dimen/x50" />
+
+    <TextView
+        android:id="@+id/action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wrod"
+        android:layout_centerHorizontal="true"
+        android:text="取件"
+        android:textSize="@dimen/x28" />
+
+
+</RelativeLayout>
