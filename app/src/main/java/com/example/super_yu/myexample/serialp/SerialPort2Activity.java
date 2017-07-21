@@ -106,6 +106,9 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
         }
     };
 
+    String m = "C:\\Users\\Administrator\\Desktop\\test2.xls";
+    String y = "http://ditu.amap.com/service/poiInfo?query_type=TQUERY&pagesize=20&pagenum=1&qii=true&cluster_state=5&need_utd=true&utd_sceneid=1000&div=PC1000&addr_poi_merge=true&is_classify=true&zoom=11&city=430100&geoobj=112.920481%7C27.73864%7C113.263803%7C28.659659&keywords=%E5%AE%A0%E7%89%A9%E5%BA%97";
+
     @Override
     public void onClick(View v) {
 
@@ -125,7 +128,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                         int bb = mSerialPort.write(cc, ll);
                         mSend.setClickable(true);
                     }
-                },2000);
+                },1000);
 
                 break;
             case R.id.open:

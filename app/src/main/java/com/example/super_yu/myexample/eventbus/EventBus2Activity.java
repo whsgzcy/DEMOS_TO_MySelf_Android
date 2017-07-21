@@ -75,7 +75,6 @@ public class EventBus2Activity extends AppCompatActivity {
         Toast.makeText(EventBus2Activity.this, messageEvent.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();

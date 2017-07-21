@@ -42,8 +42,6 @@ public class RefreshRecyclerview2Activity extends AppCompatActivity implements O
         recycleview.setLFRecyclerViewListener(this);
         recycleview.setScrollChangeListener(this);
         recycleview.setItemAnimator(new DefaultItemAnimator());
-        adapter = new RefreshRecyclerviewAdapter(list);
-        recycleview.setAdapter(adapter);
 
         TextView tv = new TextView(RefreshRecyclerview2Activity.this);
         tv.setText("这是头部");
@@ -51,12 +49,17 @@ public class RefreshRecyclerview2Activity extends AppCompatActivity implements O
         tv.setGravity(Gravity.CENTER);
         tv.setBackgroundColor(Color.RED);
         recycleview.setHeaderView(tv);
-        tv = new TextView(RefreshRecyclerview2Activity.this);
-        tv.setText("这是底部");
-        tv.setTextColor(Color.WHITE);
-        tv.setGravity(Gravity.CENTER);
-        tv.setBackgroundColor(Color.RED);
-        recycleview.setFootView(tv);
+
+        adapter = new RefreshRecyclerviewAdapter(list);
+        recycleview.setAdapter(adapter);
+
+
+//        tv = new TextView(RefreshRecyclerview2Activity.this);
+//        tv.setText("这是底部");
+//        tv.setTextColor(Color.WHITE);
+//        tv.setGravity(Gravity.CENTER);
+//        tv.setBackgroundColor(Color.RED);
+//        recycleview.setFootView(tv);
 
     }
 
@@ -90,10 +93,10 @@ public class RefreshRecyclerview2Activity extends AppCompatActivity implements O
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                recycleview.stopLoadMore();
-                list.add(list.size(), "whsgzcy" + "==onLoadMore");
-//                list.add(list.size(), "leefeng.me" + "==onLoadMore");
-                adapter.notifyItemRangeInserted(list.size() - 1, 1);
+//                recycleview.stopLoadMore();
+//                list.add(list.size(), "whsgzcy" + "==onLoadMore");
+////                list.add(list.size(), "leefeng.me" + "==onLoadMore");
+//                adapter.notifyItemRangeInserted(list.size() - 1, 1);
 
             }
         }, 2000);

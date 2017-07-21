@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.super_yu.myexample.R;
+import com.example.super_yu.myexample.dialog.viewer.BussInessViewStateMachine;
 import com.example.super_yu.myexample.dialog.viewer.FourView;
 import com.example.super_yu.myexample.dialog.viewer.OneView;
 import com.example.super_yu.myexample.dialog.viewer.ThreeView;
@@ -19,7 +20,6 @@ import com.example.superalertdialoglibrary.SweetAlertDialog;
 public class Dialog2Activity extends AppCompatActivity {
 
     private LinearLayout mContainerView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,43 +38,52 @@ public class Dialog2Activity extends AppCompatActivity {
         Button three = (Button) findViewById(R.id.three);
         Button four = (Button) findViewById(R.id.four);
 
+        BussInessViewStateMachine.getInstance();
+        BussInessViewStateMachine.getInstance().setContainerView(mContainerView);
+
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContainerView.removeAllViews();
-                OneView one = new OneView(Dialog2Activity.this);
-                one.test();
-                mContainerView.addView(one);
+//                mContainerView.removeAllViews();
+//                OneView one = new OneView(Dialog2Activity.this);
+//                one.test();
+//                mContainerView.addView(one);
+                BussInessViewStateMachine.getInstance().test1();
             }
         });
 
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContainerView.removeAllViews();
-                TwoView two = new TwoView(Dialog2Activity.this);
-                two.test();
-                mContainerView.addView(two);
+//                mContainerView.removeAllViews();
+//                TwoView two = new TwoView(Dialog2Activity.this);
+//                two.test();
+//                mContainerView.addView(two);
+                BussInessViewStateMachine.getInstance().test2();
+
             }
         });
 
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContainerView.removeAllViews();
-                ThreeView three = new ThreeView(Dialog2Activity.this);
-                three.test();
-                mContainerView.addView(three);
+//                mContainerView.removeAllViews();
+//                ThreeView three = new ThreeView(Dialog2Activity.this);
+//                three.test();
+//                mContainerView.addView(three);
+                BussInessViewStateMachine.getInstance().test3();
+
             }
         });
 
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContainerView.removeAllViews();
-                FourView four = new FourView(Dialog2Activity.this);
-                four.test();
-                mContainerView.addView(four);
+//                mContainerView.removeAllViews();
+//                FourView four = new FourView(Dialog2Activity.this);
+//                four.test();
+//                mContainerView.addView(four);
+                BussInessViewStateMachine.getInstance().test4();
             }
         });
 
