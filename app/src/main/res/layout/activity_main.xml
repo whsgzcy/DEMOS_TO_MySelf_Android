@@ -5,70 +5,88 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/json"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="拼接json" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/notification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="notification" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/socket"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="socket" />
 
-    <Button
-        android:id="@+id/files"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="select files" />
+            <Button
+                android:id="@+id/json"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="拼接json" />
 
-    <Button
-        android:id="@+id/anim"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="anim" />
+            <Button
+                android:id="@+id/notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="notification" />
 
-    <Button
-        android:id="@+id/dialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="dialog" />
+            <Button
+                android:id="@+id/socket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="socket" />
 
-    <Button
-        android:id="@+id/remarker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="remarker" />
+            <Button
+                android:id="@+id/files"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="select files" />
 
-    <Button
-        android:id="@+id/serial"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="serialport" />
+            <Button
+                android:id="@+id/anim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="anim" />
 
-    <Button
-        android:id="@+id/refresh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="recylerview 下拉刷新" />
+            <Button
+                android:id="@+id/dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="dialog" />
 
-    <Button
-        android:id="@+id/events"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="事件总线" />
+            <Button
+                android:id="@+id/remarker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="remarker" />
 
-    <Button
-        android:id="@+id/customview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="自定义控件" />
+            <Button
+                android:id="@+id/serial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="serialport" />
+
+            <Button
+                android:id="@+id/refresh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="recylerview 下拉刷新" />
+
+            <Button
+                android:id="@+id/events"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="事件总线" />
+
+            <Button
+                android:id="@+id/customview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="自定义控件" />
+
+            <Button
+                android:id="@+id/websocket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="websocket" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

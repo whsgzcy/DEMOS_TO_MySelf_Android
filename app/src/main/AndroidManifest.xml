@@ -77,7 +77,8 @@
         <activity android:name=".recylerview.RefreshRecyclerview2Activity" />
         <activity android:name=".eventbus.EventBus2Activity" />
         <activity android:name=".eventbus.EventsBus4Activity" />
-        <activity android:name=".customview.CustomView2Activity"></activity>
+        <activity android:name=".customview.CustomView2Activity" />
+        <activity android:name=".websocket.WebSocketActivity"></activity>
     </application>
 
 </manifest>

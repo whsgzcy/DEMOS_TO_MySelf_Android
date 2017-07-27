@@ -17,6 +17,7 @@ import com.example.super_yu.myexample.recylerview.RefreshRecyclerview2Activity;
 import com.example.super_yu.myexample.remedia.Remarker2Activity;
 import com.example.super_yu.myexample.serialp.SerialPort2Activity;
 import com.example.super_yu.myexample.socket.Socket2Activity;
+import com.example.super_yu.myexample.websocket.WebSocketActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -120,6 +121,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CustomView2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button webSockeyBtn = (Button) findViewById(R.id.websocket);
+        webSockeyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WebSocketActivity.class);
                 startActivity(intent);
             }
         });
