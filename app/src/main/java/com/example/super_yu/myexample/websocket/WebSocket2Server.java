@@ -1,6 +1,5 @@
 package com.example.super_yu.myexample.websocket;
 
-import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 
 import java.lang.reflect.Field;
@@ -13,21 +12,21 @@ import java.nio.channels.SocketChannel;
  * Created by super_yu on 2017/6/20.
  */
 
-public class AGVRobot2ServerWebSocket extends WebSocketClient {
+public class WebSocket2Server extends org.java_websocket.client.WebSocketClient {
 
-    private AGVClient.AGV2ServerConnectionStatusListener listener;
+    private WebSocketClient.AGV2ServerConnectionStatusListener listener;
 
 
-    public AGVRobot2ServerWebSocket(URI serverURI) {
+    public WebSocket2Server(URI serverURI) {
         super(serverURI);
         listener = null;
     }
 
-    public static AGVRobot2ServerWebSocket create(String URIString) {
-        AGVRobot2ServerWebSocket client = null;
+    public static WebSocket2Server create(String URIString) {
+        WebSocket2Server client = null;
         try {
             URI uri = new URI(URIString);
-            client = new AGVRobot2ServerWebSocket(uri);
+            client = new WebSocket2Server(uri);
         } catch (URISyntaxException ex) {
             ex.printStackTrace();
         }
@@ -35,7 +34,7 @@ public class AGVRobot2ServerWebSocket extends WebSocketClient {
     }
 
 
-    public void setListener(AGVClient.AGV2ServerConnectionStatusListener listener) {
+    public void setListener(WebSocketClient.AGV2ServerConnectionStatusListener listener) {
         this.listener = listener;
     }
 

@@ -18,6 +18,7 @@ import com.example.super_yu.myexample.remedia.Remarker2Activity;
 import com.example.super_yu.myexample.serialp.SerialPort2Activity;
 import com.example.super_yu.myexample.socket.Socket2Activity;
 import com.example.super_yu.myexample.websocket.WebSocketActivity;
+import com.example.super_yu.myexample.websocket.okhttp.OkHttpWebSocketActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -130,6 +131,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WebSocketActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button okHttp2WebSockeyBtn = (Button) findViewById(R.id.okhttp2websocket);
+        okHttp2WebSockeyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, OkHttpWebSocketActivity.class);
                 startActivity(intent);
             }
         });

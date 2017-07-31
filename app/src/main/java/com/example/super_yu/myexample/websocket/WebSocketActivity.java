@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.example.super_yu.myexample.R;
 
-public class WebSocketActivity extends AppCompatActivity implements AGVClient.AGV2ServerConnectionStatusListener {
+public class WebSocketActivity extends AppCompatActivity implements WebSocketClient.AGV2ServerConnectionStatusListener {
 
     private Button mConnectBtn;
     private Button mSendBtn;
@@ -49,7 +49,7 @@ public class WebSocketActivity extends AppCompatActivity implements AGVClient.AG
 
     }
 
-    private AGVRobotClient client;
+    private WebSocketClientCall client;
     private boolean isConnected = true;
     Thread connectThread = new Thread() {
         @Override
@@ -67,7 +67,7 @@ public class WebSocketActivity extends AppCompatActivity implements AGVClient.AG
     };
 
     private void connect(String wsUrl) {
-        client = new AGVRobotClient(wsUrl);
+        client = new WebSocketClientCall(wsUrl);
         client.aGV2ServerDisconnect(this);
     }
 

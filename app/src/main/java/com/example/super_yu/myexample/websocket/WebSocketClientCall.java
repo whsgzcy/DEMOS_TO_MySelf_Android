@@ -4,12 +4,12 @@ package com.example.super_yu.myexample.websocket;
  * Created by super_yu on 2017/6/20.
  */
 
-public class AGVRobotClient extends AGVClient {
+public class WebSocketClientCall extends WebSocketClient {
 
     private String uriString;
-    private AGVRobot2ServerWebSocket client;
+    private WebSocket2Server client;
 
-    public AGVRobotClient(String uriString) {
+    public WebSocketClientCall(String uriString) {
         this.uriString = uriString;
     }
 
@@ -18,14 +18,14 @@ public class AGVRobotClient extends AGVClient {
         return aGV2ServerDisconnect(null);
     }
 
-    public void setROSMonitorListener(AGVClient.AGV2ServerConnectionStatusListener listener){
+    public void setROSMonitorListener(WebSocketClient.AGV2ServerConnectionStatusListener listener){
         client.setListener(listener);
     }
 
     @Override
     public boolean aGV2ServerDisconnect(AGV2ServerConnectionStatusListener listener) {
         boolean result = false;
-        client = AGVRobot2ServerWebSocket.create(uriString);
+        client = WebSocket2Server.create(uriString);
         if (client != null) {
             client.setListener(listener);
             try {
