@@ -3,25 +3,21 @@ package com.example.super_yu.myexample.websocket.okhttp;
 import okhttp3.WebSocket;
 import okio.ByteString;
 
-/**
- * @author rabtman
- */
-
 interface IWsManager {
 
-  WebSocket getWebSocket();
+    WebSocket getWebSocket();
 
-  void startConnect();
+    void startConnect();
 
-  void stopConnect();
+    void stopConnect();
 
-  boolean isWsConnected();
+    boolean isWsConnected();
 
-  int getCurrentStatus();
+    int getCurrentStatus();
 
-  void setCurrentStatus(int currentStatus);
+    void setCurrentStatus(int currentStatus);
 
-  boolean sendMessage(String msg);
+    boolean sendMessage(String msg);
 
-  boolean sendMessage(ByteString byteString);
+    boolean sendMessage(ByteString byteString);
 }
