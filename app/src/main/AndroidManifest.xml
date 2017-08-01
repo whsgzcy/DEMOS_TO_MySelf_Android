@@ -99,6 +99,17 @@
         <activity
             android:name=".daemon.OnePxMain2Activity"
             android:excludeFromRecents="true"></activity>
+
+        <receiver android:name=".receiver.MonitorBroadCastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+
+                <!--<action android:name="android.intent.action.TEST"/>-->
+                <!--<action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>-->
+                <!--<action android:name="android.intent.action.SCREEN_OFF"/>-->
+                <!--<action android:name="android.intent.action.SCREEN_ON" />-->
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

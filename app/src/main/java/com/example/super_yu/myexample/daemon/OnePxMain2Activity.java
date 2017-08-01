@@ -19,7 +19,6 @@ public class OnePxMain2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one_px_main2);
 
-
         if (mBootCompleteReceiver == null) {
             mBootCompleteReceiver = new BootStartReceiver();
             IntentFilter filter = new IntentFilter();
