@@ -18,8 +18,8 @@ import okio.ByteString;
 
 public class WsManager implements IWsManager {
 
-    private final static int RECONNECT_INTERVAL = 10 * 1000;    //重连自增步长
-    private final static long RECONNECT_MAX_TIME = 120 * 1000;   //最大重连间隔
+    private final static int RECONNECT_INTERVAL = 1 * 1000;    //重连自增步长
+    private final static long RECONNECT_MAX_TIME = 5 * 1000;   //最大重连间隔
     private Context mContext;
     private String wsUrl;
     private WebSocket mWebSocket;

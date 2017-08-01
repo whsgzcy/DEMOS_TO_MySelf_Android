@@ -19,4 +19,13 @@
         <item name="android:backgroundDimAmount">0.6</item>
     </style>
 
+    <!--一个像素的Activity-->
+    <style name="OnePx2ActivityStyle">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoDisplay">false</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
 </resources>

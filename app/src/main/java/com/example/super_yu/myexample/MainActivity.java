@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.super_yu.myexample.anim.Anim2Activity;
 import com.example.super_yu.myexample.customview.CustomView2Activity;
+import com.example.super_yu.myexample.daemon.OnePxMain2Activity;
 import com.example.super_yu.myexample.dialog.Dialog2Activity;
 import com.example.super_yu.myexample.eventbus.EventBus2Activity;
 import com.example.super_yu.myexample.files.SFiles2Activity;
@@ -141,6 +142,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, OkHttpWebSocketActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        Button daemonBtn = (Button) findViewById(R.id.daemon);
+        daemonBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, OnePxMain2Activity.class);
+                startActivity(intent);
+                // 结束栈
+                MainActivity.this.finish();
             }
         });
     }

@@ -92,6 +92,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="okhttp2websocket" />
+
+            <Button
+                android:id="@+id/daemon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="daemon" />
         </LinearLayout>
     </ScrollView>
 
