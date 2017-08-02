@@ -98,6 +98,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="daemon" />
+
+            <Button
+                android:id="@+id/xy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="xy" />
         </LinearLayout>
     </ScrollView>
 

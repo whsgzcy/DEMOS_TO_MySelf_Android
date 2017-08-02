@@ -3,9 +3,11 @@ package com.example.super_yu.myexample.recylerview;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,13 +55,7 @@ public class RefreshRecyclerview2Activity extends AppCompatActivity implements O
         adapter = new RefreshRecyclerviewAdapter(list);
         recycleview.setAdapter(adapter);
 
-
-//        tv = new TextView(RefreshRecyclerview2Activity.this);
-//        tv.setText("这是底部");
-//        tv.setTextColor(Color.WHITE);
-//        tv.setGravity(Gravity.CENTER);
-//        tv.setBackgroundColor(Color.RED);
-//        recycleview.setFootView(tv);
+        simulateClick(recycleview);
 
     }
 
@@ -100,6 +96,27 @@ public class RefreshRecyclerview2Activity extends AppCompatActivity implements O
 
             }
         }, 2000);
+    }
+
+    private void simulateClick(final View view) {
+
+        final MotionEvent downEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 300, 400, 0);
+        view.onTouchEvent(downEvent);
+        downEvent.recycle();
+
+        final MotionEvent moveEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_MOVE, 300, 1000, 0);
+        view.onTouchEvent(moveEvent);
+        moveEvent.recycle();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                final MotionEvent upEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 300, 1000, 0);
+                view.onTouchEvent(upEvent);
+                upEvent.recycle();
+            }
+        }, 300);
+
     }
 
     @Override

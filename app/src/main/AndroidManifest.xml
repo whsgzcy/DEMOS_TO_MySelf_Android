@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -20,6 +19,8 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
 
     <application
         android:name=".MyExample"
@@ -87,7 +88,6 @@
         <activity android:name=".customview.CustomView2Activity" />
         <activity android:name=".websocket.WebSocketActivity" />
         <activity android:name=".websocket.okhttp.OkHttpWebSocketActivity" />
-
         <activity
             android:name=".daemon.OnePx2Activity"
             android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
@@ -98,18 +98,19 @@
             android:theme="@style/OnePx2ActivityStyle" />
         <activity
             android:name=".daemon.OnePxMain2Activity"
-            android:excludeFromRecents="true"></activity>
+            android:excludeFromRecents="true" />
 
         <receiver android:name=".receiver.MonitorBroadCastReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-
-                <!--<action android:name="android.intent.action.TEST"/>-->
-                <!--<action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>-->
-                <!--<action android:name="android.intent.action.SCREEN_OFF"/>-->
-                <!--<action android:name="android.intent.action.SCREEN_ON" />-->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TEST" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.SCREEN_ON" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".xy.XY2Activity"></activity>
     </application>
 
 </manifest>

@@ -20,6 +20,7 @@ import com.example.super_yu.myexample.serialp.SerialPort2Activity;
 import com.example.super_yu.myexample.socket.Socket2Activity;
 import com.example.super_yu.myexample.websocket.WebSocketActivity;
 import com.example.super_yu.myexample.websocket.okhttp.OkHttpWebSocketActivity;
+import com.example.super_yu.myexample.xy.XY2Activity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -153,6 +154,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 // 结束栈
                 MainActivity.this.finish();
+            }
+        });
+
+        Button xyBtn = (Button) findViewById(R.id.xy);
+        xyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, XY2Activity.class);
+                startActivity(intent);
             }
         });
     }

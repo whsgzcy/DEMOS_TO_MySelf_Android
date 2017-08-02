@@ -4,3 +4,5 @@ Can only reduce the probability of the process being killed from the user's poin
 # Receiver Package (BroadCast Actions)
 HUAWEI Honor 8 Lite
 No Bad Temper With HUAWEI Honor 8 Lite Android 7.0
+#RecylerView Package
+MotionEvent.obtain Incident Issued
