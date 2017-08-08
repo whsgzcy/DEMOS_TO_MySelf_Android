@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 城市Picker
+ * 列表Picker
  *
  * @author
  */

@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/super_prefser_library" />
             <option value="$PROJECT_DIR$/superalertdialoglibrary" />
           </set>
         </option>

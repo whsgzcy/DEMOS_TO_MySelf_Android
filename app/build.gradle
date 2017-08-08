@@ -38,6 +38,8 @@ dependencies {
     })
     compile project(':superalertdialoglibrary')
 
+    compile project(':super_prefser_library')
+
     compile files('libs/java_websocket.jar')
 
 

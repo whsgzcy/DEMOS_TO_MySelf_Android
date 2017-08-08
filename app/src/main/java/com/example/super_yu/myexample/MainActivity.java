@@ -17,6 +17,7 @@ import com.example.super_yu.myexample.notification.Notification2Activity;
 import com.example.super_yu.myexample.recylerview.RefreshRecyclerview2Activity;
 import com.example.super_yu.myexample.remedia.Remarker2Activity;
 import com.example.super_yu.myexample.serialp.SerialPort2Activity;
+import com.example.super_yu.myexample.shareprefen.SharePrefence2Activity;
 import com.example.super_yu.myexample.socket.Socket2Activity;
 import com.example.super_yu.myexample.websocket.WebSocketActivity;
 import com.example.super_yu.myexample.websocket.okhttp.OkHttpWebSocketActivity;
@@ -162,6 +163,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, XY2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button shareBtn = (Button) findViewById(R.id.customShare);
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SharePrefence2Activity.class);
                 startActivity(intent);
             }
         });
