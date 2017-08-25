@@ -9,9 +9,15 @@ import android.widget.Toast;
 
 import com.example.super_yu.myexample.R;
 
-public class CustomView2Activity extends AppCompatActivity {
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class CustomView2Activity extends AppCompatActivity implements OnProgressBarListener{
 
     private PopHelper popHelper;//pop
+    private NumberProgressBar numberProgressBar;
+    private Timer timer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,21 @@ public class CustomView2Activity extends AppCompatActivity {
                 popHelper.showAddressPop(v, CustomView2Activity.this, onClickListener);
             }
         });
+
+        numberProgressBar = (NumberProgressBar)findViewById(R.id.numberbar1);
+        numberProgressBar.setOnProgressBarListener(this);
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        numberProgressBar.incrementProgressBy(1);
+                    }
+                });
+            }
+        }, 1000, 100);
     }
 
     /**
@@ -67,4 +88,18 @@ public class CustomView2Activity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    public void onProgressChange(int current, int max) {
+        if(current == max) {
+            Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
+            numberProgressBar.setProgress(0);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        timer.cancel();
+    }
 }
