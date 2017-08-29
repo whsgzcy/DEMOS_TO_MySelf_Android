@@ -35,6 +35,10 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
 
     private boolean mIsStop = false;
 
+    private Button red;
+    private Button yellow;
+    private Button green;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +95,15 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
         scheduledThreadPoolExecutor.scheduleAtFixedRate(command, 1, 1,
                 TimeUnit.SECONDS);
 
+
+        red = (Button) findViewById(R.id.red);
+        yellow = (Button) findViewById(R.id.yellow);
+        green = (Button) findViewById(R.id.green);
+
+        red.setOnClickListener(this);
+        yellow.setOnClickListener(this);
+        green.setOnClickListener(this);
+
     }
 
     Handler mHandler = new Handler() {
@@ -105,9 +118,6 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
             }
         }
     };
-
-    String m = "C:\\Users\\Administrator\\Desktop\\test2.xls";
-    String y = "http://ditu.amap.com/service/poiInfo?query_type=TQUERY&pagesize=20&pagenum=1&qii=true&cluster_state=5&need_utd=true&utd_sceneid=1000&div=PC1000&addr_poi_merge=true&is_classify=true&zoom=11&city=430100&geoobj=112.920481%7C27.73864%7C113.263803%7C28.659659&keywords=%E5%AE%A0%E7%89%A9%E5%BA%97";
 
     @Override
     public void onClick(View v) {
@@ -128,7 +138,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                         int bb = mSerialPort.write(cc, ll);
                         mSend.setClickable(true);
                     }
-                },1000);
+                }, 1000);
 
                 break;
             case R.id.open:
@@ -145,8 +155,57 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                 mSerialPort.close();
                 mIsStop = false;
                 break;
+            case R.id.red:
+                if(r == 0){
+                    r = 1;
+                    byte[] cred = HexToByte("04");
+                    int lred = cred.length;
+                    int bred = mSerialPort.write(cred, lred);
+                    Log.d(TAG, "SerialPort2Activity send = " + bred);
+                    return;
+                }
+                r = 0;
+                byte[] cred = HexToByte("f4");
+                int lred = cred.length;
+                int bred = mSerialPort.write(cred, lred);
+                Log.d(TAG, "SerialPort2Activity send = " + bred);
+                break;
+            case R.id.yellow:
+                if(y == 0){
+                    y = 1;
+                    byte[] cy = HexToByte("05");
+                    int ly = cy.length;
+                    int by = mSerialPort.write(cy, ly);
+                    Log.d(TAG, "SerialPort2Activity send = " + by);
+                    return;
+                }
+                y = 0;
+                byte[] cy = HexToByte("f5");
+                int ly = cy.length;
+                int by = mSerialPort.write(cy, ly);
+                Log.d(TAG, "SerialPort2Activity send = " + by);
+                break;
+            case R.id.green:
+                if(g == 0) {
+                    g = 1;
+                    byte[] cg = HexToByte("06");
+                    int lg = cg.length;
+                    int bg = mSerialPort.write(cg, lg);
+                    Log.d(TAG, "SerialPort2Activity send = " + bg);
+                    return;
+                }
+                g = 0;
+                byte[] cg = HexToByte("f6");
+                int lg = cg.length;
+                int bg = mSerialPort.write(cg, lg);
+                Log.d(TAG, "SerialPort2Activity send = " + bg);
+                break;
         }
     }
+
+    int r = 0;
+    int y = 0;
+    int g = 0;
 
     //16进制字符串转换为byte[]
     public byte[] HexToByte(String hexString) {

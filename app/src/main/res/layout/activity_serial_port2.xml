@@ -53,4 +53,22 @@
         android:layout_height="wrap_content"
         android:text="关闭串口" />
 
+    <Button
+        android:id="@+id/red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="红" />
+
+    <Button
+        android:id="@+id/yellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="黄" />
+
+    <Button
+        android:id="@+id/green"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绿" />
+
 </LinearLayout>
