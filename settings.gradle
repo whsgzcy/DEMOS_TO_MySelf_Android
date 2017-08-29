@@ -1,1 +1,1 @@
-include ':app', ':superalertdialoglibrary', ':super_prefser_library'
+include ':app', ':super_alertdialog_library', ':super_prefser_library', ':super_fragment_dialog'

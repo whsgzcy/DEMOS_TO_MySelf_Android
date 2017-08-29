@@ -68,6 +68,9 @@ public class CustomView2Activity extends AppCompatActivity implements OnProgress
                 });
             }
         }, 1000, 100);
+
+
+        Button dialogFragment = (Button)findViewById(R.id.dialog);
     }
 
     /**

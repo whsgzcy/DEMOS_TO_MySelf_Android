@@ -4,8 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyExample.iml" filepath="$PROJECT_DIR$/MyExample.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/super_alertdialog_library/super_alertdialog_library.iml" filepath="$PROJECT_DIR$/super_alertdialog_library/super_alertdialog_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/super_fragment_dialog/super_fragment_dialog.iml" filepath="$PROJECT_DIR$/super_fragment_dialog/super_fragment_dialog.iml" />
       <module fileurl="file://$PROJECT_DIR$/super_prefser_library/super_prefser_library.iml" filepath="$PROJECT_DIR$/super_prefser_library/super_prefser_library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/superalertdialoglibrary/superalertdialoglibrary.iml" filepath="$PROJECT_DIR$/superalertdialoglibrary/superalertdialoglibrary.iml" />
     </modules>
   </component>
 </project>

@@ -36,13 +36,13 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile project(':superalertdialoglibrary')
 
+    compile project(':super_alertdialog_library')
     compile project(':super_prefser_library')
+    compile project(':super_fragment_dialog')
 
     compile files('libs/java_websocket.jar')
-
-
+    
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.code.gson:gson:2.8.0'
