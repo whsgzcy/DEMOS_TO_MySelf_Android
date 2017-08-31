@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<com.facebook.drawee.view.SimpleDraweeView-->
+        <!--android:id="@+id/lock_background"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@drawable/lock_bg" />-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#70000000" />
+
+    <com.example.super_yu.myexample.lock.SildingFinishLayout
+        android:id="@+id/lock_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lock_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="39dp"
+            android:layout_marginTop="70dp"
+            android:text="17:30"
+            android:textColor="#ffffff"
+            android:textSize="37sp" />
+
+        <TextView
+            android:id="@+id/lock_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/lock_time"
+            android:layout_below="@+id/lock_time"
+            android:layout_marginTop="5dp"
+            android:text="12月21日 星期三"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/lock_music_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/lock_time"
+            android:layout_below="@+id/lock_date"
+            android:layout_marginTop="15dp"
+            android:text="空"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/lock_music_artsit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/lock_time"
+            android:layout_below="@+id/lock_music_name"
+            android:layout_marginTop="5dp"
+            android:text="什么"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/lock_music_lrc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/lock_control"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:text=""
+            android:textColor="#ffffff" />
+
+        <LinearLayout
+            android:id="@+id/lock_control"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_above="@+id/lock_tip"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <com.example.super_yu.myexample.lock.CustomTextView
+            android:id="@+id/lock_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:text=">>> 滑动解锁"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+    </com.example.super_yu.myexample.lock.SildingFinishLayout>
+</FrameLayout>

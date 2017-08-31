@@ -110,6 +110,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="custom SharePrefence" />
+
+            <Button
+                android:id="@+id/lock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="锁屏" />
         </LinearLayout>
     </ScrollView>
 

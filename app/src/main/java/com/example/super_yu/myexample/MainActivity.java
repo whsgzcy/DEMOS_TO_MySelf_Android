@@ -13,6 +13,7 @@ import com.example.super_yu.myexample.dialog.Dialog2Activity;
 import com.example.super_yu.myexample.eventbus.EventBus2Activity;
 import com.example.super_yu.myexample.files.SFiles2Activity;
 import com.example.super_yu.myexample.json.Json2Activity;
+import com.example.super_yu.myexample.lock.Lock2Activity;
 import com.example.super_yu.myexample.notification.Notification2Activity;
 import com.example.super_yu.myexample.recylerview.RefreshRecyclerview2Activity;
 import com.example.super_yu.myexample.remedia.Remarker2Activity;
@@ -172,6 +173,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SharePrefence2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button lockBtn = (Button) findViewById(R.id.lock);
+        lockBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Lock2Activity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
