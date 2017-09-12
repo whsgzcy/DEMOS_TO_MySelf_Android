@@ -122,6 +122,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="基站数据" />
+
+            <Button
+                android:id="@+id/textAnim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="字符动画" />
         </LinearLayout>
     </ScrollView>
 

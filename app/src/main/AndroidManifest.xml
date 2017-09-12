@@ -20,7 +20,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.INJECT_EVENTS" />
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
@@ -123,7 +122,8 @@
             android:screenOrientation="portrait"
             android:taskAffinity="com.package.name.lockscreen"
             android:theme="@style/LockScreenTheme" />
-        <activity android:name=".base.Base2Activity"></activity>
+        <activity android:name=".base.Base2Activity" />
+        <activity android:name=".textanim.TextViewAnim2Activity"></activity>
     </application>
 
 </manifest>
