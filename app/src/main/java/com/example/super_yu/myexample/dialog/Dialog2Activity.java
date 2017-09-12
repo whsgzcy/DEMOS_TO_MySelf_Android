@@ -88,17 +88,17 @@ public class Dialog2Activity extends AppCompatActivity {
         });
 
 
-//        Button successBtn = (Button) findViewById(R.id.success);
-//        successBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                new SweetAlertDialog(Dialog2Activity.this, SweetAlertDialog.SUCCESS_TYPE)
-//                        .setTitleText("Good job!")
-//                        .setContentText("You clicked the button!")
-//                        .show();
-//            }
-//        });
+        Button successBtn = (Button) findViewById(R.id.success);
+        successBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new SweetAlertDialog(Dialog2Activity.this, SweetAlertDialog.SUCCESS_TYPE)
+                        .setTitleText("Good job!")
+                        .setContentText("You clicked the button!")
+                        .show();
+            }
+        });
 //
 //        Button wordBtn = (Button) findViewById(R.id.word);
 //        wordBtn.setOnClickListener(new View.OnClickListener() {

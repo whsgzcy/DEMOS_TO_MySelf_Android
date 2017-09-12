@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.super_yu.myexample.anim.Anim2Activity;
+import com.example.super_yu.myexample.base.Base2Activity;
 import com.example.super_yu.myexample.customview.CustomView2Activity;
 import com.example.super_yu.myexample.daemon.OnePxMain2Activity;
 import com.example.super_yu.myexample.dialog.Dialog2Activity;
@@ -182,6 +183,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Lock2Activity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        Button baseBtn = (Button) findViewById(R.id.base);
+        baseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Base2Activity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

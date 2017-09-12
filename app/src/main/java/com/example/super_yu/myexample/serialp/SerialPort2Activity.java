@@ -71,8 +71,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
 
         mSerialPort = new SerialPort();
 
-        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(
-                1);
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1);
         Runnable command = new Runnable() {
             @Override
             public void run() {
@@ -114,6 +113,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
             switch (msg.what) {
                 case 1:
                     mState.setText(msg.obj.toString());
+                    Log.d("ww",msg.obj.toString());
                     break;
             }
         }

@@ -21,6 +21,8 @@
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.INJECT_EVENTS" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:name=".MyExample"
         android:allowBackup="true"
@@ -112,15 +114,16 @@
 
         <activity android:name=".xy.XY2Activity" />
         <activity android:name=".shareprefen.SharePrefence2Activity" />
-        <activity android:name=".lock.Lock2Activity"
+        <activity
+            android:name=".lock.Lock2Activity"
             android:excludeFromRecents="true"
             android:exported="false"
             android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
             android:noHistory="true"
+            android:screenOrientation="portrait"
             android:taskAffinity="com.package.name.lockscreen"
-            android:theme="@style/LockScreenTheme"
-            ></activity>
+            android:theme="@style/LockScreenTheme" />
+        <activity android:name=".base.Base2Activity"></activity>
     </application>
 
 </manifest>
