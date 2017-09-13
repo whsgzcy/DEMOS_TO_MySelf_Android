@@ -9,11 +9,6 @@ import com.iwant.loongman.super_textview_base_library.AnimationListener;
 import com.iwant.loongman.super_textview_base_library.HTextView;
 
 
-/**
- * EvaporateTextView
- * Created by hanks on 2017/3/16.
- */
-
 public class EvaporateTextView extends HTextView {
 
     private EvaporateText evaporateText;

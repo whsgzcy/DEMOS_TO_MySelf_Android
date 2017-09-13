@@ -41,6 +41,7 @@ dependencies {
     compile project(':super_prefser_library')
     compile project(':super_fragment_dialog')
     compile project(':super_textview_evaporate_library')
+    compile project(':super_textview_scale_library')
 
     compile files('libs/java_websocket.jar')
 

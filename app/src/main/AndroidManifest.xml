@@ -123,7 +123,8 @@
             android:taskAffinity="com.package.name.lockscreen"
             android:theme="@style/LockScreenTheme" />
         <activity android:name=".base.Base2Activity" />
-        <activity android:name=".textanim.TextViewAnim2Activity"></activity>
+        <activity android:name=".textanim.TextViewAnim2Activity" />
+        <activity android:name=".textanim.TextViewScaleAnim2Activity"></activity>
     </application>
 
 </manifest>

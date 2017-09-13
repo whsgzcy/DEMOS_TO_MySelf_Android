@@ -22,6 +22,7 @@ import com.example.super_yu.myexample.serialp.SerialPort2Activity;
 import com.example.super_yu.myexample.shareprefen.SharePrefence2Activity;
 import com.example.super_yu.myexample.socket.Socket2Activity;
 import com.example.super_yu.myexample.textanim.TextViewAnim2Activity;
+import com.example.super_yu.myexample.textanim.TextViewScaleAnim2Activity;
 import com.example.super_yu.myexample.websocket.WebSocketActivity;
 import com.example.super_yu.myexample.websocket.okhttp.OkHttpWebSocketActivity;
 import com.example.super_yu.myexample.xy.XY2Activity;
@@ -203,7 +204,8 @@ public class MainActivity extends AppCompatActivity {
         textBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TextViewAnim2Activity.class);
+//                Intent intent = new Intent(MainActivity.this, TextViewAnim2Activity.class);
+                Intent intent = new Intent(MainActivity.this, TextViewScaleAnim2Activity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

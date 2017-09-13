@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/super_prefser_library/super_prefser_library.iml" filepath="$PROJECT_DIR$/super_prefser_library/super_prefser_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/super_textview_base_library/super_textview_base_library.iml" filepath="$PROJECT_DIR$/super_textview_base_library/super_textview_base_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/super_textview_evaporate_library/super_textview_evaporate_library.iml" filepath="$PROJECT_DIR$/super_textview_evaporate_library/super_textview_evaporate_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/super_textview_scale_library/super_textview_scale_library.iml" filepath="$PROJECT_DIR$/super_textview_scale_library/super_textview_scale_library.iml" />
     </modules>
   </component>
 </project>
