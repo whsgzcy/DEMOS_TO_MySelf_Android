@@ -124,7 +124,8 @@
             android:theme="@style/LockScreenTheme" />
         <activity android:name=".base.Base2Activity" />
         <activity android:name=".textanim.TextViewAnim2Activity" />
-        <activity android:name=".textanim.TextViewScaleAnim2Activity"></activity>
+        <activity android:name=".textanim.TextViewScaleAnim2Activity" />
+        <activity android:name=".webview.WebView2Activity"></activity>
     </application>
 
 </manifest>

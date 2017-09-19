@@ -38,6 +38,9 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
     private Button red;
     private Button yellow;
     private Button green;
+    private Button light;
+
+    private boolean mIsLight = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +64,12 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
 
         mOpen = (Button) findViewById(R.id.open);
         mClose = (Button) findViewById(R.id.close);
+        light = (Button) findViewById(R.id.light);
 
         mSend.setOnClickListener(this);
         mOpen.setOnClickListener(this);
         mClose.setOnClickListener(this);
+        light.setOnClickListener(this);
 
         mSend.setEnabled(false);
         mClose.setEnabled(false);
@@ -94,6 +99,39 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
         scheduledThreadPoolExecutor.scheduleAtFixedRate(command, 1, 1,
                 TimeUnit.SECONDS);
 
+        ScheduledThreadPoolExecutor lightScheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1);
+        Runnable lightCommand = new Runnable() {
+            @Override
+            public void run() {
+                if (mIsLight) {
+
+                    byte[] rry = HexToByte("f6");
+                    int ry = rry.length;
+                    int y = mSerialPort.write(rry, ry);
+
+                    byte[] gy = HexToByte("05");
+                    int ly = gy.length;
+                    int by = mSerialPort.write(gy, ly);
+
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            byte[] ggy = HexToByte("f5");
+                            int lly = ggy.length;
+                            int bby = mSerialPort.write(ggy, lly);
+
+                            byte[] gy = HexToByte("06");
+                            int ly = gy.length;
+                            int by = mSerialPort.write(gy, ly);
+                        }
+                    }, 500);
+
+                }
+            }
+        };
+        lightScheduledThreadPoolExecutor.scheduleAtFixedRate(lightCommand, 1, 1,
+                TimeUnit.SECONDS);
+
 
         red = (Button) findViewById(R.id.red);
         yellow = (Button) findViewById(R.id.yellow);
@@ -113,7 +151,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
             switch (msg.what) {
                 case 1:
                     mState.setText(msg.obj.toString());
-                    Log.d("ww",msg.obj.toString());
+                    Log.d("ww", msg.obj.toString());
                     break;
             }
         }
@@ -156,7 +194,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                 mIsStop = false;
                 break;
             case R.id.red:
-                if(r == 0){
+                if (r == 0) {
                     r = 1;
                     byte[] cred = HexToByte("04");
                     int lred = cred.length;
@@ -171,7 +209,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                 Log.d(TAG, "SerialPort2Activity send = " + bred);
                 break;
             case R.id.yellow:
-                if(y == 0){
+                if (y == 0) {
                     y = 1;
                     byte[] cy = HexToByte("05");
                     int ly = cy.length;
@@ -186,7 +224,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                 Log.d(TAG, "SerialPort2Activity send = " + by);
                 break;
             case R.id.green:
-                if(g == 0) {
+                if (g == 0) {
                     g = 1;
                     byte[] cg = HexToByte("06");
                     int lg = cg.length;
@@ -199,6 +237,26 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                 int lg = cg.length;
                 int bg = mSerialPort.write(cg, lg);
                 Log.d(TAG, "SerialPort2Activity send = " + bg);
+                break;
+
+            case R.id.light:
+
+                if (mIsLight) {
+
+                    mIsLight = false;
+
+                    byte[] rry = HexToByte("f6");
+                    int ry = rry.length;
+                    int y = mSerialPort.write(rry, ry);
+
+                    byte[] gy = HexToByte("f5");
+                    int my = gy.length;
+                    mSerialPort.write(gy, my);
+
+                } else {
+                    mIsLight = true;
+                }
+
                 break;
         }
     }

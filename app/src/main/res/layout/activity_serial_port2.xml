@@ -71,4 +71,10 @@
         android:layout_height="wrap_content"
         android:text="绿" />
 
+    <Button
+        android:id="@+id/light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="灯带" />
+
 </LinearLayout>

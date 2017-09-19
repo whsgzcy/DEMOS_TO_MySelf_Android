@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/super_textview_base_library" />
             <option value="$PROJECT_DIR$/super_textview_evaporate_library" />
             <option value="$PROJECT_DIR$/super_textview_scale_library" />
+            <option value="$PROJECT_DIR$/super_webview_library" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

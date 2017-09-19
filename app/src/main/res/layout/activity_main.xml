@@ -128,6 +128,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="字符动画" />
+
+            <Button
+                android:id="@+id/webview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="webview" />
         </LinearLayout>
     </ScrollView>
 

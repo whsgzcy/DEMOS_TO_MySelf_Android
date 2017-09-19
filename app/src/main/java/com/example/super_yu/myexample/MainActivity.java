@@ -25,6 +25,7 @@ import com.example.super_yu.myexample.textanim.TextViewAnim2Activity;
 import com.example.super_yu.myexample.textanim.TextViewScaleAnim2Activity;
 import com.example.super_yu.myexample.websocket.WebSocketActivity;
 import com.example.super_yu.myexample.websocket.okhttp.OkHttpWebSocketActivity;
+import com.example.super_yu.myexample.webview.WebView2Activity;
 import com.example.super_yu.myexample.xy.XY2Activity;
 
 public class MainActivity extends AppCompatActivity {
@@ -207,6 +208,15 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, TextViewAnim2Activity.class);
                 Intent intent = new Intent(MainActivity.this, TextViewScaleAnim2Activity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        Button webViewBtn = (Button) findViewById(R.id.webview);
+        webViewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WebView2Activity.class);
                 startActivity(intent);
             }
         });
