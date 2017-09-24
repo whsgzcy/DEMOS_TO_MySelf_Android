@@ -14,6 +14,7 @@ import com.squareup.leakcanary.LeakCanary;
 public class MyExample extends Application {
 
     private static Context mContext;
+    public static MyExample instace;
 
     @Override
     public void onCreate() {
@@ -31,7 +32,16 @@ public class MyExample extends Application {
         // Normal app init code...
     }
 
+    @Override
+    public Context getApplicationContext() {
+        return super.getApplicationContext();
+    }
+
     public static Context getAppContext() {
         return mContext;
+    }
+
+    public static MyExample getIntance() {
+        return instace;
     }
 }

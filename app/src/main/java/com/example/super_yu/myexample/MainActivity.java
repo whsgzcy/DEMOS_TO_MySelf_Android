@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.example.super_yu.myexample.anim.Anim2Activity;
 import com.example.super_yu.myexample.base.Base2Activity;
 import com.example.super_yu.myexample.customview.CustomView2Activity;
+import com.example.super_yu.myexample.daemon.DefaultExceptionHandler;
 import com.example.super_yu.myexample.daemon.OnePxMain2Activity;
 import com.example.super_yu.myexample.dialog.Dialog2Activity;
 import com.example.super_yu.myexample.eventbus.EventBus2Activity;
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 监测应用崩溃重启
+        Thread.setDefaultUncaughtExceptionHandler(new DefaultExceptionHandler(this));
 
         Button jsonBtn = (Button) findViewById(R.id.json);
         jsonBtn.setOnClickListener(new View.OnClickListener() {
