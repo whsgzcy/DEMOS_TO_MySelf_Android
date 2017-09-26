@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.super_yu.myexample.anim.Anim2Activity;
+import com.example.super_yu.myexample.baidu.SpeechBActivity;
 import com.example.super_yu.myexample.base.Base2Activity;
 import com.example.super_yu.myexample.customview.CustomView2Activity;
 import com.example.super_yu.myexample.daemon.DefaultExceptionHandler;
@@ -231,6 +232,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Speech2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button baidukBtn = (Button) findViewById(R.id.baidu);
+        baidukBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SpeechBActivity.class);
                 startActivity(intent);
             }
         });

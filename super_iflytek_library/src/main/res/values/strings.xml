@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">super_iflytek_library</string>
+    <string name="app_name">MyExample_android</string>
 
     <!-- 请替换成在语音云官网申请的appid -->
     <string name="app_id">59c9ed6c</string>
