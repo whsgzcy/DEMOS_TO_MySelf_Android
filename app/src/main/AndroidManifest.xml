@@ -22,6 +22,13 @@
     <uses-permission android:name="android.permission.INJECT_EVENTS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
     <application
         android:name=".MyExample"
         android:allowBackup="true"
@@ -125,7 +132,52 @@
         <activity android:name=".base.Base2Activity" />
         <activity android:name=".textanim.TextViewAnim2Activity" />
         <activity android:name=".textanim.TextViewScaleAnim2Activity" />
-        <activity android:name=".webview.WebView2Activity"></activity>
+        <activity android:name=".webview.WebView2Activity" />
+        <activity android:name=".iflytek.Speech2Activity"></activity>
+
+        <activity android:name="com.example.super_yu.myexample.iflytek.speech.setting.TtsSettings" >
+        </activity>
+        <activity android:name="com.example.super_yu.myexample.iflytek.speech.setting.IatSettings" >
+        </activity>
+        <activity android:name="com.example.super_yu.myexample.iflytek.speech.setting.UnderstanderSettings" >
+        </activity>
+        <activity
+            android:name="com.example.super_yu.myexample.iflytek.voicedemo.IatDemo"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.super_yu.myexample.iflytek.voicedemo.AsrDemo"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.super_yu.myexample.iflytek.voicedemo.UnderstanderDemo"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.super_yu.myexample.iflytek.voicedemo.TtsDemo"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.super_yu.myexample.iflytek.voicedemo.IseDemo"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.super_yu.myexample.iflytek.speech.setting.IseSettings"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 移动统计分析 -->
+        <meta-data
+            android:name="IFLYTEK_APPKEY"
+            android:value="'XXXXXXXX'" />
+        <meta-data
+            android:name="IFLYTEK_CHANNEL"
+            android:value="Android_Demo" />
     </application>
 
 </manifest>

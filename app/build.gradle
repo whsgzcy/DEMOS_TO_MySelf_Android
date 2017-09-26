@@ -43,9 +43,12 @@ dependencies {
     compile project(':super_textview_evaporate_library')
     compile project(':super_textview_scale_library')
     compile project(':super_webview_library')
+    compile project(':super_iflytek_library')
 //    compile 'com.just.agentweb:agentweb:2.0.1'
 
     compile files('libs/java_websocket.jar')
+
+
 
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -54,11 +57,9 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
     compile 'com.facebook.fresco:fresco:0.9.0'
-    testCompile 'junit:junit:4.12'
-
     compile 'com.lcodecorex:tkrefreshlayout:1.0.7'
-
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
 }
