@@ -25,7 +25,7 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.example.super_yu.myexample.iflytek.speech.setting.TtsSettings;
-import com.iflytek.sunflower.FlowerCollector;
+//import com.iflytek.sunflower.FlowerCollector;
 
 public class TtsDemo extends Activity implements OnClickListener {
 	private static String TAG = TtsDemo.class.getSimpleName(); 	
@@ -33,7 +33,7 @@ public class TtsDemo extends Activity implements OnClickListener {
 	private SpeechSynthesizer mTts;
 
 	// 默认发音人
-	private String voicer = "xiaoyan";
+	private String voicer = "xiaoyu";
 	
 	private String[] mCloudVoicersEntries;
 	private String[] mCloudVoicersValue ;
@@ -67,6 +67,9 @@ public class TtsDemo extends Activity implements OnClickListener {
 				
 		mSharedPreferences = getSharedPreferences(TtsSettings.PREFER_NAME, MODE_PRIVATE);
 		mToast = Toast.makeText(this,"",Toast.LENGTH_SHORT);
+
+		// 设置参数
+		setParam();
 		
 	}
 
@@ -120,21 +123,20 @@ public class TtsDemo extends Activity implements OnClickListener {
         // 合成的音频格式：只支持pcm格式
 		case R.id.tts_play:
 			// 移动数据分析，收集开始合成事件
-			FlowerCollector.onEvent(TtsDemo.this, "tts_play");
+//			FlowerCollector.onEvent(TtsDemo.this, "tts_play");
 			
 			String text = ((EditText) findViewById(R.id.tts_text)).getText().toString();
-			// 设置参数
-			setParam();
+
 			int code = mTts.startSpeaking(text, mTtsListener);
 //			/** 
 //			 * 只保存音频不进行播放接口,调用此接口请注释startSpeaking接口
 //			 * text:要合成的文本，uri:需要保存的音频全路径，listener:回调接口
 //			*/
 //			String path = Environment.getExternalStorageDirectory()+"/tts.pcm";
-//			int code = mTts.synthesizeToUri(text, path, mTtsListener);
+//			int codee = mTts.synthesizeToUri(text, path, mTtsListener);
 			
 			if (code != ErrorCode.SUCCESS) {
-				showTip("语音合成失败,错误码: " + code);
+				showTip("语音合成失败,错误码: " );
 			}
 			break;
 		// 取消合成
@@ -317,15 +319,15 @@ public class TtsDemo extends Activity implements OnClickListener {
 	@Override
 	protected void onResume() {
 		//移动数据统计分析
-		FlowerCollector.onResume(TtsDemo.this);
-		FlowerCollector.onPageStart(TAG);
+//		FlowerCollector.onResume(TtsDemo.this);
+//		FlowerCollector.onPageStart(TAG);
 		super.onResume();
 	}
 	@Override
 	protected void onPause() {
 		//移动数据统计分析
-		FlowerCollector.onPageEnd(TAG);
-		FlowerCollector.onPause(TtsDemo.this);
+//		FlowerCollector.onPageEnd(TAG);
+//		FlowerCollector.onPause(TtsDemo.this);
 		super.onPause();
 	}
 
