@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:star="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/activity_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+    <com.example.super_yu.myexample.shijun.ofo.star.activity.star.activity.view.StarRatingView
+        android:id="@+id/srv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        star:stat_on="@drawable/frodo_rate_star_small_on_holo_light"
+        star:stat_off="@drawable/frodo_rate_star_small_off_holo_light"
+        star:stat_half="@drawable/frodo_rate_star_small_half_holo_light"
+        star:star_padding="10dp"
+        star:ratable="false"
+    >
+    </com.example.super_yu.myexample.shijun.ofo.star.activity.star.activity.view.StarRatingView>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/srv"
+        android:text="click"
+    />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/btn"
+        android:textSize="20sp"
+    />
+    <com.example.super_yu.myexample.shijun.ofo.star.activity.star.activity.view.StarRatingView
+        android:id="@+id/srv_ratable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv"
+        android:layout_marginTop="20dp"
+        star:stat_on="@drawable/frodo_rate_star_big_on_holo_light"
+        star:stat_off="@drawable/frodo_rate_star_big_off_holo_light"
+        star:stat_half="@drawable/frodo_rate_star_big_half_holo_light"
+        star:star_padding="10dp"
+        star:ratable="true"
+    >
+    </com.example.super_yu.myexample.shijun.ofo.star.activity.star.activity.view.StarRatingView>
+
+
+</RelativeLayout>

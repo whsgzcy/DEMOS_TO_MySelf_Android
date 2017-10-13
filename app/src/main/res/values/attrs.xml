@@ -52,4 +52,18 @@
         </attr>
     </declare-styleable>
 
+    <!--评分-->
+    <declare-styleable name="StarRatingView">
+        <!--星星点亮-->
+        <attr name="stat_on" format="reference"></attr>
+        <!--星星关闭-->
+        <attr name="stat_off" format="reference"></attr>
+        <!--半颗星星-->
+        <attr name="stat_half" format="reference"></attr>
+        <!--是否可以点击滑动评分-->
+        <attr name="ratable" format="boolean"></attr>
+        <!--星星之间间距-->
+        <attr name="star_padding" format="dimension"></attr>
+    </declare-styleable>
+
 </resources>

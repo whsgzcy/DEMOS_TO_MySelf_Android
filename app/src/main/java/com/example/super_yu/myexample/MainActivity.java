@@ -21,8 +21,9 @@ import com.example.super_yu.myexample.recylerview.RefreshRecyclerview2Activity;
 import com.example.super_yu.myexample.remedia.Remarker2Activity;
 import com.example.super_yu.myexample.serialp.SerialPort2Activity;
 import com.example.super_yu.myexample.shareprefen.SharePrefence2Activity;
+import com.example.super_yu.myexample.shijun.ofo.activity.OfoMainActivity;
+import com.example.super_yu.myexample.shijun.ofo.star.activity.StarActivity;
 import com.example.super_yu.myexample.socket.Socket2Activity;
-import com.example.super_yu.myexample.textanim.TextViewAnim2Activity;
 import com.example.super_yu.myexample.textanim.TextViewScaleAnim2Activity;
 import com.example.super_yu.myexample.websocket.WebSocketActivity;
 import com.example.super_yu.myexample.websocket.okhttp.OkHttpWebSocketActivity;
@@ -30,7 +31,6 @@ import com.example.super_yu.myexample.webview.WebView2Activity;
 import com.example.super_yu.myexample.xy.XY2Activity;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -224,5 +224,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button btn_startofo = (Button) findViewById(R.id.start_ofo);
+        btn_startofo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, OfoMainActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_star = (Button) findViewById(R.id.btn_comment);
+        btn_star.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, StarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }
