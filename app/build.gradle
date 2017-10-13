@@ -43,6 +43,8 @@ dependencies {
     compile project(':super_textview_evaporate_library')
     compile project(':super_textview_scale_library')
     compile project(':super_webview_library')
+    compile project(':super_iflytek_library')
+    compile project(':super_baidu_library')
 //    compile 'com.just.agentweb:agentweb:2.0.1'
 
     compile files('libs/java_websocket.jar')

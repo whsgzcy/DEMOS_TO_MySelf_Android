@@ -1,1 +1,1 @@
-include ':app', ':super_alertdialog_library', ':super_prefser_library', ':super_fragment_dialog', ':super_textview_evaporate_library', ':super_textview_base_library', ':super_textview_scale_library', ':super_webview_library'
+include ':app', ':super_alertdialog_library', ':super_prefser_library', ':super_fragment_dialog', ':super_textview_evaporate_library', ':super_textview_base_library', ':super_textview_scale_library', ':super_webview_library', ':super_iflytek_library', ':super_baidu_library'

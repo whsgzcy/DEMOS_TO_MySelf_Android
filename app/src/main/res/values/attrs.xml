@@ -66,4 +66,12 @@
         <attr name="star_padding" format="dimension"></attr>
     </declare-styleable>
 
+    <declare-styleable name="CircleLoadingView">
+        <attr name="circleStartColor" format="color|reference"/>
+        <attr name="circleEndColor" format="color|reference"/>
+        <attr name="circleArcWidth" format="integer|reference"/>
+        <attr name="circleArcRadian" format="integer|reference"/>
+        <attr name="circleArcSpacing" format="integer|reference"/>
+    </declare-styleable>
+
 </resources>

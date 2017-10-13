@@ -146,6 +146,18 @@
                 android:layout_height="wrap_content"
                 android:text="评分等级"
             />
+
+            <Button
+                android:id="@+id/speech"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="讯飞语音" />
+
+            <Button
+                android:id="@+id/baidu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="百度语音" />
         </LinearLayout>
     </ScrollView>
 

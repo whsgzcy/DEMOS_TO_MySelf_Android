@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.super_yu.myexample.anim.Anim2Activity;
+import com.example.super_yu.myexample.baidu.SpeechBActivity;
 import com.example.super_yu.myexample.base.Base2Activity;
 import com.example.super_yu.myexample.customview.CustomView2Activity;
 import com.example.super_yu.myexample.daemon.DefaultExceptionHandler;
@@ -14,6 +15,7 @@ import com.example.super_yu.myexample.daemon.OnePxMain2Activity;
 import com.example.super_yu.myexample.dialog.Dialog2Activity;
 import com.example.super_yu.myexample.eventbus.EventBus2Activity;
 import com.example.super_yu.myexample.files.SFiles2Activity;
+import com.example.super_yu.myexample.iflytek.Speech2Activity;
 import com.example.super_yu.myexample.json.Json2Activity;
 import com.example.super_yu.myexample.lock.Lock2Activity;
 import com.example.super_yu.myexample.notification.Notification2Activity;
@@ -243,5 +245,23 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+        Button iflytekBtn = (Button) findViewById(R.id.speech);
+        iflytekBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Speech2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button baidukBtn = (Button) findViewById(R.id.baidu);
+        baidukBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SpeechBActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
