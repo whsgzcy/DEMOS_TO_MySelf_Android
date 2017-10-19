@@ -158,6 +158,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="百度语音" />
+            <Button
+                android:id="@+id/count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="到计时"
+            />
+            <Button
+                android:id="@+id/btn_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="密码明文切换状态"
+            />
         </LinearLayout>
     </ScrollView>
 

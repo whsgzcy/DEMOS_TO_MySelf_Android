@@ -105,7 +105,6 @@ public class StarRatingView extends LinearLayout {
 
     public void setOnRateChangeListener(OnRateChangeListener l){
         onRateChangeListener = l;
-
     }
 
     @Override

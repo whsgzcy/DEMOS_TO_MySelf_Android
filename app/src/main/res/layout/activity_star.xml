@@ -15,7 +15,7 @@
         star:stat_half="@drawable/frodo_rate_star_small_half_holo_light"
         star:star_padding="10dp"
         star:ratable="false"
-    >
+        >
     </com.example.super_yu.myexample.shijun.ofo.star.activity.star.activity.view.StarRatingView>
 
     <Button

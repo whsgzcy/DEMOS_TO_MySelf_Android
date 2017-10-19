@@ -24,6 +24,8 @@ import com.example.super_yu.myexample.remedia.Remarker2Activity;
 import com.example.super_yu.myexample.serialp.SerialPort2Activity;
 import com.example.super_yu.myexample.shareprefen.SharePrefence2Activity;
 import com.example.super_yu.myexample.shijun.ofo.activity.OfoMainActivity;
+import com.example.super_yu.myexample.shijun.ofo.count.CountActivity;
+import com.example.super_yu.myexample.shijun.ofo.password.PwdActivity;
 import com.example.super_yu.myexample.shijun.ofo.star.activity.StarActivity;
 import com.example.super_yu.myexample.socket.Socket2Activity;
 import com.example.super_yu.myexample.textanim.TextViewScaleAnim2Activity;
@@ -260,6 +262,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SpeechBActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_count = (Button) findViewById(R.id.count);
+        btn_count.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CountActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_pwd=(Button) findViewById(R.id.btn_pwd);
+        btn_pwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PwdActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.super_yu.myexample.shijun.ofo.count.CountActivity">
+
+
+    <com.example.super_yu.myexample.shijun.ofo.count.CountDownView
+        android:id="@+id/cd_view1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cd_animator_time="3"
+        app:cd_arc_color="#000000"
+        app:cd_arc_width="3dp"
+        app:cd_bg_color="#FF4081"
+        app:cd_circle_radius="40dp"
+        app:cd_location="top"
+        app:cd_retreat_type="forward"
+        app:cd_text_color="#000000"
+        app:cd_text_size="14sp" />
+
+</LinearLayout>
