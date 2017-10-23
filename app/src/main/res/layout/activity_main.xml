@@ -170,6 +170,12 @@
                 android:layout_height="wrap_content"
                 android:text="密码明文切换状态"
             />
+            <Button
+                android:id="@+id/btn_camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="安卓拍照权限"
+            />
         </LinearLayout>
     </ScrollView>
 

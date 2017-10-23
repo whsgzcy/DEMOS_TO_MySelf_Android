@@ -24,6 +24,7 @@ import com.example.super_yu.myexample.remedia.Remarker2Activity;
 import com.example.super_yu.myexample.serialp.SerialPort2Activity;
 import com.example.super_yu.myexample.shareprefen.SharePrefence2Activity;
 import com.example.super_yu.myexample.shijun.ofo.activity.OfoMainActivity;
+import com.example.super_yu.myexample.shijun.ofo.camera.CameraActivity;
 import com.example.super_yu.myexample.shijun.ofo.count.CountActivity;
 import com.example.super_yu.myexample.shijun.ofo.password.PwdActivity;
 import com.example.super_yu.myexample.shijun.ofo.star.activity.StarActivity;
@@ -278,6 +279,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PwdActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_camera = (Button) findViewById(R.id.btn_camera);
+        btn_camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CameraActivity.class);
                 startActivity(intent);
             }
         });
