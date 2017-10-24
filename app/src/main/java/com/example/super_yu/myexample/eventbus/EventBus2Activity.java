@@ -70,6 +70,11 @@ public class EventBus2Activity extends AppCompatActivity {
         Toast.makeText(EventBus2Activity.this, messageEvent.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMoonEvent(String msg) {
+        Toast.makeText(EventBus2Activity.this, msg, Toast.LENGTH_SHORT).show();
+    }
+
     @Subscribe(sticky = true)
     public void ononMoonStickyEvent(MessageEvent messageEvent) {
         Toast.makeText(EventBus2Activity.this, messageEvent.getMessage(), Toast.LENGTH_SHORT).show();

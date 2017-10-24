@@ -17,5 +17,11 @@
         android:layout_height="wrap_content"
         android:text="发送事件2" />
 
+    <Button
+        android:id="@+id/stringPostBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="基于 事件2 String类型" />
+
 
 </LinearLayout>

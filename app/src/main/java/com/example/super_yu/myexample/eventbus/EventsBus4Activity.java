@@ -32,5 +32,14 @@ public class EventsBus4Activity extends AppCompatActivity {
             }
         });
 
+
+        Button stringPostBtn = (Button) findViewById(R.id.stringPostBtn);
+        stringPostBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().post("可行？是的，可行!");
+            }
+        });
+
     }
 }
