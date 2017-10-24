@@ -23,6 +23,7 @@ import com.example.super_yu.myexample.recylerview.RefreshRecyclerview2Activity;
 import com.example.super_yu.myexample.remedia.Remarker2Activity;
 import com.example.super_yu.myexample.serialp.SerialPort2Activity;
 import com.example.super_yu.myexample.shareprefen.SharePrefence2Activity;
+import com.example.super_yu.myexample.shijun.ofo.Indicator.IndicatorActivity;
 import com.example.super_yu.myexample.shijun.ofo.activity.OfoMainActivity;
 import com.example.super_yu.myexample.shijun.ofo.camera.CameraActivity;
 import com.example.super_yu.myexample.shijun.ofo.count.CountActivity;
@@ -288,6 +289,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CameraActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_indiactor = (Button) findViewById(R.id.btn_indiactor);
+        btn_indiactor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, IndicatorActivity.class);
                 startActivity(intent);
             }
         });

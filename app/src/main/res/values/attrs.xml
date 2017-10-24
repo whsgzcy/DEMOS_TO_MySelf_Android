@@ -113,4 +113,36 @@
         <attr name="pet_iconShow" format="integer"/>
         <attr name="pet_iconHide" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="IndicatorView">
+        <!--indicator 指示器类型-->
+        <attr name="indicatorType" format="enum">
+            <!--圆点型-->
+            <enum name="circle" value="1" />
+            <!--数字型-->
+            <enum name="number" value="2" />
+            <!--字母型-->
+            <enum name="letter" value="3" />
+        </attr>
+
+        <!--indicator 半径-->
+        <attr name="indicatorRadius" format="dimension|reference" />
+        <!--indicator 间间距-->
+        <attr name="indicatorGap" format="dimension|reference" />
+        <!--indicator 文本字体大小-->
+        <attr name="indicatorTextSize" format="dimension|reference" />
+        <!--indicator 未选中颜色-->
+        <attr name="indicatorNormalColor" format="color|reference" />
+        <!--indicator 选中的颜色-->
+        <attr name="indicatorSelectedColor" format="color|reference" />
+        <!--indicator 为字母，数字型时，外框宽度 -->
+        <attr name="indicatorStrokeWidth" format="dimension|reference" />
+        <!--文本背景是否填充-->
+        <attr name="indicatorFillBackground" format="boolean|reference" />
+        <!--indicator 文本字体颜色-->
+        <attr name="indicatorSelectedTextColor" format="color|reference" />
+        <!--indicator 选中背景-->
+        <attr name="indicatorSelectedBackgroundColor" format="color|reference" />
+
+    </declare-styleable>
 </resources>

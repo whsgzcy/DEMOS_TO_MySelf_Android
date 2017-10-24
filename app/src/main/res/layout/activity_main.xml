@@ -175,6 +175,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="安卓拍照权限" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_indiactor"
+                android:text="自定义数字指示器"
+                />
 
             <Button
                 android:id="@+id/yunzhisheng"

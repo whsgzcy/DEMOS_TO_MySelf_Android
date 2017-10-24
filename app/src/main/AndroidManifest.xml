@@ -150,8 +150,8 @@
         <activity android:name=".textanim.TextViewAnim2Activity" />
         <activity android:name=".textanim.TextViewScaleAnim2Activity" />
         <activity android:name=".webview.WebView2Activity" />
-        <activity android:name=".shijun.ofo.activity.OfoMainActivity"></activity>
-        <activity android:name=".shijun.ofo.star.activity.StarActivity"></activity>
+        <activity android:name=".shijun.ofo.activity.OfoMainActivity" />
+        <activity android:name=".shijun.ofo.star.activity.StarActivity" />
         <activity android:name=".base.Base2Activity" />
         <activity android:name=".textanim.TextViewAnim2Activity" />
         <activity android:name=".textanim.TextViewScaleAnim2Activity" />
@@ -193,12 +193,11 @@
             android:value="Android_Demo" />
 
         <activity android:name=".baidu.SpeechBActivity" />
-        <activity android:name=".shijun.ofo.count.CountActivity"></activity>
-        <activity android:name=".shijun.ofo.password.PwdActivity"></activity>
-        <activity android:name=".shijun.ofo.camera.CameraActivity"></activity>
-
-        <activity android:name="com.example.super_yu.myexample.yunzhisheng.ASROnlineActivity"></activity>
-        <activity android:name="com.example.super_yu.myexample.yunzhisheng.TTSOfflineActivity"></activity>
+        <activity android:name=".shijun.ofo.count.CountActivity" />
+        <activity android:name=".shijun.ofo.password.PwdActivity" />
+        <activity android:name=".shijun.ofo.camera.CameraActivity" />
+        <activity android:name=".yunzhisheng.ASROnlineActivity" />
+        <activity android:name=".yunzhisheng.TTSOfflineActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -210,7 +209,8 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".yunzhisheng.YunZhiShengActivity"></activity>
+        <activity android:name=".yunzhisheng.YunZhiShengActivity" />
+        <activity android:name=".shijun.ofo.Indicator.IndicatorActivity"></activity>
     </application>
 
 </manifest>
