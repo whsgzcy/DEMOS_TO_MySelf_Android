@@ -81,6 +81,4 @@ public class EventBus2Activity extends AppCompatActivity {
         //取消注册事件
         EventBus.getDefault().unregister(this);
     }
-
-
 }

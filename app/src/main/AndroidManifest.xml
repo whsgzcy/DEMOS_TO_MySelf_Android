@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="com.example.super_yu.myexample">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.super_yu.myexample">
 
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.READ_PROFILE"/>
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
-    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.READ_PROFILE"/>
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
-    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.INJECT_EVENTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.INJECT_EVENTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
         android:name=".MyExample"
@@ -60,16 +60,16 @@
             android:excludeFromRecents="true"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".json.Json2Activity"/>
-        <activity android:name=".notification.Notification2Activity"/>
-        <activity android:name=".notification.SimpleNotificationActivity"/>
-        <activity android:name=".notification.NotificationPriorityActivity"/>
-        <activity android:name=".notification.TaskStackBuilderActivity"/>
+        <activity android:name=".json.Json2Activity" />
+        <activity android:name=".notification.Notification2Activity" />
+        <activity android:name=".notification.SimpleNotificationActivity" />
+        <activity android:name=".notification.NotificationPriorityActivity" />
+        <activity android:name=".notification.TaskStackBuilderActivity" />
         <!-- parentActivityName 属性用于点击 Notification 跳转到 Activity 按返回键时返回的界面 -->
         <activity
             android:name=".notification.result.NormalResultActivity"
@@ -78,41 +78,41 @@
             <!-- 兼容 Android 4.0.3 及更早的版本 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".notification.Notification2Activity"/>
+                android:value=".notification.Notification2Activity" />
         </activity>
         <!-- <activity android:name=".ResultActivity"></activity> -->
         <activity
             android:name=".notification.result.SpecailResultActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
-            android:taskAffinity=""/>
-        <activity android:name=".notification.ProgressNotifyActivity"/>
-        <activity android:name=".notification.NotificationEffectActivity"/>
-        <activity android:name=".notification.SimplestNotificationActivity"/>
-        <activity android:name=".notification.NotificationStyleActivity"/>
-        <activity android:name=".notification.NotificationListenerServiceActivity"/>
+            android:taskAffinity="" />
+        <activity android:name=".notification.ProgressNotifyActivity" />
+        <activity android:name=".notification.NotificationEffectActivity" />
+        <activity android:name=".notification.SimplestNotificationActivity" />
+        <activity android:name=".notification.NotificationStyleActivity" />
+        <activity android:name=".notification.NotificationListenerServiceActivity" />
 
         <service
             android:name=".notification.MyNotificationListenerService"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService"/>
+                <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
 
-        <activity android:name=".socket.Socket2Activity"/>
-        <activity android:name=".push.Push2Activity"/>
-        <activity android:name=".files.SFiles2Activity"/>
-        <activity android:name=".anim.Anim2Activity"/>
-        <activity android:name=".remedia.Remarker2Activity"/>
-        <activity android:name=".dialog.Dialog2Activity"/>
-        <activity android:name=".serialp.SerialPort2Activity"/>
-        <activity android:name=".recylerview.RefreshRecyclerview2Activity"/>
-        <activity android:name=".eventbus.EventBus2Activity"/>
-        <activity android:name=".eventbus.EventsBus4Activity"/>
-        <activity android:name=".customview.CustomView2Activity"/>
-        <activity android:name=".websocket.WebSocketActivity"/>
-        <activity android:name=".websocket.okhttp.OkHttpWebSocketActivity"/>
+        <activity android:name=".socket.Socket2Activity" />
+        <activity android:name=".push.Push2Activity" />
+        <activity android:name=".files.SFiles2Activity" />
+        <activity android:name=".anim.Anim2Activity" />
+        <activity android:name=".remedia.Remarker2Activity" />
+        <activity android:name=".dialog.Dialog2Activity" />
+        <activity android:name=".serialp.SerialPort2Activity" />
+        <activity android:name=".recylerview.RefreshRecyclerview2Activity" />
+        <activity android:name=".eventbus.EventBus2Activity" />
+        <activity android:name=".eventbus.EventsBus4Activity" />
+        <activity android:name=".customview.CustomView2Activity" />
+        <activity android:name=".websocket.WebSocketActivity" />
+        <activity android:name=".websocket.okhttp.OkHttpWebSocketActivity" />
         <activity
             android:name=".daemon.OnePx2Activity"
             android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
@@ -120,23 +120,23 @@
             android:exported="false"
             android:finishOnTaskLaunch="false"
             android:launchMode="singleInstance"
-            android:theme="@style/OnePx2ActivityStyle"/>
+            android:theme="@style/OnePx2ActivityStyle" />
         <activity
             android:name=".daemon.OnePxMain2Activity"
-            android:excludeFromRecents="true"/>
+            android:excludeFromRecents="true" />
 
         <receiver android:name=".receiver.MonitorBroadCastReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.TEST"/>
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.SCREEN_OFF"/>
-                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TEST" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.SCREEN_ON" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".xy.XY2Activity"/>
-        <activity android:name=".shareprefen.SharePrefence2Activity"/>
+        <activity android:name=".xy.XY2Activity" />
+        <activity android:name=".shareprefen.SharePrefence2Activity" />
         <activity
             android:name=".lock.Lock2Activity"
             android:excludeFromRecents="true"
@@ -145,63 +145,60 @@
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:taskAffinity="com.package.name.lockscreen"
-            android:theme="@style/LockScreenTheme"/>
-        <activity android:name=".base.Base2Activity"/>
-        <activity android:name=".textanim.TextViewAnim2Activity"/>
-        <activity android:name=".textanim.TextViewScaleAnim2Activity"/>
-        <activity android:name=".webview.WebView2Activity"/>
-        <activity android:name=".shijun.ofo.activity.OfoMainActivity">
-        </activity>
-        <activity android:name=".shijun.ofo.star.activity.StarActivity">
-        </activity>
-        android:theme="@style/LockScreenTheme" />
-        <activity android:name=".base.Base2Activity"/>
-        <activity android:name=".textanim.TextViewAnim2Activity"/>
-        <activity android:name=".textanim.TextViewScaleAnim2Activity"/>
-        <activity android:name=".webview.WebView2Activity"/>
-        <activity android:name=".iflytek.Speech2Activity"/>
-        <activity android:name=".iflytek.speech.setting.TtsSettings"/>
-        <activity android:name=".iflytek.speech.setting.IatSettings"/>
-        <activity android:name=".iflytek.speech.setting.UnderstanderSettings"/>
+            android:theme="@style/LockScreenTheme" />
+        <activity android:name=".base.Base2Activity" />
+        <activity android:name=".textanim.TextViewAnim2Activity" />
+        <activity android:name=".textanim.TextViewScaleAnim2Activity" />
+        <activity android:name=".webview.WebView2Activity" />
+        <activity android:name=".shijun.ofo.activity.OfoMainActivity"></activity>
+        <activity android:name=".shijun.ofo.star.activity.StarActivity"></activity>
+        <activity android:name=".base.Base2Activity" />
+        <activity android:name=".textanim.TextViewAnim2Activity" />
+        <activity android:name=".textanim.TextViewScaleAnim2Activity" />
+        <activity android:name=".webview.WebView2Activity" />
+        <activity android:name=".iflytek.Speech2Activity" />
+        <activity android:name=".iflytek.speech.setting.TtsSettings" />
+        <activity android:name=".iflytek.speech.setting.IatSettings" />
+        <activity android:name=".iflytek.speech.setting.UnderstanderSettings" />
         <activity
             android:name=".iflytek.voicedemo.IatDemo"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".iflytek.voicedemo.AsrDemo"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".iflytek.voicedemo.UnderstanderDemo"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".iflytek.voicedemo.TtsDemo"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".iflytek.voicedemo.IseDemo"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".iflytek.speech.setting.IseSettings"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <!-- 移动统计分析 -->
         <meta-data
             android:name="IFLYTEK_APPKEY"
-            android:value="&apos;59c9ed6c&apos;"/>
+            android:value="&apos;59c9ed6c&apos;" />
         <meta-data
             android:name="IFLYTEK_CHANNEL"
-            android:value="Android_Demo"/>
+            android:value="Android_Demo" />
 
-        <activity android:name=".baidu.SpeechBActivity"/>
-        <activity android:name=".shijun.ofo.count.CountActivity">
-        </activity>
-        <activity android:name=".shijun.ofo.password.PwdActivity">
-        </activity>
-        <activity android:name=".shijun.ofo.camera.CameraActivity">
-        </activity>
+        <activity android:name=".baidu.SpeechBActivity" />
+        <activity android:name=".shijun.ofo.count.CountActivity"></activity>
+        <activity android:name=".shijun.ofo.password.PwdActivity"></activity>
+        <activity android:name=".shijun.ofo.camera.CameraActivity"></activity>
+
+        <activity android:name="com.example.super_yu.myexample.yunzhisheng.ASROnlineActivity"></activity>
+        <activity android:name="com.example.super_yu.myexample.yunzhisheng.TTSOfflineActivity"></activity>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -212,6 +209,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <activity android:name=".yunzhisheng.YunZhiShengActivity"></activity>
     </application>
 
 </manifest>

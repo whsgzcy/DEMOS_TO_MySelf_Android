@@ -1,0 +1,8 @@
+<resources>
+
+    <color name="blue">#67B2D5</color>
+    <color name="black">#282828</color>
+
+    <drawable name="transparent_background">#909090</drawable>
+
+</resources>

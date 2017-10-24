@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/general_text"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/textview_select_style"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dip"
+        android:text="@string/general"
+        android:textColor="#FFFFFF"
+        android:clickable="true"
+        android:textSize="18sp" />
+    
+        <View 
+          android:layout_width="fill_parent"
+          android:layout_height="1dp"
+          android:scaleType="fitXY"
+          android:background="#3E3E3E"
+          />
+        
+    <TextView
+        android:id="@+id/poi_text"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/textview_select_style"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dip"
+        android:text="@string/poi"
+        android:textColor="#FFFFFF"
+        android:clickable="true"
+        android:textSize="18sp" />
+    
+        <View 
+          android:layout_width="fill_parent"
+          android:layout_height="1dp"
+          android:scaleType="fitXY"
+          android:background="#3E3E3E"
+          />
+    
+    <TextView
+        android:id="@+id/song_text"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/textview_select_style"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dip"
+        android:text="@string/song"
+        android:textColor="#FFFFFF"
+        android:clickable="true"
+        android:textSize="18sp" />
+    
+        <View 
+          android:layout_width="fill_parent"
+          android:layout_height="1dp"
+          android:scaleType="fitXY"
+          android:background="#3E3E3E"
+          />
+    
+    <TextView
+        android:id="@+id/movietv_text"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/textview_select_style"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dip"
+        android:text="@string/movietv"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+    
+        <View 
+          android:layout_width="fill_parent"
+          android:layout_height="1dp"
+          android:scaleType="fitXY"
+          android:background="#3E3E3E"
+          />
+    
+    <TextView
+        android:id="@+id/medical_text"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/textview_select_style"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dip"
+        android:text="@string/medical"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+</LinearLayout>

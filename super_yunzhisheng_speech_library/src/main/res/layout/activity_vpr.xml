@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="5dip"
+    android:layout_marginRight="5dip"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:textSize="20sp"
+        android:text="@string/tip"
+        />
+
+    <EditText
+        android:id="@+id/edt_result"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:layout_marginTop="5dip"
+        android:layout_weight="0.14"
+        android:gravity="top|left"
+        android:text="@string/register_text" />
+    
+
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+         />
+ 
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        />
+
+    <Button
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="122" />
+
+    <ProgressBar
+        android:id="@+id/pbVolume"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:layout_marginBottom="2dp"
+        android:max="100" />
+
+     <LinearLayout
+         android:id="@+id/vpr_function_buttons1"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/vpr_register_btn"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="注册" />
+
+        <Button
+            android:id="@+id/vpr_verify_btn"
+            android:layout_width="0.1dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="验证" />
+    </LinearLayout>
+       <LinearLayout
+        android:id="@+id/vpr_function_buttons2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/vpr_stop_record_btn"
+            android:layout_width="0.1dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="停止录音" />
+
+        <Button
+            android:id="@+id/vpr_save_record_btn"
+            android:layout_width="0.1dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="保存并播放语音" />
+    </LinearLayout>
+
+</LinearLayout>

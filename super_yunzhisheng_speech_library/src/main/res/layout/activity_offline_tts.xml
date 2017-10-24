@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#E5E5E5"
+    android:orientation="vertical" >
+
+     <TextView
+         android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center_vertical"
+        android:text="@string/tts_offline_function"
+        android:textColor="#999999" />
+    
+    <LinearLayout
+        android:id="@+id/status_panel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/setting_layout"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+         >
+
+        <LinearLayout
+            android:id="@+id/offline_asr_status_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/textViewResult"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/textbox_background"
+            android:textColor="#000000"
+            android:text="@string/test_tts_source"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+   
+    <LinearLayout
+        android:id="@+id/setting_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/framelayout"
+        android:orientation="vertical" >
+     
+    </LinearLayout>
+    
+
+    <FrameLayout
+        android:id="@+id/framelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="10dp" >
+
+        <Button
+            android:id="@+id/recognizer_btn"
+            android:layout_width="150dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="@drawable/button_background_style"
+            android:text="@string/start_tts"
+            android:textSize="18sp" />
+    </FrameLayout>
+
+</RelativeLayout>

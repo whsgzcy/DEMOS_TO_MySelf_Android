@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">super_yunzhisheng</string>
+
+    <string name="yzs_main_function">云知声智能语音交互平台</string>
+    <string name="yzs_introduction">云知声智能语音交互平台提供语音理解(语音云和语义云)服务。
+        本 SDK 帮助开发者开发基于语音识别、语义理解及语音合成需求的客户端软件。</string>
+    <string name="lbl_set_domain">识别领域</string>
+    <string name="lbl_set_language">语  言</string>
+    <string name="btn_close_config">完成</string>
+    <string name="lbl_set_rate">采样率</string>
+    <string name="recognizer">开始识别</string>
+    <string name="start_tts">开始合成</string>
+    <string name="start_activate">开始激活</string>
+    <string name="stop_tts">停止合成</string>
+    <string name="title_name">云知声语音示例</string>
+    <string name="select_setting">选择设置</string>
+    <string name="general">通用识别</string>
+    <string name="poi">地名识别</string>
+    <string name="song">歌名识别</string>
+    <string name="movietv">影视名识别</string>
+    <string name="medical">医药领域识别</string>
+    <string name="volume">音量  : </string>
+    <string name="status">状态  : </string>
+    <string name="please_speak">请说话</string>
+    <string name="speaking">说话中</string>
+    <string name="recognizer_result">识别结果 :</string>
+    <string name="cancel">取消</string>
+    <string name="say_over">说完了</string>
+    <string name="click_say">点击说话</string>
+    <string name="no_hear_sound">没有听到声音</string>
+    <string name="info_upload_success">个性化信息上传成功</string>
+    <string name="give_up"> 放弃</string>
+    <string name="opening_recode_devices"> 正在打开录音设备</string>
+    <string name="just_recognizer">正在识别</string>
+    <string name="chinese">普通话</string>
+    <string name="english">英语</string>
+    <string name="cantonese">粤语</string>
+    <string name="test_tts_source"> 北京云知声信息技术有限公司，是专注于语音识别及语言处理技术的移动互联网公司，拥有完全自主知识产权的世界顶尖的智能语音识别和语义理解技术。
+        借助云计算平台和移动互联网技术，云知声已推出了一系列语音识别和语义理解的中间件及服务云平台，为互联网企业和用户提供专业的智能语音服务。</string>
+    <string name="activate_explain">激活您所使用的SDK，建议在app启动和app状态改变时调用，以及时向服务器提供最新的设备信息，可以给您提供更好的语音服务。</string>
+    <string name="function_select">功能选择</string>
+    <string name="asr_online_function">在线识别</string>
+    <string name="asr_offline_function">本地识别</string>
+    <string name="wakeup_offline_function">本地唤醒</string>
+    <string name="tts_offline_function">本地合成</string>
+    <string name="activate_function">激活功能</string>
+    <string name="lable_status">识别状态:</string>
+    <string name="button_asr_start">开始</string>
+    <string name="button_asr_stop">停止</string>
+    <string name="recognizer_result_text">语音识别结果</string>
+    <string name="nlu_result_text">语义解析结果</string>
+    <string  name="register_text">云知声专注于智能语音识别及语言处理技术，拥有完全自主知识产权的世界顶尖的智能语音识别技术</string>
+    <string name="tip">提示:  请在点击 注册 按钮之后大声朗读下面这条文本，朗读完之后点击 停止录音 完成声纹注册(用户ID随机生成)。
+         声纹注册成功之后点击 验证 按钮验证已注册的声纹</string>
+    <string name="wakeup_asr_online_function">离线唤醒+混合识别</string>
+    <string name="say_instruction">请说出指令</string>
+    <string name="online_recognizer_result_text">在线识别结果</string>
+    <string name="offline_recognizer_result_text">离线识别结果</string>
+</resources>

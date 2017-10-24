@@ -276,5 +276,4 @@ public class WaterWaveView extends View {
     private int spToPx(int sp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getResources().getDisplayMetrics());
     }
-
 }

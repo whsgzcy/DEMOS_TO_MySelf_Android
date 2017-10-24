@@ -34,6 +34,7 @@ import com.example.super_yu.myexample.websocket.WebSocketActivity;
 import com.example.super_yu.myexample.websocket.okhttp.OkHttpWebSocketActivity;
 import com.example.super_yu.myexample.webview.WebView2Activity;
 import com.example.super_yu.myexample.xy.XY2Activity;
+import com.example.super_yu.myexample.yunzhisheng.YunZhiShengActivity;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -287,6 +288,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CameraActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button yunzhishengBtn = (Button) findViewById(R.id.yunzhisheng);
+        yunzhishengBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, YunZhiShengActivity.class);
                 startActivity(intent);
             }
         });

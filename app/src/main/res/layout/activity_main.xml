@@ -14,7 +14,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
             <Button
                 android:id="@+id/json"
                 android:layout_width="match_parent"
@@ -134,18 +133,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="webview" />
+
             <Button
                 android:id="@+id/start_ofo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/start_ofo"
-            />
+                android:text="@string/start_ofo" />
+
             <Button
                 android:id="@+id/btn_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="评分等级"
-            />
+                android:text="评分等级" />
 
             <Button
                 android:id="@+id/speech"
@@ -158,24 +157,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="百度语音" />
+
             <Button
                 android:id="@+id/count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="到计时"
-            />
+                android:text="到计时" />
+
             <Button
                 android:id="@+id/btn_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="密码明文切换状态"
-            />
+                android:text="密码明文切换状态" />
+
             <Button
                 android:id="@+id/btn_camera"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="安卓拍照权限"
-            />
+                android:text="安卓拍照权限" />
+
+            <Button
+                android:id="@+id/yunzhisheng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="免费离线语音合成" />
         </LinearLayout>
     </ScrollView>
 
