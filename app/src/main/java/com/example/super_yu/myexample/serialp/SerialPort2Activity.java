@@ -42,6 +42,12 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
 
     private boolean mIsLight = false;
 
+    // 超声波和锁
+    private TextView mSenorText;
+    private TextView mDoorText;
+    //https://pan.baidu.com/s/1nvDWnix
+    //https://pan.baidu.com/s/1c33uUi
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +80,10 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
         mSend.setEnabled(false);
         mClose.setEnabled(false);
 
+        // 超声波和锁
+        mSenorText = (TextView)findViewById(R.id.senor);
+        mDoorText = (TextView)findViewById(R.id.door);
+
         mSerialPort = new SerialPort();
 
         ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1);
@@ -96,8 +106,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                 }
             }
         };
-        scheduledThreadPoolExecutor.scheduleAtFixedRate(command, 1, 1,
-                TimeUnit.SECONDS);
+        scheduledThreadPoolExecutor.scheduleAtFixedRate(command, 1, 1, TimeUnit.SECONDS);
 
         ScheduledThreadPoolExecutor lightScheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1);
         Runnable lightCommand = new Runnable() {
@@ -150,8 +159,27 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
             super.handleMessage(msg);
             switch (msg.what) {
                 case 1:
-                    mState.setText(msg.obj.toString());
+                    String str1 = msg.obj.toString().replaceAll("0x","");
+                    String str2 = str1.toString().replaceAll("00","");
+                    mState.setText(str2);
                     Log.d("ww", msg.obj.toString());
+
+                    // 超声波 A1\A2\A3 无障碍物
+                    // 锁 A7开
+                    // 只要有 B1\B2\B3 就有障碍物
+                    // || str2.contains("B2") || str2.contains("B3")
+                    if(str2.contains("B1") ){
+                        mSenorText.setText("NO！！！");
+                    }else{
+                        mSenorText.setText("YES！！！");
+                    }
+
+                    if(str2.contains("B7")){
+                        mDoorText.setText("关");
+                    }else{
+                        mDoorText.setText("开");
+                    }
+
                     break;
             }
         }
