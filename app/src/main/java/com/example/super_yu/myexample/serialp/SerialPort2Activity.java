@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.super_yu.myexample.R;
@@ -48,6 +47,10 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
     //https://pan.baidu.com/s/1nvDWnix
     //https://pan.baidu.com/s/1c33uUi
 
+    private TextView tn;
+    private TextView tnn;
+    private TextView tnnn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,8 +84,12 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
         mClose.setEnabled(false);
 
         // 超声波和锁
-        mSenorText = (TextView)findViewById(R.id.senor);
-        mDoorText = (TextView)findViewById(R.id.door);
+        mSenorText = (TextView) findViewById(R.id.senor);
+        mDoorText = (TextView) findViewById(R.id.door);
+
+        tn = (TextView) findViewById(R.id.n);
+        tnn = (TextView) findViewById(R.id.nn);
+        tnnn = (TextView) findViewById(R.id.nnn);
 
         mSerialPort = new SerialPort();
 
@@ -92,6 +99,16 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
             public void run() {
                 if (mIsStop) {
 
+                    long current = System.currentTimeMillis();
+
+                    byte[] d = HexToByte("aa");
+                    int m = d.length;
+                    int f = mSerialPort.write(d, m);
+
+                    long mCurrent = System.currentTimeMillis();
+
+                    Log.d("Serial", (mCurrent - current) + "ms");
+
                     String msg = mSerialPort.read();
 
                     Message message = new Message();
@@ -99,14 +116,11 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                     message.obj = msg;
 
                     mHandler.sendMessage(message);
-
-                    byte[] d = HexToByte("aa");
-                    int m = d.length;
-                    int f = mSerialPort.write(d, m);
                 }
             }
         };
-        scheduledThreadPoolExecutor.scheduleAtFixedRate(command, 1, 1, TimeUnit.SECONDS);
+//        scheduledThreadPoolExecutor.scheduleAtFixedRate(command, 1, 1, TimeUnit.SECONDS);
+        scheduledThreadPoolExecutor.scheduleAtFixedRate(command, 1, 87, TimeUnit.MILLISECONDS);
 
         ScheduledThreadPoolExecutor lightScheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1);
         Runnable lightCommand = new Runnable() {
@@ -152,6 +166,11 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
 
     }
 
+    long b_time = 0;
+    int n = 0;
+    int nn = 0;
+    int nnn = 0;
+    int flag = 0;
     Handler mHandler = new Handler() {
 
         @Override
@@ -159,19 +178,47 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
             super.handleMessage(msg);
             switch (msg.what) {
                 case 1:
-                    String str1 = msg.obj.toString().replaceAll("0x","");
-                    String str2 = str1.toString().replaceAll("00","");
+
+                    long current = System.currentTimeMillis();
+                    String str1 = msg.obj.toString().replaceAll("0x", "");
+                    String str2 = str1.toString().replaceAll("00", "");
                     mState.setText(str2);
                     Log.d("ww", msg.obj.toString());
+
+
+                    if (!str2.contains("B1")) {
+                        flag = 0;
+                    }
+
+                    if (flag == 1) return;
 
                     // 超声波 A1\A2\A3 无障碍物
                     // 锁 A7开
                     // 只要有 B1\B2\B3 就有障碍物
                     // || str2.contains("B2") || str2.contains("B3")
-                    if(str2.contains("B1") ){
+
+
+                    if (str2.contains("B1")) {
+                        b_time = System.currentTimeMillis();
                         mSenorText.setText("NO！！！");
-                    }else{
+                        flag = 1;
+                    } else {
+                        flag = 0;
                         mSenorText.setText("YES！！！");
+                        long a_time = System.currentTimeMillis();
+                        if (b_time == 0) return;
+                        long time = a_time - b_time;
+                        if (time < 50) {
+                            n++;
+                            tn.setText("<50ms " + n);
+                        } else if (time >= 50 && time < 100) {
+                            nn++;
+                            tnn.setText("<100ms " + nn);
+                        } else if (time >= 100) {
+                            nnn++;
+                            tnnn.setText(">100ms " + nnn);
+                        }
+                        b_time = 0;
                     }
 
                     if(str2.contains("B7")){
@@ -179,6 +226,10 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                     }else{
                         mDoorText.setText("开");
                     }
+
+                    long mCurrent = System.currentTimeMillis();
+
+                    Log.d("Serial_P", (mCurrent - current) + "ms");
 
                     break;
             }
