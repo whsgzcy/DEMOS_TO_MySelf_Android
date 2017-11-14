@@ -185,7 +185,6 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                     mState.setText(str2);
                     Log.d("ww", msg.obj.toString());
 
-
                     if (!str2.contains("B1")) {
                         flag = 0;
                     }
