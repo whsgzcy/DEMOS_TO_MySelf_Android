@@ -43,6 +43,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        LogRecorder logRecorder
+                = new LogRecorder.Builder(this)
+                .setLogFolderName("foldername")
+                .setLogFolderPath("/sdcard/foldername")
+                .setLogFileNameSuffix("super")
+                .setLogFileSizeLimitation(256)
+                .setLogLevel(2)
+                .addLogFilterTag("ActivityManager")
+                .setPID(android.os.Process.myPid())
+                .build();
+        logRecorder.start();
+
         // 监测应用崩溃重启
         Thread.setDefaultUncaughtExceptionHandler(new DefaultExceptionHandler(this));
 

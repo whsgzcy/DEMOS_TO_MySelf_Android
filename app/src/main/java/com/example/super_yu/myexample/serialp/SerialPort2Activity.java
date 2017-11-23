@@ -261,7 +261,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                 mSend.setEnabled(true);
                 mClose.setEnabled(true);
                 mOpen.setEnabled(false);
-                mSerialPort.open("COM1", 9600, 8, "None", 1);
+                mSerialPort.open("COM2", 9600, 8, "None", 1);
                 mIsStop = true;
                 break;
             case R.id.close:

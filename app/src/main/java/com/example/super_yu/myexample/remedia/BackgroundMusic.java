@@ -230,5 +230,4 @@ public class BackgroundMusic {
         }
         return mediaPlayer;
     }
-
 }
