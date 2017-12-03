@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "/Users/super_yu/Documents/workspace for as/MyExample/SlidingMenu/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1092,
+                    "endColumn": 42,
+                    "endOffset": 1130
+                },
+                "from": {
+                    "file": "/Users/super_yu/Documents/workspace for as/MyExample/SlidingMenu/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1092,
+                        "endColumn": 42,
+                        "endOffset": 1130
+                    }
+                }
+            }
+        ]
+    }
+]
