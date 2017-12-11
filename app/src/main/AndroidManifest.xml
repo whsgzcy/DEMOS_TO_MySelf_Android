@@ -210,7 +210,8 @@
         </provider>
 
         <activity android:name=".yunzhisheng.YunZhiShengActivity" />
-        <activity android:name=".shijun.ofo.Indicator.IndicatorActivity"></activity>
+        <activity android:name=".shijun.ofo.Indicator.IndicatorActivity" />
+        <activity android:name=".iflytek.SpeechTTS2Activity"></activity>
     </application>
 
 </manifest>

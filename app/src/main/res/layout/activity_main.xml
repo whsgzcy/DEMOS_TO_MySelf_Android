@@ -187,7 +187,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="免费离线语音合成" />
+
+            <Button
+                android:id="@+id/offinespeech"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="离线语音" />
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>
