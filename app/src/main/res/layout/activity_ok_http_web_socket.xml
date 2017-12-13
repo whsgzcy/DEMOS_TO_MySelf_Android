@@ -10,10 +10,26 @@
     android:focusableInTouchMode="true">
 
     <Button
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始发送数据"
+        />
+
+    <Button
+        android:id="@+id/stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start"
+        android:text="停止发送数据"
+        />
+
+    <Button
         android:id="@+id/btn_disconnect"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
+        android:layout_below="@+id/stop"
         android:text="断开"
         android:textSize="12sp" />
 
@@ -22,6 +38,8 @@
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:layout_toLeftOf="@id/btn_disconnect"
+        android:layout_below="@+id/stop"
+
         android:text="连接"
         android:textSize="12sp" />
 
@@ -30,7 +48,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/btn_connect"
-        android:text="ws://192.168.1.130:8888" />
+        android:layout_below="@+id/stop"
+
+        android:text="ws://192.168.4.101:8888" />
 
     <TextView
         android:id="@+id/btn_clear"

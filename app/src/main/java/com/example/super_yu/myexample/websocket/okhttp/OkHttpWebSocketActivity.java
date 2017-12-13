@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.super_yu.myexample.R;
+import com.google.gson.Gson;
 
 import java.util.concurrent.TimeUnit;
 
@@ -116,6 +117,35 @@ public class OkHttpWebSocketActivity extends AppCompatActivity {
                 tv_content.setText("");
             }
         });
+
+
+
+        final AGVDistanceResult distanceResult = new AGVDistanceResult();
+        distanceResult.setOp("publish");
+        distanceResult.setId("001");
+
+
+        Button start = (Button)findViewById(R.id.start);
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                distanceResult.setDistance("16");
+                distanceResult.setGoal("map_8_A_801");
+                wsManager.sendMessage(new Gson().toJson(distanceResult));
+            }
+        });
+
+        Button stop = (Button)findViewById(R.id.stop);
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                distanceResult.setDistance("-1");
+                distanceResult.setGoal("-1");
+                new Gson().toJson(distanceResult);
+                wsManager.sendMessage(new Gson().toJson(distanceResult));
+            }
+        });
+
     }
 
     private WsStatusListener wsStatusListener = new WsStatusListener() {
