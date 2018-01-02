@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.super_yu.myexample.LogRecorder;
 import com.example.super_yu.myexample.R;
 
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -51,10 +52,24 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
     private TextView tnn;
     private TextView tnnn;
 
+    private TextView ttime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serial_port2);
+
+        LogRecorder logRecorder
+                = new LogRecorder.Builder(this)
+                .setLogFolderName("foldername")
+                .setLogFolderPath("/sdcard/foldername")
+                .setLogFileNameSuffix("spuer")
+                .setLogFileSizeLimitation(102400)
+                .setLogLevel(2)
+                .addLogFilterTag(TAG)
+                .setPID(android.os.Process.myPid())
+                .build();
+        logRecorder.start();
 
         mSerial = (TextView) findViewById(R.id.serial);
         mBaud = (TextView) findViewById(R.id.baud);
@@ -63,7 +78,9 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
         mStop = (TextView) findViewById(R.id.stop);
         mState = (TextView) findViewById(R.id.state);
 
-        mSerial.setText("com1");
+        ttime = (TextView) findViewById(R.id.time);
+
+        mSerial.setText("com2");
         mBaud.setText("9600");
         mData.setText("8");
         mCompile.setText("none");
@@ -191,12 +208,6 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
 
                     if (flag == 1) return;
 
-                    // 超声波 A1\A2\A3 无障碍物
-                    // 锁 A7开
-                    // 只要有 B1\B2\B3 就有障碍物
-                    // || str2.contains("B2") || str2.contains("B3")
-
-
                     if (str2.contains("B1")) {
                         b_time = System.currentTimeMillis();
                         mSenorText.setText("NO！！！");
@@ -217,12 +228,13 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                             nnn++;
                             tnnn.setText(">100ms " + nnn);
                         }
+                        Log.d(TAG, "time = " + time);
                         b_time = 0;
                     }
 
-                    if(str2.contains("B7")){
+                    if (str2.contains("B7")) {
                         mDoorText.setText("关");
-                    }else{
+                    } else {
                         mDoorText.setText("开");
                     }
 
