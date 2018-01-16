@@ -211,7 +211,8 @@
 
         <activity android:name=".yunzhisheng.YunZhiShengActivity" />
         <activity android:name=".shijun.ofo.Indicator.IndicatorActivity" />
-        <activity android:name=".iflytek.SpeechTTS2Activity"></activity>
+        <activity android:name=".iflytek.SpeechTTS2Activity" />
+        <activity android:name=".webview.SimpleWebView"></activity>
     </application>
 
 </manifest>

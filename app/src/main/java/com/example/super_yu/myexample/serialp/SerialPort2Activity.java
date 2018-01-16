@@ -128,11 +128,20 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
 
                     String msg = mSerialPort.read();
 
-                    Message message = new Message();
-                    message.what = 1;
-                    message.obj = msg;
+                    Message amessage = new Message();
+                    amessage.what = 1;
+                    amessage.obj = msg;
+                    mHandler.sendMessage(amessage);
 
-                    mHandler.sendMessage(message);
+                    Message bmessage = new Message();
+                    bmessage.what = 2;
+                    bmessage.obj = msg;
+                    mHandler.sendMessage(bmessage);
+
+                    Message cmessage = new Message();
+                    cmessage.what = 3;
+                    cmessage.obj = msg;
+                    mHandler.sendMessage(cmessage);
                 }
             }
         };
@@ -183,11 +192,24 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
 
     }
 
-    long b_time = 0;
+    long aa_time = 0;
     int n = 0;
     int nn = 0;
     int nnn = 0;
     int flag = 0;
+
+    long b_time = 0;
+    int bn = 0;
+    int bnn = 0;
+    int bnnn = 0;
+    int bflag = 0;
+
+    long c_time = 0;
+    int cn = 0;
+    int cnn = 0;
+    int cnnn = 0;
+    int cflag = 0;
+
     Handler mHandler = new Handler() {
 
         @Override
@@ -209,15 +231,15 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                     if (flag == 1) return;
 
                     if (str2.contains("B1")) {
-                        b_time = System.currentTimeMillis();
+                        aa_time = System.currentTimeMillis();
                         mSenorText.setText("NO！！！");
                         flag = 1;
                     } else {
                         flag = 0;
                         mSenorText.setText("YES！！！");
                         long a_time = System.currentTimeMillis();
-                        if (b_time == 0) return;
-                        long time = a_time - b_time;
+                        if (aa_time == 0) return;
+                        long time = a_time - aa_time;
                         if (time < 50) {
                             n++;
                             tn.setText("<50ms " + n);
@@ -228,20 +250,92 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                             nnn++;
                             tnnn.setText(">100ms " + nnn);
                         }
-                        Log.d(TAG, "time = " + time);
-                        b_time = 0;
-                    }
-
-                    if (str2.contains("B7")) {
-                        mDoorText.setText("关");
-                    } else {
-                        mDoorText.setText("开");
+                        Log.d(TAG, "A time = " + time);
+                        aa_time = 0;
                     }
 
                     long mCurrent = System.currentTimeMillis();
 
                     Log.d("Serial_P", (mCurrent - current) + "ms");
 
+                    break;
+
+                case 2:
+                    long bcurrent = System.currentTimeMillis();
+                    String bstr1 = msg.obj.toString().replaceAll("0x", "");
+                    String bstr2 = bstr1.toString().replaceAll("00", "");
+                    mState.setText(bstr2);
+                    Log.d("ww", msg.obj.toString());
+
+                    if (!bstr2.contains("B2")) {
+                        bflag = 0;
+                    }
+                    if (bflag == 1) return;
+
+                    if (bstr2.contains("B2")) {
+                        b_time = System.currentTimeMillis();
+                        mSenorText.setText("NO！！！");
+                        bflag = 1;
+                    } else {
+                        bflag = 0;
+                        mSenorText.setText("YES！！！");
+                        long a_time = System.currentTimeMillis();
+                        if (b_time == 0) return;
+                        long time = a_time - b_time;
+                        if (time < 50) {
+                            bn++;
+                            tn.setText("<50ms " + bn);
+                        } else if (time >= 50 && time < 100) {
+                            bnn++;
+                            tnn.setText("<100ms " + bnn);
+                        } else if (time >= 100) {
+                            bnnn++;
+                            tnnn.setText(">100ms " + bnnn);
+                        }
+                        Log.d(TAG, "B time = " + time);
+                        b_time = 0;
+                    }
+                    long mbCurrent = System.currentTimeMillis();
+                    Log.d("Serial_P", (mbCurrent - bcurrent) + "ms");
+                    break;
+
+                case 3:
+                    long ccurrent = System.currentTimeMillis();
+                    String cstr1 = msg.obj.toString().replaceAll("0x", "");
+                    String cstr2 = cstr1.toString().replaceAll("00", "");
+                    mState.setText(cstr2);
+                    Log.d("ww", msg.obj.toString());
+
+                    if (!cstr2.contains("B2") && !cstr2.contains("B1")) {
+                        cflag = 0;
+                    }
+                    if (cflag == 1) return;
+
+                    if (cstr2.contains("B2") && cstr2.contains("B1")) {
+                        c_time = System.currentTimeMillis();
+                        mSenorText.setText("NO！！！");
+                        cflag = 1;
+                    } else {
+                        cflag = 0;
+                        mSenorText.setText("YES！！！");
+                        long a_time = System.currentTimeMillis();
+                        if (c_time == 0) return;
+                        long time = a_time - c_time;
+                        if (time < 50) {
+                            cn++;
+                            tn.setText("<50ms " + cn);
+                        } else if (time >= 50 && time < 100) {
+                            cnn++;
+                            tnn.setText("<100ms " + cnn);
+                        } else if (time >= 100) {
+                            cnnn++;
+                            tnnn.setText(">100ms " + cnnn);
+                        }
+                        Log.d(TAG, "AB time = " + time);
+                        c_time = 0;
+                    }
+                    long mcCurrent = System.currentTimeMillis();
+                    Log.d("Serial_P", (mcCurrent - ccurrent) + "ms");
                     break;
             }
         }

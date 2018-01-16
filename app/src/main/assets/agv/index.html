@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<meta charset="utf-8"/>
+<html>
+<head>
+	<title>Ros Web App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="./lib/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/sweet.css">
+	<script src="./lib/jquery-1.8.3.min.js"></script>
+	<script src="./lib/jquery.mobile-1.4.5.min.js"></script> 
+	<script type="text/javascript" src="./lib/easeljs.min.js"></script>
+	<script type="text/javascript" src="./lib/eventemitter2.min.js"></script>
+	<script type="text/javascript" src="./lib/roslib.js"></script>
+	<script type="text/javascript" src="./lib/sylvester.js"></script>
+	<!-- js -->
+	<script type="text/javascript" src="./js/tf.js"></script>
+    <script type="text/javascript" src="./js/paint.js"></script>
+	<script type="text/javascript" src="./js/icon.js"></script>
+	<script type="text/javascript" src="./js/ui.js"></script>
+	<script type="text/javascript" src="./js/data.js"></script>
+	<script type="text/javascript" src="./js/navigation.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/sweet.js"></script>
+    <script type="text/javascript" src="./js/hrg_alert.js"></script>
+    <script type="text/javascript" src="./js/network.js"></script>
+    <script type="text/javascript" src="./js/debug.js"></script>
+    <script type="text/javascript" src="./js/extensions.js"></script>
+    <script type="text/javascript" src="./js/login.js"></script>
+    <script type="text/javascript" src="./js/update.js"></script>
+    <style type="text/css">
+        /*下拉列表图标更换*/
+        select{
+            width: auto;
+            padding: 0 1%;
+              color: #3B6DDE;
+             appearance: none;
+              -moz-appearance: none;
+              -webkit-appearance: none;
+              background: url("image/down.png") no-repeat right top transparent;
+              background-size: 30px;
+            }   
+        /*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+        select::-ms-expand { display: none; }
+        option{
+            text-align: center;
+              color: #3B6DDE;
+            }
+    </style>
+</head>
+<body onselectstart='return false'>
+
+    <div id="login">
+      <div class="box">
+        <div class="box_logo">
+          <img src="./image/jiqiren.png" width="100%" alt="登录头像">
+        </div>
+        <ul class="box_login">
+          <li>
+            <span class="box_login_logo"><img src="./image/account.png" height="100%" alt="账号图标"></span>账号:
+            <input data-role="none" data-role="none" type="text" name="" class="inp" autofocus="autofocus" id="loginUsername">
+          </li>
+          <li style="margin-top: 30px;">
+            <span class="box_login_logo"><img src="./image/lock.png" height="100%" alt="密码锁图标"></span>密码:
+            <input data-role="none" type="password" name="" class="inp" id="loginPassword">
+          </li>
+          <li style="margin-top: 10px; height: 30px; line-height: 30px; color: red; border: none; " id="loginInfo">
+          </li>
+        </ul>
+        <div class="entry">
+            <span class="entry_left"><input data-role="none" type="button" value="登录" id="entry_button"></span>
+            <span class="entry_right"><input data-role="none" type="button" value="注册" id="register"></span>
+        </div>
+      </div>
+      <div id="registers">
+            <div id="hrg">
+                <img src="./image/jiqiren.png" width="100%" alt="登录头像">
+            </div>
+            <div class="registers_back">
+                <img src="./image/del.png" width="100%">
+            </div>
+            <ul class="register_login">
+                <li>
+                  <span class="box_login_logo"><img src="./image/account.png" height="100%" alt="账号图标"></span>账号:
+                  <input data-role="none" data-role="none" type="text" name="" class="inp" autofocus="autofocus" id="registerName">
+                </li>
+                <li style="margin-top: 20px;">
+                  <span class="box_login_logo"><img src="./image/lock.png" height="100%" alt="密码锁图标"></span>密码:
+                  <input data-role="none" type="password" name="" class="inp" id="registerPw">
+                </li>
+                <li style="margin-top: 20px;">
+                  <span class="box_login_logo"><img src="./image/lock.png" height="100%" alt="密码锁图标"></span>确认密码:
+                  <input data-role="none" type="password" name="" class="inp" id="registerPwRepeat">
+                </li>
+                <li style="margin-top: 20px;">
+                  <span class="box_login_logo"><img src="./image/lock.png" height="100%" alt="密码锁图标"></span>授权码:
+                  <input data-role="none" type="password" name="" class="inp" id="registerAuthCode">
+                </li>
+                <li style="margin-top: 10px; height: 30px; line-height: 30px; color: red; border: none; " id="registerInfo">
+                </li>
+            </ul>
+            <div class="register">
+                <input data-role="none" type="button" value="确认注册" id="register_button">
+            </div>
+        </div>
+    </div> 
+
+<!--侧边栏和侧边栏按钮-->
+    <div data-role="panel" data-display="overlay" id="sidebar">
+	    <div style="width: 100%; height: 60px; position: relative; color: #3b6dde; font-size: 18px; text-align: center; line-height: 60px;">
+		LOONGMAN朗曼智能
+	    </div>
+            
+                <div class="sidebar_map">
+                    地图
+                    <select id="disp-map" data-role="slider">
+                        <option value="false"></option>
+                        <option value="true" selected></option>
+                    </select>
+                </div>
+                <div class="sidebar_Robot">
+                    机器人位置
+                    <select id="disp-robotPose" data-role="slider">
+                        <option value="false"></option>
+                        <option value="true" selected></option>
+                    </select>
+                </div>
+                <div class="sidebar_Robot">
+                    机器人轮廓
+                    <select id="disp-footprint" data-role="slider">
+                        <option value="false" selected></option>
+                        <option value="true"></option>
+                    </select>
+                </div>
+                <div class="sidebar_Robot">
+                    激光
+                    <select id="disp-laserScan" data-role="slider">
+                        <option value="false" selected></option>
+                        <option value="true"></option>
+                    </select>
+                </div>
+                <div class="sidebar_Robot">
+                    全局路径
+                    <select id="disp-globalPlan" data-role="slider">
+                        <option value="false"></option>
+                        <option value="true" selected></option>
+                    </select>
+                </div>
+                <div class="sidebar_Robot">
+                    局部路径
+                    <select id="disp-localPlan" data-role="slider">
+                        <option value="false" selected></option>
+                        <option value="true"></option>
+                    </select>
+                </div>
+                <div class="sidebar_route">
+                    <span style="display: inline-block; width: 80%; height: 60px;" id="sidebar_route_span">
+                    轨迹 ↓
+                    </span>
+                    <select id="dispTrajectories" data-role="slider">
+                        <option value="false"></option>
+                        <option value="true" selected></option>
+                    </select>
+                    <a href="#traj_add_page" data-rel="popup" data-transition="pop" data-position-to="window" data-transition="fade">
+                        <div class="new_trajectory" style="border-top: 1px solid #edebf6; border-bottom: 1px solid #edebf6; text-align: center;">
+                            添加轨迹
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar_site">
+                    <span style="display: inline-block; width: 80%; height: 60px;" id="sidebar_site_span">
+                    站点 ↓
+                    </span>
+                    <select id="disp-waypoints" data-role="slider">
+                        <option value="false"></option>
+                        <option value="true" selected></option>
+                    </select> 
+                    <a href="#site" data-rel="popup" data-transition="pop" data-position-to="window" data-transition="fade">
+                        <div class="new_waypoint" style="border-top: 1px solid #edebf6; text-align: center;">
+                            添加站点
+                        </div>
+                    </a>
+                </div>
+        </div>
+<!--方向控制-->
+        <div data-role="popup" id="direction">
+            <div class="direction_box">
+                <div class="direction_box_top"></div>
+                <div class="direction_box_right"></div>
+                <div class="direction_box_bottom"></div>
+                <div class="direction_box_left"></div>
+                <div class="direction_box_center"></div>
+            </div>
+        </div>       
+
+        <!--网络设置-->
+        <div data-role="popup" id="network_settings">
+            <div class="network_settings_nav">
+                <p>网络设置</p>
+            </div>
+            <ul class="network_settings_main">
+                <li style="box-shadow: none;">
+                    <p>Wifi名称:</p>
+                    <input data-role="none" type="text" name="" class="inp" id="network_ssid">
+                </li>
+                <li>
+                    <p>Wifi密码:</p>
+                    <input data-role="none" type="text" name="" class="inp" id="network_password">
+                </li>
+                <li>
+                    <p>IP:</p>
+                    <input data-role="none" type="text" name="" class="inp" id="network_ip">
+                </li>
+            </ul>
+            <div class="network_set_checkbox">
+                <input data-role="none" type="checkbox" name="" id="rememberNetSetting">
+                <span style="color: #3b6dde">保存当前设置</span>
+            </div>
+            <div class="network_settings_button">
+                <input data-role="none" type="button" name="" class="submit" value="提交" id="network_set">
+                <span><img src="image/submit.png" width="100%"/></span>
+            </div>
+            <div class="network_settings_button" style="margin-bottom: 10px;">
+                <input data-role="none" type="button" name="" class="submit" value="复位" id="network_reset">
+                <span><img src="image/reset.png" width="100%"/></span>
+            </div>
+        </div>
+        <!--系统斩断-->
+        <div data-role="popup" id="diagnosis">
+            <div class="diagnosis_nav">
+                <p>系统诊断</p>
+            </div>
+            <div class="errors">
+                <span class="errors_left">error</span>
+                <span class="errors_right">Errors</span>
+            </div>
+
+            <div class="errors">
+                <span class="errors_left">error</span>
+                <span class="errors_right">Errors</span>
+            </div>
+        </div>
+        <!--代码调试-->
+        <div data-role="popup" id="debug">
+            <div class="debugging_nav">
+                <p>调试</p>
+            </div>
+            <textarea data-role="none" name="textarea" id="debugging_text" onfocus="if(value=='请输入需要调试的代码'){value=''}">请输入需要调试的代码</textarea>                
+            <select data-role="none" id="debugging_select">
+                <option value="">默认</option>
+                <option value="">向前</option>
+                <option value="">向后</option>
+                <option value="">向左</option>
+                <option value="">向右</option>
+            </select>
+            <input data-role="none" type="button" id="debugging_button" value="提交"/>
+<!--             <script>
+                //代码调试
+                //var socket = new WebSocket("ws://" + window.location.hostname + ":9090");
+                var socket = new WebSocket('ws://192.168.0.205:9090');
+                var DebuggingText = document.getElementById("debugging_text");
+                $("#debugging_button").on('click', function(){
+                    var DebuggingSelectText = $("#debugging_select").val();
+                    var DebuggingSelectOptionText = $("#debugging_select option:checked").text();
+                    var DebuggingSelectOption = $("#debugging_select option");
+                    DebuggingSelectOption[0].value = "默认为空"
+                    DebuggingSelectOption[1].value = "向前向前向前向前"
+                    DebuggingSelectOption[2].value = "向后向后向后向后"
+                    DebuggingSelectOption[3].value = "向左向左向左向左"
+                    DebuggingSelectOption[4].value = "向右向右向右向右"
+                    DebuggingText.innerText = DebuggingSelectText;
+                    socket.send(DebuggingText.value);
+                })
+                socket.onopen = function(event){
+                    console.log("已连接")
+                }
+                socket.onmessage = function(event){
+                }  
+            </script> -->
+        </div>
+
+        <!-- extensions -->
+        <div data-role="popup" id="extensions_page">
+            <div class="debugging_nav">
+                <p id="extensions_title">拓展</p>
+            </div>
+            <div class="ster">
+                <img src="./image/ster.gif" width="100%" alt="ster">
+            </div>
+            <input data-role="none" type="button" id="extensions_start" value="启动灭菌"/>
+            <input data-role="none" type="button" id="extensions_stop" value="停止灭菌"/>
+        </div>
+
+
+        <!--更新-->
+        <div data-role="popup" id="update">
+            <div class="update_nav">
+                <p>软件更新</p>
+            </div>
+            <span id="update_span">
+                选择更新方式:
+            </span>
+            <ul class="update_main">
+                <label for="radio1">
+                    <li><input data-role="none" type="radio" name="update_main_radio" id="radio1" value="在线自动更新" onchange="radio_change(this.id)" />
+                    在线自动更新
+                    </li>
+                </label>
+                <label for="radio2">
+                    <li><input data-role="none" type="radio" name="update_main_radio" id="radio2" value="离线本地更新" onchange="radio_change(this.id)" />
+                    离线本地更新
+                    </li>
+                </label>
+                <label for="radio3">
+                    <li><input data-role="none" type="radio" name="update_main_radio" id="radio3" value="U盘威尔2升级包" onchange="radio_change(this.id)" />
+                    U盘威尔2升级包
+                    </li>
+                </label>
+                <label for="radio4">
+                    <li style="border: none;"><input data-role="none" type="radio" name="update_main_radio" id="radio4" value="U盘安装文件传输包" onchange="radio_change(this.id)" />
+                    U盘安装文件传输包
+                    </li>
+                </label>
+            </ul>
+            <div class="update_button">
+                更新
+                <div class="update_button_right">
+                </div>
+            </div>    
+<!--             <span id="update_span1">
+                更新信息
+            </span> -->
+        </div>
+        <!--帮助-->
+        <div data-role="popup" id="help">
+       		
+        </div>
+
+	<div class="map_back">
+		<a href="#sidebar">
+    		<img src="./image/pattern.png" width="100%" alt="菜单图标">
+    	</a>
+	</div>
+<!--菜单页面-->
+    <div data-role="panel" data-position="right" data-display="overlay" id="menu">
+        <ul class="menu_main">
+            <a href="#direction" data-rel="popup" data-transition="pop" data-position-to="window" data-transition="fade">
+                <li data-rel="close">
+                    <span class="menu_main_span_left"><img src="./image/manual_control.png" width="100%" alt="manual control"></span>手动控制
+                    <span class="menu_main_span_right"><img src="./image/more.png" width="100%" alt="向右箭头图标"></span>
+                    </li>
+            </a>
+
+            <a data-role='none' data-rel="popup" data-transition="pop" data-position-to="window" data-transition="fade" id='pose_estimate'>
+                <li data-rel="close">
+                    <span class="menu_main_span_left"><img src="./image/initial_pose.png" width="100%" alt="manual control"></span>位置估计
+                    <span class="menu_main_span_right"><img src="./image/more.png" width="100%" alt="向右箭头图标"></span>
+                    </li>
+            </a>
+
+            <a href="#network_settings" data-rel="popup" data-transition="pop" data-position-to="window" data-transition="fade">
+                <li data-rel="close">
+                    <span class="menu_main_span_left"><img src="./image/network_settings.png" width="100%" alt="Network settings"></span>网络设置
+                    <span class="menu_main_span_right"><img src="./image/more.png" width="100%" alt="向右箭头图标"></span>
+                </li>
+            </a>
+            <a href="#diagnosis" data-rel="popup" data-transition="pop" data-position-to="window" data-transition="fade">
+                <li data-rel="close">
+                    <span class="menu_main_span_left"><img src="./image/diagnosis.png" width="100%" alt="diagnosis"></span>诊断
+                    <span class="menu_main_span_right"><img src="./image/more.png" width="100%" alt="向右箭头图标"></span>
+                </li>
+            </a>
+            <a href="#debug" data-rel="popup" data-transition="pop" data-position-to="window" data-transition="fade">
+                <li data-rel="close">
+                    <span class="menu_main_span_left"><img src="./image/debug.png" width="100%" alt="Debug"></span>调试
+                    <span class="menu_main_span_right"><img src="./image/more.png" width="100%" alt="向右箭头图标"></span>
+                   </li>
+            </a>
+            <a href="#update" data-rel="popup" data-transition="pop" data-position-to="window" data-transition="fade">
+                <li data-rel="close">
+                       <span class="menu_main_span_left"><img src="./image/update.png" width="100%" alt="Update"></span>更新
+                    <span class="menu_main_span_right"><img src="./image/more.png" width="100%" alt="向右箭头图标"></span>
+                   </li>
+            </a>
+            <a href="http://hitrobotgroup.github.io/" data-rel="popup" data-transition="pop" data-position-to="window" data-transition="fade">
+                <li data-rel="close">
+                    <span class="menu_main_span_left"><img src="./image/help.png" width="100%" alt="Help"></span>帮助
+                    <span class="menu_main_span_right"><img src="./image/more.png" width="100%" alt="向右箭头图标"></span>
+                </li>
+            </a>
+
+            <a href="#extensions_page" data-rel="popup" data-transition="pop" data-position-to="window" data-transition="fade" id="extensions">
+                <li data-rel="close">
+                    <span class="menu_main_span_left"><img src="./image/help.png" width="100%" alt="Help"></span>
+                    <span id="extension_span">拓展</span>
+                    <span class="menu_main_span_right"><img src="./image/more.png" width="100%" alt="向右箭头图标"></span>
+                </li>
+            </a>
+        </ul>
+    </div>
+
+	<!--地图导航中间地图名称-->
+    <div class="map_nav">
+        <p id="currentMapName">地图</p>
+        <ul id="mapList">
+            <li id="mapping">
+                新建地图
+                <div id="mapping_div">
+                    <input type="text" data-role = "none" placeholder="请输入场景名称" name="" id="mapping_div_input" value="" />
+                    <span id="startMapping">
+                        <img src="image/confirm.png" width="100%"/>
+                    </span>
+                </div>
+            </li>
+            <!-- <li class='otherMap'>map1<span><img src="image/pattern.png" width="100%"/></span></li> -->
+        </ul>
+    </div>	
+
+	<div class="map_switch">
+		<a href="#menu"><img src="./image/switch.png" width="100%" alt="切换图标"></a>
+	</div>
+
+    <div class="map_battery">
+         <div class="battery_display"></div>
+    </div>
+    <!-- stop button -->
+    <div class="stop"></div>
+
+	<div id="mapNavDiv" style="background: url(./image/bgimg.png)">
+        <div id="loading">
+            <img src="./image/loading.gif" alt="loading"  width="100%"/>
+            <span id="loading_info">
+                切换中...
+            </span>
+        </div>
+        
+        <div id="footer_button">
+            <ul id="toolList">
+                <li id="move"></li>
+                <li id="zoomIn"></li>
+                <li id="zoomOut"></li>
+                <li id="pencilTool"></li>
+                <li id="rubber"></li>
+                <li id="undo"></li>
+                <li id="redo"></li>
+                <li class="clear" id="confirm" style="border: none;"></li>
+            </ul>
+            <div id="pencilTool_content">
+                <ul>
+                    <li id="point" style="border-bottom: none;"></li>
+                    <li id="line" style="border-bottom: none;"></li>
+                    <li id="circle" style="border-bottom: none;"></li>
+                    <li id="rect" style=" "></li>
+                </ul>
+            </div>
+        </div>  
+    </div>
+
+    <div data-role="popup" id="site">
+            <div class="site_nav">
+                <p>添加站点</p>
+            </div>
+            <ul class="site_main">
+                <li style="box-shadow: none;">
+                    <p>名称:</p>
+                    <input id="wpName" data-role="none" type="text" name="" class="inp" autofocus="autofocus" placeholder="请输入标记名称">
+                </li>
+                <li>
+                    <p>站点类型:</p>
+                    <select data-role="none" class="site_select" id="wpType">
+                        <option value="">请选择站点类型</option>
+                        <option value="map">目标站点</option>
+                        <option value="dock">充电桩</option>
+                        <option value="timer">计时器</option>
+                        <option value="publisher">发布器</option>
+                        <option value="subscriber">订阅器</option>
+                        <option value="looper">循环</option>
+                        <option value="pubsuber">发布-订阅器</option>
+                        <option value="cmd_vel_set_sub">最大速度设置</option>
+                        <option value="cmd_vel">速度发布器</option>
+                        <option value="shell">命令发布器</option>
+                        <option value="sound_play">声音播放</option>
+                        <option value="initial_pose">初始位置</option>
+                        <option value="scan_marker">充电桩定位</option>
+                        <option value="shell_string">Shell命令</option>
+                        <option value="pallet">托盘</option>
+                        <option value="goto">跳转</option>
+                    </select>
+                </li>
+                <li>
+                    <p>站点模式:</p>
+                    <select data-role="none" class="site_select" id="wpMode">
+                        <option value="LOOP">多次</option>
+                        <option value="NONE">单次</option>
+                    </select>
+                </li>
+
+                <li id="pubsuber_expect_li" style="height:0; overflow: hidden;">
+                    <p>发布-订阅器接收值:</p>
+                    <input data-role="none" type="text" name="" class="inp" value="0.0" id="pubsuber_expect">
+                </li>
+
+                <li>
+                    <p>范围(米):</p>
+                    <input data-role="none" type="text" name="" class="inp" value="0.0" id="close_enough">
+                </li>
+                <li>
+                    <p>超时时间(秒):</p>
+                    <input data-role="none" type="text" name="" class="inp" value="0.0" id="timeout">
+                </li>
+                <li>
+                    <a href="#" data-rel="back">
+                        <input data-role="none" type="button" name="" class="submit" value="提交" id="wp_add_submit">
+                    </a>
+                </li>
+            </ul>
+        </div>   
+
+<div data-role="popup" id="site_details">
+            <div class="site_details_nav">
+                <p>站点详情</p>
+                <div class="site_details_nav_right">
+                    <a href="#" data-rel="back"><img src="./image/close_one.png" width="100%" alt=""></a>
+                </div>
+            </div>
+            <ul class="site_details_ul">
+                <li>
+                    <span class="site_details_ul_left">名称：</span>
+                    <span class="site_details_ul_right" id="wp_detail_name">name</span>
+                </li>
+                <li>
+                    <span class="site_details_ul_left">站点类型：</span>
+                    <span class="site_details_ul_right" id="wp_detail_frame_id">frame_id</span>
+                </li>
+                <li>
+                    <span class="site_details_ul_left">站点模式：</span>
+                    <span class="site_details_ul_right" id="wp_detail_failure_mode">failure_mode</span>
+                </li>
+                <li>
+                    <span class="site_details_ul_left" style="overflow: hidden;">范围：</span>
+                    <span class="site_details_ul_right" id="wp_detail_close_enough">name</span>
+                </li>
+                <li>
+                    <span class="site_details_ul_left">超时时间：</span>
+                    <span class="site_details_ul_right" id="wp_detail_goal_timeout">name</span>
+                </li>
+                <li>
+                    <span class="site_details_ul_left" style="font-weight: 900;">位姿</span>
+                    <span class="site_details_ul_right"></span>
+                </li>
+                <li class="pose_position">
+                    <span class="site_details_ul_left">位置</span>
+                    <span class="site_details_ul_right"></span>
+                </li>
+                <li class="pose_positions">
+                    <span class="site_details_ul_left">X：</span>
+                    <span class="site_details_ul_right" id="wp_detail_pose_posX"></span>
+                </li>
+                <li class="pose_positions">
+                    <span class="site_details_ul_left">Y：</span>
+                    <span class="site_details_ul_right" id="wp_detail_pose_posY"></span>
+                </li>
+                <li class="pose_positions">
+                    <span class="site_details_ul_left">Z：</span>
+                    <span class="site_details_ul_right" id="wp_detail_pose_posZ"></span>
+                </li><li class="pose_position">
+                    <span class="site_details_ul_left" style="width: 60%;">姿态</span>
+                </li>
+                <li class="pose_positions">
+                    <span class="site_details_ul_left">X：</span>
+                    <span class="site_details_ul_right" id="wp_detail_pose_oriX"></span>
+                </li>
+                <li class="pose_positions">
+                    <span class="site_details_ul_left">Y：</span>
+                    <span class="site_details_ul_right" id="wp_detail_pose_oriY"></span>
+                </li>
+                <li class="pose_positions">
+                    <span class="site_details_ul_left">Z：</span>
+                    <span class="site_details_ul_right" id="wp_detail_pose_oriZ"></span>
+                </li>
+                <li class="pose_positions">
+                    <span class="site_details_ul_left">W：</span>
+                    <span class="site_details_ul_right" id="wp_detail_pose_oriW"></span>
+                </li>
+                <li class="pose_positions">
+                    <span class="site_details_ul_left">Yaw：</span>
+                    <span class="site_details_ul_right" id="wp_detail_pose_yaw"></span>
+                </li>
+            </ul>
+        </div>
+        <div data-role="popup" id="line_details">
+            <div class="line_details_nav">
+                <p>轨迹详情</p>
+                <div class="line_details_nav_right">
+                    <a href="#" data-rel="back"><img src="./image/close_one.png" width="100%" alt=""></a>
+                </div>
+            </div>
+            <ul class="line_details_ul">
+                <li>
+                    <span class="line_details_ul_left">1：</span>
+                    <span class="line_details_ul_right">name</span>
+                </li>
+                <li>
+                    <span class="line_details_ul_left">2：</span>
+                    <span class="line_details_ul_right">name</span>
+                </li>
+            </ul>   
+        </div>
+
+
+    <div data-role="popup" id="traj_add_page">
+            <div class="site_nav">
+                <p>添加轨迹</p>
+            </div>
+            <ul class="site_main">
+                <li style="box-shadow: none;">
+                    <p>名称:</p>
+                    <input id="trajName" data-role="none" type="text" name="" class="inp" autofocus="autofocus" placeholder="请输入轨迹名称">
+                </li>
+
+<!--                 <li data-role="none" style=" height: 45px;" >
+                    <label form="dock">
+                        <input data-role="none" type="checkbox" id="dock">
+                        <span id="dock_span">is charge station</span>
+                    </label>
+                </li> -->
+                <li>
+                    <p>选择站点:</p>
+                    <select data-role="none" class="site_select" id="waypointTrajAdd">
+                        <option value=''>请选择站点</option>
+                    </select>
+                </li>
+                <div id="selected_wps_div">
+                </div>
+
+                <li>
+                    <a href="#" data-rel="back">
+                        <input data-role="none" type="button" name="" class="submit" value="提交" id="traj_add_submit">
+                    </a>    
+                </li>
+            </ul>
+        </div>   
+</body>
+
+</html>

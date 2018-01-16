@@ -135,6 +135,12 @@
                 android:text="webview" />
 
             <Button
+                android:id="@+id/simplewebview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="simplewebview" />
+
+            <Button
                 android:id="@+id/start_ofo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
