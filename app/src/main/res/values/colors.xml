@@ -5,4 +5,9 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="transparent">#00000000</color>
+
+    <color name="blue_color">#1B9AF7</color>
+    <color name="blue_color_light">#58b2f2</color>
+
+    <color name="colorPrimary_light_trsp" >#7b393a3f</color>
 </resources>

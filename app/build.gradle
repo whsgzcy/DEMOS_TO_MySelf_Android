@@ -47,6 +47,8 @@ dependencies {
     compile project(':super_baidu_library')
     compile project(':super_yunzhisheng_speech_library')
 //    compile 'com.just.agentweb:agentweb:2.0.1'
+    compile 'com.just.agentweb:agentweb:3.1.0'
+
 
     compile files('libs/java_websocket.jar')
 
@@ -65,4 +67,5 @@ dependencies {
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+
 }

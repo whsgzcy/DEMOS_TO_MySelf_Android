@@ -96,7 +96,7 @@ public class WebView2Activity extends AppCompatActivity {
     public String getUrl(){
 
 //        return "https://m.jd.com/";
-        return "http://192.168.4.11/";
+        return "file:///android_asset/agv/index.html";
     }
 
     private ChromeClientCallbackManager.ReceivedTitleCallback mCallback = new ChromeClientCallbackManager.ReceivedTitleCallback() {
