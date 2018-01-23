@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.super_yu.myexample.product.Data2Activity">
+
+    <RelativeLayout
+        android:id="@+id/_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/client_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="此处模拟设备端访问releaseTask接口" />
+
+        <TextView
+            android:id="@+id/client_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/client_title"
+            android:text="*****************************************" />
+
+        <TextView
+            android:id="@+id/xiaoqiang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/client_"
+            android:text="001" />
+
+        <RadioGroup
+            android:id="@+id/state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/xiaoqiang"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A点" />
+
+            <RadioButton
+                android:id="@+id/B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="B点" />
+
+            <RadioButton
+                android:id="@+id/C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C点" />
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/D"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="@dimen/x20"-->
+                <!--android:text="充电状态" />-->
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/nav_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/state"
+            android:layout_marginTop="@dimen/y20"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/E"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/D"
+                android:text="正在前往" />
+
+            <RadioButton
+                android:id="@+id/F"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/E"
+                android:text="已到达" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/nav_state_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nav_state"
+            android:gravity="center"
+            android:hint="正在的状态" />
+
+        <Button
+            android:id="@+id/nav_state_send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nav_state_"
+            android:layout_marginTop="@dimen/y10"
+            android:text="发送" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/_server"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/_title"
+        android:layout_marginTop="@dimen/y20">
+
+        <TextView
+            android:id="@+id/server_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="此处模拟Server" />
+
+        <TextView
+            android:id="@+id/server_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/server_title"
+            android:text="*****************************************" />
+
+        <ScrollView
+            android:id="@+id/server_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/server_">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/server_state_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="状态描述"
+                    />
+
+                <TextView
+                    android:id="@+id/server_state_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="状态列表"
+                    />
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</RelativeLayout>
