@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.example.super_yu.myexample"
         minSdkVersion 19
@@ -46,6 +46,8 @@ dependencies {
     compile project(':super_iflytek_library')
     compile project(':super_baidu_library')
     compile project(':super_yunzhisheng_speech_library')
+    compile project(':super_label_ui_library')
+    compile project(':super_immserionbar_library')
 //    compile 'com.just.agentweb:agentweb:2.0.1'
     compile 'com.just.agentweb:agentweb:3.1.0'
 
