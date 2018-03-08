@@ -205,6 +205,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="数据逻辑到业务逻辑" />
+
+            <Button
+                android:id="@+id/open_anim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="开机动画" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

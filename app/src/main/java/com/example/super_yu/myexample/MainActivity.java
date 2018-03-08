@@ -19,6 +19,7 @@ import com.example.super_yu.myexample.iflytek.Speech2Activity;
 import com.example.super_yu.myexample.json.Json2Activity;
 import com.example.super_yu.myexample.lock.Lock2Activity;
 import com.example.super_yu.myexample.notification.Notification2Activity;
+import com.example.super_yu.myexample.openanim.OpenAnim2Activity;
 import com.example.super_yu.myexample.product.Data2Activity;
 import com.example.super_yu.myexample.recylerview.RefreshRecyclerview2Activity;
 import com.example.super_yu.myexample.remedia.Remarker2Activity;
@@ -328,6 +329,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Data2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button open_anim = (Button) findViewById(R.id.open_anim);
+        open_anim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, OpenAnim2Activity.class);
                 startActivity(intent);
             }
         });

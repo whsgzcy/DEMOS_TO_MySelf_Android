@@ -48,6 +48,7 @@ dependencies {
     compile project(':super_yunzhisheng_speech_library')
     compile project(':super_label_ui_library')
     compile project(':super_immserionbar_library')
+    compile project(':super_open_anim_library')
     compile 'com.just.agentweb:agentweb:3.1.0'
 
 

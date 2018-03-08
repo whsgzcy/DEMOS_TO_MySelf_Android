@@ -212,7 +212,8 @@
         <activity android:name=".yunzhisheng.YunZhiShengActivity" />
         <activity android:name=".shijun.ofo.Indicator.IndicatorActivity" />
         <activity android:name=".iflytek.SpeechTTS2Activity" />
-        <activity android:name=".product.Data2Activity"></activity>
+        <activity android:name=".product.Data2Activity" />
+        <activity android:name=".openanim.OpenAnim2Activity"></activity>
     </application>
 
 </manifest>
