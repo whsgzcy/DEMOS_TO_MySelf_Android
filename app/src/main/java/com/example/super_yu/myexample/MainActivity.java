@@ -32,6 +32,7 @@ import com.example.super_yu.myexample.shijun.ofo.count.CountActivity;
 import com.example.super_yu.myexample.shijun.ofo.password.PwdActivity;
 import com.example.super_yu.myexample.shijun.ofo.star.activity.StarActivity;
 import com.example.super_yu.myexample.socket.Socket2Activity;
+import com.example.super_yu.myexample.test.Test2Activity;
 import com.example.super_yu.myexample.textanim.TextViewScaleAnim2Activity;
 import com.example.super_yu.myexample.websocket.WebSocketActivity;
 import com.example.super_yu.myexample.websocket.okhttp.OkHttpWebSocketActivity;
@@ -338,6 +339,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, OpenAnim2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button test = (Button) findViewById(R.id.test);
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Test2Activity.class);
                 startActivity(intent);
             }
         });
