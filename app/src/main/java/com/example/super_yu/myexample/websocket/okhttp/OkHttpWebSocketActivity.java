@@ -86,28 +86,30 @@ public class OkHttpWebSocketActivity extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String content = edit_content.getText().toString();
-                if (!TextUtils.isEmpty(content)) {
-                    if (wsManager != null && wsManager.isWsConnected()) {
-                        boolean isSend = wsManager.sendMessage(content);
-                        if (isSend) {
-                            tv_content.append(Spanny.spanText(
-                                    "我 " + DateUtils.formatDateTime(getBaseContext(), System.currentTimeMillis(),
-                                            DateUtils.FORMAT_SHOW_TIME) + "\n", new ForegroundColorSpan(
-                                            ContextCompat.getColor(getBaseContext(), android.R.color.holo_green_light))));
-                            tv_content.append(content + "\n\n");
-                        } else {
-                            tv_content.append(Spanny.spanText("消息发送失败\n", new ForegroundColorSpan(
-                                    ContextCompat.getColor(getBaseContext(), android.R.color.holo_red_light))));
-                        }
-                        showOrHideInputMethod();
-                        edit_content.setText("");
-                    } else {
-                        Toast.makeText(getBaseContext(), "请先连接服务器", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(getBaseContext(), "请填写需要发送的内容", Toast.LENGTH_SHORT).show();
-                }
+                String content = "{\"name\":\"001\",\"op\":\"publish\",\"topic\":\"nav_state\",\"msg\":{\"m1\":\"ceshi\",\"m2\":\"1\",\"m3 \":\"zheshiyigeceshi\"}}";
+                wsManager.sendMessage(content);
+//                String content = edit_content.getText().toString();
+//                if (!TextUtils.isEmpty(content)) {
+//                    if (wsManager != null && wsManager.isWsConnected()) {
+//                        boolean isSend = wsManager.sendMessage(content);
+//                        if (isSend) {
+//                            tv_content.append(Spanny.spanText(
+//                                    "我 " + DateUtils.formatDateTime(getBaseContext(), System.currentTimeMillis(),
+//                                            DateUtils.FORMAT_SHOW_TIME) + "\n", new ForegroundColorSpan(
+//                                            ContextCompat.getColor(getBaseContext(), android.R.color.holo_green_light))));
+//                            tv_content.append(content + "\n\n");
+//                        } else {
+//                            tv_content.append(Spanny.spanText("消息发送失败\n", new ForegroundColorSpan(
+//                                    ContextCompat.getColor(getBaseContext(), android.R.color.holo_red_light))));
+//                        }
+//                        showOrHideInputMethod();
+//                        edit_content.setText("");
+//                    } else {
+//                        Toast.makeText(getBaseContext(), "请先连接服务器", Toast.LENGTH_SHORT).show();
+//                    }
+//                } else {
+//                    Toast.makeText(getBaseContext(), "请填写需要发送的内容", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 
@@ -119,23 +121,34 @@ public class OkHttpWebSocketActivity extends AppCompatActivity {
         });
 
 
-
         final AGVDistanceResult distanceResult = new AGVDistanceResult();
         distanceResult.setOp("publish");
         distanceResult.setId("001");
 
 
-        Button start = (Button)findViewById(R.id.start);
+        Button start = (Button) findViewById(R.id.start);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                distanceResult.setDistance("16");
-                distanceResult.setGoal("map_8_A_801");
-                wsManager.sendMessage(new Gson().toJson(distanceResult));
+                String content = "{\"name\":\"001\",\"op\":\"publish\",\"topic\":\"connect\",\"msg\":{\"m1\":\"Hello I'm Robot 001\",\"m2\":\"\",\"m3 \":\"\"}}";
+                wsManager.sendMessage(content);
+//            Pub pub = new Pub();
+//            Pub.MsgBean pub_msg = new Pub.MsgBean();
+//            pub.setName("001");
+//            pub.setOp("publish");
+//            pub.setTopic("connect");
+//            pub_msg.setM1("Hello I'm Robot 001");
+//            pub_msg.setM2("");
+//            pub_msg.setM3("");
+//            pub.setMsg(pub_msg);
+//            mWsManager.sendMessage(pub);
+//                distanceResult.setDistance("16");
+//                distanceResult.setGoal("map_8_A_801");
+//                wsManager.sendMessage(new Gson().toJson(distanceResult));
             }
         });
 
-        Button stop = (Button)findViewById(R.id.stop);
+        Button stop = (Button) findViewById(R.id.stop);
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

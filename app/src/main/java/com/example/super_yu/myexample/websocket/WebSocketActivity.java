@@ -61,7 +61,7 @@ public class WebSocketActivity extends AppCompatActivity implements WebSocketCli
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                connect("ws://192.168.1.115:8888/AGVSys/websocket");
+                connect("ws://192.168.0.19:8888/AGVSys/websocket");
             }
         }
     };

@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,11 +51,56 @@ public class MaterialDialog {
     private String pText, nText;
     View.OnClickListener pListener, nListener;
 
+    /*****************insert*********************/
+    // 传入参数
+    private String mPointName;
+    private String mRealName;
+    private CountDownTimer mTimer;
+    private OnCountDownTimerListener mOnCountDownTimerListener;
+
+    public void setNavContentView(String pointName, String realName,
+                                  OnCountDownTimerListener onCountDownTimerListener,
+                                  int layoutResId) {
+        this.mPointName = pointName;
+        this.mRealName = realName;
+
+
+        mMessageContentViewResId = layoutResId;
+        mMessageContentView = null;
+        if (mBuilder != null) {
+            mBuilder.setContentView_(layoutResId);
+        }
+
+
+        mOnCountDownTimerListener = onCountDownTimerListener;
+        if(mTimer != null){
+            mTimer.cancel();
+        }
+        // 倒计时控件
+        mTimer = new CountDownTimer(8 * 1000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                String data = millisUntilFinished / 1000 + " s";
+
+            }
+            @Override
+            public void onFinish() {
+                mOnCountDownTimerListener.onFinished();
+            }
+        };
+    }
+
+    public interface OnCountDownTimerListener{
+        void onFinished();
+    }
+
+
+
+    /*****************end************************/
 
     public MaterialDialog(Context context) {
         this.mContext = context;
     }
-
 
     public void show() {
         if (!mHasShow) {
@@ -215,7 +261,7 @@ public class MaterialDialog {
      * already set.
      *
      * @param cancel Whether the dialog should be canceled when touched outside
-     * the window OR pressed the back key.
+     *               the window OR pressed the back key.
      */
     public MaterialDialog setCanceledOnTouchOutside(boolean cancel) {
         this.mCancel = cancel;
@@ -246,17 +292,17 @@ public class MaterialDialog {
             mAlertDialog.show();
 
             mAlertDialog.getWindow()
-                        .clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
-                                WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+                    .clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
+                            WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
             mAlertDialog.getWindow()
-                        .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MASK_STATE);
+                    .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MASK_STATE);
 
             mAlertDialogWindow = mAlertDialog.getWindow();
             mAlertDialogWindow.setBackgroundDrawable(
                     new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
             View contentView = LayoutInflater.from(mContext)
-                                             .inflate(R.layout.layout_material_dialog, null);
+                    .inflate(R.layout.layout_material_dialog, null);
             contentView.setFocusable(true);
             contentView.setFocusableInTouchMode(true);
 
@@ -511,7 +557,21 @@ public class MaterialDialog {
             // Not setting this to the other content view because user has defined their own
             // layout params, and we don't want to overwrite those.
             LayoutInflater.from(mMessageContentRoot.getContext())
-                          .inflate(layoutResId, mMessageContentRoot);
+                    .inflate(layoutResId, mMessageContentRoot);
+        }
+
+        /**
+         * Set a custom view resource to be the contents of the dialog. The
+         * resource will be inflated into a ScrollView.
+         *
+         * @param layoutResId resource ID to be inflated
+         */
+        public View setContentView_(int layoutResId) {
+            mMessageContentRoot.removeAllViews();
+            // Not setting this to the other content view because user has defined their own
+            // layout params, and we don't want to overwrite those.
+           return LayoutInflater.from(mMessageContentRoot.getContext())
+                    .inflate(layoutResId, mMessageContentRoot);
         }
 
 
