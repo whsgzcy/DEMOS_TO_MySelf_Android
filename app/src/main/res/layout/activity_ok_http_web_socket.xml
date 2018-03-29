@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/btn_connect"
         android:layout_below="@+id/stop"
-        android:text="ws://192.168.0.19:8888" />
+        android:text="ws://192.168.0.20:8888" />
 
     <TextView
         android:id="@+id/btn_clear"

@@ -86,7 +86,7 @@ public class OkHttpWebSocketActivity extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String content = "{\"name\":\"001\",\"op\":\"publish\",\"topic\":\"nav_state\",\"msg\":{\"m1\":\"ceshi\",\"m2\":\"1\",\"m3 \":\"zheshiyigeceshi\"}}";
+                String content = "{\"name\":\"001\",\"op\":\"publish\",\"topic\":\"nav_state\",\"msg\":{\"m1\":\"ceshi\",\"m2\":\"1\",\"m3\":\"zheshiyigeceshi\"}}";
                 wsManager.sendMessage(content);
 //                String content = edit_content.getText().toString();
 //                if (!TextUtils.isEmpty(content)) {

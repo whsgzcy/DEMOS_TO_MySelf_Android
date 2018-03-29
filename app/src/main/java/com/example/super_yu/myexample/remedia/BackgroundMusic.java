@@ -14,7 +14,7 @@ public class BackgroundMusic {
     private static final String TAG = "Bg_Music";
     private float mLeftVolume;
     private float mRightVolume;
-    private Context mContext;
+    private static Context mContext;
     private MediaPlayer mBackgroundMediaPlayer;
     private boolean mIsPaused;
     //    private String mCurrentPath;
@@ -28,6 +28,14 @@ public class BackgroundMusic {
     public static BackgroundMusic getInstance(Context context) {
         if (backgroundMusic == null) {
             backgroundMusic = new BackgroundMusic(context);
+        }
+        mContext = context;
+        return backgroundMusic;
+    }
+
+    public static BackgroundMusic getInstance(){
+        if (backgroundMusic == null) {
+            backgroundMusic = new BackgroundMusic(mContext);
         }
         return backgroundMusic;
     }

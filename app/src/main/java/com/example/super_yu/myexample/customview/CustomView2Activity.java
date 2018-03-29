@@ -12,12 +12,14 @@ import com.example.super_yu.myexample.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import info.hoang8f.widget.FButton;
+
 public class CustomView2Activity extends AppCompatActivity implements OnProgressBarListener{
 
     private PopHelper popHelper;//pop
     private NumberProgressBar numberProgressBar;
     private Timer timer;
-
+    private FButton twitterBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +73,9 @@ public class CustomView2Activity extends AppCompatActivity implements OnProgress
 
 
         Button dialogFragment = (Button)findViewById(R.id.dialog);
+
+        twitterBtn = (FButton) findViewById(R.id.f_twitter_button);
+
     }
 
     /**

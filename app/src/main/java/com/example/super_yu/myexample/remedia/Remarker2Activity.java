@@ -12,6 +12,7 @@ import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.super_yu.myexample.R;
 
@@ -51,6 +52,8 @@ public class Remarker2Activity extends AppCompatActivity implements View.OnClick
 
         // 开启闪关灯闪烁
         mShineThread.start();
+
+        BackgroundMusic.getInstance(this);
     }
 
 //    private MediaPlayer accessFile() {
@@ -80,10 +83,12 @@ public class Remarker2Activity extends AppCompatActivity implements View.OnClick
                 vibrator.cancel();
                 break;
             case R.id.ring:
-                BackgroundMusic.getInstance(this).playBackgroundMusic(this,R.raw.hello,true);
+                BackgroundMusic.getInstance().playBackgroundMusic(this, R.raw.waring_open, true);
+                Toast.makeText(Remarker2Activity.this, "isPlaying " + BackgroundMusic.getInstance().isBackgroundMusicPlaying(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.cancel_ring:
-                BackgroundMusic.getInstance(this).stopBackgroundMusic();
+                BackgroundMusic.getInstance().stopBackgroundMusic();
+                Toast.makeText(Remarker2Activity.this, "isPlaying " + BackgroundMusic.getInstance().isBackgroundMusicPlaying(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.shine:
                 isShanshuo = true;
