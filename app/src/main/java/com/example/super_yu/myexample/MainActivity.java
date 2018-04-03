@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.super_yu.myexample.aidl.client.BindingActivity;
 import com.example.super_yu.myexample.anim.Anim2Activity;
 import com.example.super_yu.myexample.baidu.SpeechBActivity;
 import com.example.super_yu.myexample.base.Base2Activity;
@@ -348,6 +349,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Test2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button aidl = (Button) findViewById(R.id.aidl);
+        aidl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BindingActivity.class);
                 startActivity(intent);
             }
         });

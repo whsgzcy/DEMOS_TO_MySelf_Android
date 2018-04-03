@@ -214,7 +214,19 @@
         <activity android:name=".iflytek.SpeechTTS2Activity" />
         <activity android:name=".product.Data2Activity" />
         <activity android:name=".openanim.OpenAnim2Activity" />
-        <activity android:name=".test.Test2Activity"></activity>
+        <activity android:name=".test.Test2Activity" />
+
+        <service
+            android:name=".aidl.server.RemoteService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.example.super_yu.myexample.hello" />
+            </intent-filter>
+            </service>
+
+        <activity android:name=".aidl.client.BindingActivity"></activity>
     </application>
 
 </manifest>
