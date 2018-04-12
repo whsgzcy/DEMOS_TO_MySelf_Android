@@ -17,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/super_textview_base_library/super_textview_base_library.iml" filepath="$PROJECT_DIR$/super_textview_base_library/super_textview_base_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/super_textview_evaporate_library/super_textview_evaporate_library.iml" filepath="$PROJECT_DIR$/super_textview_evaporate_library/super_textview_evaporate_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/super_textview_scale_library/super_textview_scale_library.iml" filepath="$PROJECT_DIR$/super_textview_scale_library/super_textview_scale_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/super_usb_serialp_library/super_usb_serialp_library.iml" filepath="$PROJECT_DIR$/super_usb_serialp_library/super_usb_serialp_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/super_webview_library/super_webview_library.iml" filepath="$PROJECT_DIR$/super_webview_library/super_webview_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/super_yunzhisheng_speech_library/super_yunzhisheng_speech_library.iml" filepath="$PROJECT_DIR$/super_yunzhisheng_speech_library/super_yunzhisheng_speech_library.iml" />
     </modules>

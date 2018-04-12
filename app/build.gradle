@@ -35,7 +35,6 @@ android {
     }
 }
 
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -55,8 +54,9 @@ dependencies {
     compile project(':super_immserionbar_library')
     compile project(':super_open_anim_library')
     compile project(':super_dialog_library')
-    compile 'com.just.agentweb:agentweb:3.1.0'
+    compile project(':super_usb_serialp_library')
 
+    compile 'com.just.agentweb:agentweb:3.1.0'
     compile files('libs/java_websocket.jar')
 
     compile 'info.hoang8f:fbutton:1.0.5'

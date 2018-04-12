@@ -46,6 +46,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="true" />
+
     <application
         android:name=".MyExample"
         android:allowBackup="true"
@@ -215,6 +219,8 @@
         <activity android:name=".product.Data2Activity" />
         <activity android:name=".openanim.OpenAnim2Activity" />
         <activity android:name=".test.Test2Activity" />
+        <activity android:name=".aidl.client.BindingActivity" />
+        <activity android:name=".usb2serialp.UsbSerialp2Activity" />
 
         <service
             android:name=".aidl.server.RemoteService"
@@ -224,9 +230,11 @@
             <intent-filter>
                 <action android:name="com.example.super_yu.myexample.hello" />
             </intent-filter>
-            </service>
+        </service>
 
-        <activity android:name=".aidl.client.BindingActivity"></activity>
+        <service
+            android:name="com.example.super_yu.myexample.usb2serialp.UsbService"
+            android:enabled="true"/>
     </application>
 
 </manifest>

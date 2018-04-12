@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/super_yu/Documents/workspace for as/MyExample/SlidingMenu/assets"/><source path="/Users/super_yu/Documents/workspace for as/MyExample/SlidingMenu/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/super_yu/Documents/workspace for as/MyExample/SlidingMenu/src/debug/assets"/></dataSet></merger>
