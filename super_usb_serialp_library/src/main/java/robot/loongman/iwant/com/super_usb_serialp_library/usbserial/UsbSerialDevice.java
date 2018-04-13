@@ -7,12 +7,12 @@ import android.hardware.usb.UsbEndpoint;
 import android.hardware.usb.UsbInterface;
 import android.hardware.usb.UsbRequest;
 
-import com.felhr.deviceids.CH34xIds;
-import com.felhr.deviceids.CP210xIds;
-import com.felhr.deviceids.FTDISioIds;
-import com.felhr.deviceids.PL2303Ids;
-
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import robot.loongman.iwant.com.super_usb_serialp_library.deviceids.CH34xIds;
+import robot.loongman.iwant.com.super_usb_serialp_library.deviceids.CP210xIds;
+import robot.loongman.iwant.com.super_usb_serialp_library.deviceids.FTDISioIds;
+import robot.loongman.iwant.com.super_usb_serialp_library.deviceids.PL2303Ids;
 
 public abstract class UsbSerialDevice implements UsbSerialInterface
 {

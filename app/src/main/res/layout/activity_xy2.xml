@@ -22,4 +22,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="@dimen/x250"
+        android:layout_height="@dimen/y50"
+        android:layout_marginTop="@dimen/y440"
+        android:layout_marginLeft="@dimen/x650"
+        android:background="@color/blue"
+        />
+
 </RelativeLayout>

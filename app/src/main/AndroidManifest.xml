@@ -233,8 +233,11 @@
         </service>
 
         <service
-            android:name="com.example.super_yu.myexample.usb2serialp.UsbService"
-            android:enabled="true"/>
+            android:name=".usb2serialp.LoraMessageService"
+            android:enabled="true"
+            android:exported="true">
+
+        </service>
     </application>
 
 </manifest>

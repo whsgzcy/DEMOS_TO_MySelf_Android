@@ -2,7 +2,7 @@ package robot.loongman.iwant.com.super_usb_serialp_library.usbserial;
 
 import android.util.Log;
 
-import com.felhr.utils.HexData;
+import robot.loongman.iwant.com.super_usb_serialp_library.utils.HexData;
 
 public class UsbSerialDebugger
 {
