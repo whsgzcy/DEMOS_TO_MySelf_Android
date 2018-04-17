@@ -14,6 +14,7 @@ import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -86,8 +87,8 @@ public class LoraMessageService extends Service {
         public int write(String content) {
             if (serialPort == null) return -1;
             // content 转换 为 16 进制
-            String miss = Hex2StrHelper.str2HexStr(content);
-            serialPort.syncWrite(miss.getBytes(), 0);
+//            String miss = Hex2StrHelper.str2HexStr(content);
+            serialPort.syncWrite(content.getBytes(), 0);
             return 1;
         }
 
@@ -255,8 +256,7 @@ public class LoraMessageService extends Service {
             if(msg.what == 1){
                 if(mLoraMessageCallBack != null){
                     String receivedStr = msg.obj.toString();
-                    String content = Hex2StrHelper.hexStr2Str(receivedStr);
-                    mLoraMessageCallBack.onLoraMessage_Sycn_Read(content);
+                    mLoraMessageCallBack.onLoraMessage_Sycn_Read(receivedStr);
                 }
             }
         }
@@ -326,6 +326,7 @@ public class LoraMessageService extends Service {
                 if (n > 0) {
                     byte[] received = new byte[n];
                     System.arraycopy(buffer, 0, received, 0, n);
+
                     String receivedStr = new String(received);
 
                     Message message = new Message();
@@ -333,6 +334,8 @@ public class LoraMessageService extends Service {
                     message.obj = receivedStr;
 
                     mHandler.sendMessage(message);
+
+                    Log.d("t", receivedStr);
                 }
             }
         }

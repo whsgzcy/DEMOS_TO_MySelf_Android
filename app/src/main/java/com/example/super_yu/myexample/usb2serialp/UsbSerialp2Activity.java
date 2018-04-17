@@ -10,6 +10,7 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -74,10 +75,10 @@ public class UsbSerialp2Activity extends Activity {
 
     @OnClick(R.id.send)
     void send() {
-        Toast.makeText(UsbSerialp2Activity.this,"点击了", Toast.LENGTH_SHORT).show();
+        Toast.makeText(UsbSerialp2Activity.this, "点击了", Toast.LENGTH_SHORT).show();
         if (mMyBinder != null) {
             int i = mMyBinder.write("nihao");
-            Toast.makeText(UsbSerialp2Activity.this," i = " + i, Toast.LENGTH_SHORT).show();
+            Toast.makeText(UsbSerialp2Activity.this, " i = " + i, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -95,6 +96,7 @@ public class UsbSerialp2Activity extends Activity {
                 @Override
                 public void onLoraMessage_Sycn_Read(String message) {
                     Toast.makeText(UsbSerialp2Activity.this, message + "！", Toast.LENGTH_SHORT).show();
+                    Log.d("tt", message);
                 }
 
                 @Override
