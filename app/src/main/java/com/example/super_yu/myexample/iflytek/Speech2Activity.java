@@ -38,7 +38,7 @@ public class Speech2Activity extends Activity implements View.OnClickListener {
         requestPermissions();
         mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
         SimpleAdapter listitemAdapter = new SimpleAdapter();
-        ((ListView) findViewById(R.id.listview_main)).setAdapter(listitemAdapter);
+//        ((ListView) findViewById(R.id.listview_main)).setAdapter(listitemAdapter);
     }
 
     @Override

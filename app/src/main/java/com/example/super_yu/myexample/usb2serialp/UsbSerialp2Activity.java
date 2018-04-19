@@ -72,12 +72,12 @@ public class UsbSerialp2Activity extends Activity {
 //        mImmersionBar.hideBar(BarHide.FLAG_HIDE_BAR).init();
     }
 
-
     @OnClick(R.id.send)
     void send() {
         Toast.makeText(UsbSerialp2Activity.this, "点击了", Toast.LENGTH_SHORT).show();
         if (mMyBinder != null) {
-            int i = mMyBinder.write("nihao");
+            int i = mMyBinder.write("nihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihao" +
+                    "nihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihaonihao");
             Toast.makeText(UsbSerialp2Activity.this, " i = " + i, Toast.LENGTH_SHORT).show();
         }
     }
@@ -109,6 +109,7 @@ public class UsbSerialp2Activity extends Activity {
                     Toast.makeText(UsbSerialp2Activity.this, state + "", Toast.LENGTH_SHORT).show();
                 }
             });
+            mMyBinder.readBufferListener();
         }
 
         @Override

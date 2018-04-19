@@ -36,6 +36,7 @@ import com.example.super_yu.myexample.socket.Socket2Activity;
 import com.example.super_yu.myexample.test.Test2Activity;
 import com.example.super_yu.myexample.textanim.TextViewScaleAnim2Activity;
 import com.example.super_yu.myexample.usb2serialp.UsbSerialp2Activity;
+import com.example.super_yu.myexample.usb2serialtry.DeviceListActivity;
 import com.example.super_yu.myexample.websocket.WebSocketActivity;
 import com.example.super_yu.myexample.websocket.okhttp.OkHttpWebSocketActivity;
 import com.example.super_yu.myexample.webview.WebView2Activity;
@@ -368,6 +369,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, UsbSerialp2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button usb_seriapl2 = (Button) findViewById(R.id.usb_seriapl2);
+        usb_seriapl2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DeviceListActivity.class);
                 startActivity(intent);
             }
         });

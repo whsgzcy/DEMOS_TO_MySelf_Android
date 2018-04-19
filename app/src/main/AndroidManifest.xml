@@ -67,6 +67,14 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <intent-filter>
+                    <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+                </intent-filter>
+
+                <meta-data
+                    android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                    android:resource="@xml/device_filter" />
             </intent-filter>
         </activity>
         <activity android:name=".json.Json2Activity" />
@@ -220,7 +228,24 @@
         <activity android:name=".openanim.OpenAnim2Activity" />
         <activity android:name=".test.Test2Activity" />
         <activity android:name=".aidl.client.BindingActivity" />
-        <activity android:name=".usb2serialp.UsbSerialp2Activity" />
+        <activity android:name=".usb2serialp.UsbSerialp2Activity">
+
+        <intent-filter>
+            <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+        </intent-filter>
+
+        <meta-data
+            android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+            android:resource="@xml/device_filter" />
+        </activity>
+
+
+        <activity android:name="com.example.super_yu.myexample.usb2serialtry.DeviceListActivity">
+
+        </activity>
+
+        <activity android:name="com.example.super_yu.myexample.usb2serialtry.SerialConsoleActivity"></activity>
+        <activity android:name="com.example.super_yu.myexample.usb2serialtry.CustomSerialConsoleActivity"></activity>
 
         <service
             android:name=".aidl.server.RemoteService"
@@ -235,9 +260,7 @@
         <service
             android:name=".usb2serialp.LoraMessageService"
             android:enabled="true"
-            android:exported="true">
-
-        </service>
+            android:exported="true"></service>
     </application>
 
 </manifest>

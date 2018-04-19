@@ -101,6 +101,9 @@ public class LoraMessageService extends Service {
             mLoraMessageCallBack = loraMessageCallBack;
         }
 
+        public void readBufferListener() {
+//            mreadThread.start();
+        }
     }
 
     @Override
@@ -185,6 +188,7 @@ public class LoraMessageService extends Service {
                     String content = Hex2StrHelper.hexStr2Str(data);
                     mLoraMessageCallBack.onLoraMessage_Serial_Port(content);
                 }
+                Log.d("t", "data1 " + data);
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -199,6 +203,7 @@ public class LoraMessageService extends Service {
         public void onCTSChanged(boolean state) {
             if (mLoraMessageCallBack != null)
                 mLoraMessageCallBack.onCts_Change(state);
+            Log.d("t", "data2 " + state);
         }
     };
 
@@ -210,6 +215,7 @@ public class LoraMessageService extends Service {
         public void onDSRChanged(boolean state) {
             if (mLoraMessageCallBack != null)
                 mLoraMessageCallBack.onDsr_Change(state);
+            Log.d("t", "data3 " + state);
         }
     };
 
@@ -249,12 +255,12 @@ public class LoraMessageService extends Service {
     };
 
     @SuppressLint("HandlerLeak")
-    Handler mHandler = new Handler(){
+    Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            if(msg.what == 1){
-                if(mLoraMessageCallBack != null){
+            if (msg.what == 1) {
+                if (mLoraMessageCallBack != null) {
                     String receivedStr = msg.obj.toString();
                     mLoraMessageCallBack.onLoraMessage_Sycn_Read(receivedStr);
                 }
@@ -289,6 +295,7 @@ public class LoraMessageService extends Service {
                     serialPort.getDSR(dsrCallback);
 
                     new ReadThread().start();
+//                    mreadThread.start();
 
                     //
                     // Some Arduinos would need some sleep because firmware wait some time to know whether a new sketch is going
@@ -320,25 +327,111 @@ public class LoraMessageService extends Service {
     private class ReadThread extends Thread {
         @Override
         public void run() {
-            while (true) {
-                byte[] buffer = new byte[100];
-                int n = serialPort.syncRead(buffer, 0);
-                if (n > 0) {
-                    byte[] received = new byte[n];
-                    System.arraycopy(buffer, 0, received, 0, n);
+//            while (true) {
+//                byte[] buffer = new byte[200];
+//                // 阻塞线程
+//                int n = serialPort.syncRead(buffer, 0);
+//                if (n > 0) {
+//                    byte[] received = new byte[n];
+//
+//                }
+//            }
 
-                    String receivedStr = new String(received);
-
-                    Message message = new Message();
-                    message.what = 1;
-                    message.obj = receivedStr;
-
-                    mHandler.sendMessage(message);
-
-                    Log.d("t", receivedStr);
-                }
+            Log.d("t", "*****1");
+            byte[] bytes = {};
+            byte[] readBuffer = new byte[100];
+            int n = serialPort.syncRead(readBuffer, 0);
+            Log.d("t", "*****2");
+            while (n > 0) {
+                bytes = concat(bytes, readBuffer);
+                n = serialPort.syncRead(readBuffer, 0);
+                Log.d("t", "*****3");
             }
+            Log.d("t", "*****4");
         }
+    }
+
+//    private class ReadThread extends Thread {
+//        @Override
+//        public void run() {
+//            while (true) {
+//                byte[] buffer = new byte[100];
+//                int n = serialPort.syncRead(buffer, 0);
+//                byte[] bytes = {};
+//                if (n > 0) {
+//                    byte[] received = new byte[n];
+//                    System.arraycopy(buffer, 0, received, 0, n);
+//
+//                    Log.d("t", "n = " + n);
+//                } else if(bytes.length > 0){
+//
+//                    Message message = new Message();
+//                    message.what = 1;
+//                    String receivedStr = new String(bytes);
+//                    message.obj = receivedStr;
+//
+//                    mHandler.sendMessage(message);
+//                    Log.d("t", "receivedStr = " + receivedStr);
+//
+//                }
+//
+//            }
+//        }
+//    }
+
+//    Thread mreadThread = new Thread() {
+//        @Override
+//        public void run() {
+//            super.run();
+//
+//                byte[] bytes = {};
+//                byte[] buffer = new byte[1];
+//                int n = serialPort.syncRead(buffer, 0);
+//                while (n > 0) {
+//                    bytes = concat(bytes, buffer);
+//                    n = serialPort.syncRead(buffer, 0);
+//                    String receivedStr = new String(bytes);
+//                    Log.d("yu", receivedStr);
+//                }
+//        }
+//    };
+
+    public String readBuffer() {
+        byte[] bytes = {};
+        byte[] buffer = new byte[100];
+        int n = serialPort.syncRead(buffer, 0);
+        while (n > 0) {
+            bytes = concat(bytes, buffer);
+            n = serialPort.syncRead(buffer, 0);
+            String receivedStr = new String(bytes);
+            Log.d("yu", receivedStr);
+            return receivedStr;
+        }
+        String receivedStr = new String(bytes);
+        Log.d("yu", receivedStr);
+        return receivedStr;
+    }
+
+    /**
+     * 合并数组
+     *
+     * @param firstArray  第一个数组
+     * @param secondArray 第二个数组
+     * @return 合并后的数组
+     */
+    public static byte[] concat(byte[] firstArray, byte[] secondArray) {
+        if (firstArray == null || secondArray == null) {
+            if (firstArray != null)
+                return firstArray;
+            if (secondArray != null)
+                return secondArray;
+            return null;
+        }
+        byte[] bytes = new byte[firstArray.length + secondArray.length];
+        System.arraycopy(firstArray, 0, bytes, 0, firstArray.length);
+        System.arraycopy(secondArray, 0, bytes, firstArray.length,
+                secondArray.length);
+        return bytes;
     }
 
     @Override
@@ -348,8 +441,11 @@ public class LoraMessageService extends Service {
 
     public interface LoraMessageCallBack {
         void onLoraMessage_Serial_Port(String message);
+
         void onLoraMessage_Sycn_Read(String message);
+
         void onCts_Change(boolean state);
+
         void onDsr_Change(boolean state);
     }
 

@@ -229,6 +229,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="usb_seriapl" />
+
+            <Button
+                android:id="@+id/usb_seriapl2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="usb_seriapl2" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
