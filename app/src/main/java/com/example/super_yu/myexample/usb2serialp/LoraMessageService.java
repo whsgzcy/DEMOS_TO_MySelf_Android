@@ -39,11 +39,6 @@ public class LoraMessageService extends Service {
 
     private static final String ACTION_USB_PERMISSION = "com.android.example.USB_PERMISSION";
 
-//    public static final int MESSAGE_FROM_SERIAL_PORT = 0;
-//    public static final int CTS_CHANGE = 1;
-//    public static final int DSR_CHANGE = 2;
-//    public static final int SYNC_READ = 3;
-
     private boolean serialPortConnected;
     public static boolean SERVICE_CONNECTED = false;
     // BaudRate. Change this value if you need
@@ -324,60 +319,60 @@ public class LoraMessageService extends Service {
         }
     }
 
-    private class ReadThread extends Thread {
-        @Override
-        public void run() {
-//            while (true) {
-//                byte[] buffer = new byte[200];
-//                // 阻塞线程
-//                int n = serialPort.syncRead(buffer, 0);
-//                if (n > 0) {
-//                    byte[] received = new byte[n];
-//
-//                }
-//            }
-
-            Log.d("t", "*****1");
-            byte[] bytes = {};
-            byte[] readBuffer = new byte[100];
-            int n = serialPort.syncRead(readBuffer, 0);
-            Log.d("t", "*****2");
-            while (n > 0) {
-                bytes = concat(bytes, readBuffer);
-                n = serialPort.syncRead(readBuffer, 0);
-                Log.d("t", "*****3");
-            }
-            Log.d("t", "*****4");
-        }
-    }
-
 //    private class ReadThread extends Thread {
 //        @Override
 //        public void run() {
-//            while (true) {
-//                byte[] buffer = new byte[100];
-//                int n = serialPort.syncRead(buffer, 0);
-//                byte[] bytes = {};
-//                if (n > 0) {
-//                    byte[] received = new byte[n];
-//                    System.arraycopy(buffer, 0, received, 0, n);
+////            while (true) {
+////                byte[] buffer = new byte[200];
+////                // 阻塞线程
+////                int n = serialPort.syncRead(buffer, 0);
+////                if (n > 0) {
+////                    byte[] received = new byte[n];
+////
+////                }
+////            }
 //
-//                    Log.d("t", "n = " + n);
-//                } else if(bytes.length > 0){
-//
-//                    Message message = new Message();
-//                    message.what = 1;
-//                    String receivedStr = new String(bytes);
-//                    message.obj = receivedStr;
-//
-//                    mHandler.sendMessage(message);
-//                    Log.d("t", "receivedStr = " + receivedStr);
-//
-//                }
-//
+//            Log.d("t", "*****1");
+//            byte[] bytes = {};
+//            byte[] readBuffer = new byte[100];
+//            int n = serialPort.syncRead(readBuffer, 0);
+//            Log.d("t", "*****2");
+//            while (n > 0) {
+//                bytes = concat(bytes, readBuffer);
+//                n = serialPort.syncRead(readBuffer, 0);
+//                Log.d("t", "*****3");
 //            }
+//            Log.d("t", "*****4");
 //        }
 //    }
+
+    private class ReadThread extends Thread {
+        @Override
+        public void run() {
+            while (true) {
+                byte[] buffer = new byte[100];
+                int n = serialPort.syncRead(buffer, 0);
+                byte[] bytes = {};
+                if (n > 0) {
+                    byte[] received = new byte[n];
+                    System.arraycopy(buffer, 0, received, 0, n);
+
+                    Log.d("t", "n = " + n);
+                } else if(bytes.length > 0){
+
+                    Message message = new Message();
+                    message.what = 1;
+                    String receivedStr = new String(bytes);
+                    message.obj = receivedStr;
+
+                    mHandler.sendMessage(message);
+                    Log.d("t", "receivedStr = " + receivedStr);
+
+                }
+
+            }
+        }
+    }
 
 //    Thread mreadThread = new Thread() {
 //        @Override

@@ -235,6 +235,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="usb_seriapl2" />
+
+            <Button
+                android:id="@+id/gson_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="gson_order" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

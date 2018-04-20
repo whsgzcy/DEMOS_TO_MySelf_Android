@@ -16,6 +16,7 @@ import com.example.super_yu.myexample.daemon.OnePxMain2Activity;
 import com.example.super_yu.myexample.dialog.Dialog2Activity;
 import com.example.super_yu.myexample.eventbus.EventBus2Activity;
 import com.example.super_yu.myexample.files.SFiles2Activity;
+import com.example.super_yu.myexample.gsonorder.GsonOrder2Activity;
 import com.example.super_yu.myexample.iflytek.Speech2Activity;
 import com.example.super_yu.myexample.json.Json2Activity;
 import com.example.super_yu.myexample.lock.Lock2Activity;
@@ -378,6 +379,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DeviceListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button gson_order = (Button) findViewById(R.id.gson_order);
+        gson_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, GsonOrder2Activity.class);
                 startActivity(intent);
             }
         });

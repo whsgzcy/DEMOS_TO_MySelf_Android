@@ -65,15 +65,18 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" /> -->
+            <!-- </intent-filter> -->
 
-            <meta-data
-                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
-                android:resource="@xml/device_filter" />
+
+            <!-- <meta-data -->
+            <!-- android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" -->
+            <!-- android:resource="@xml/device_filter" /> -->
         </activity>
         <activity android:name=".json.Json2Activity" />
         <activity android:name=".notification.Notification2Activity" />
@@ -226,16 +229,10 @@
         <activity android:name=".openanim.OpenAnim2Activity" />
         <activity android:name=".test.Test2Activity" />
         <activity android:name=".aidl.client.BindingActivity" />
-        <activity android:name=".usb2serialp.UsbSerialp2Activity">
-        </activity>
-
-
-        <activity android:name="com.example.super_yu.myexample.usb2serialtry.DeviceListActivity">
-        </activity>
-        <activity android:name="com.example.super_yu.myexample.usb2serialtry.SerialConsoleActivity">
-        </activity>
-        <activity android:name="com.example.super_yu.myexample.usb2serialtry.CustomSerialConsoleActivity">
-        </activity>
+        <activity android:name=".usb2serialp.UsbSerialp2Activity"></activity>
+        <activity android:name=".usb2serialtry.DeviceListActivity"></activity>
+        <activity android:name=".usb2serialtry.SerialConsoleActivity"></activity>
+        <activity android:name=".usb2serialtry.CustomSerialConsoleActivity"></activity>
 
         <service
             android:name=".aidl.server.RemoteService"
@@ -246,13 +243,12 @@
                 <action android:name="com.example.super_yu.myexample.hello" />
             </intent-filter>
         </service>
-
         <service
             android:name=".usb2serialp.LoraMessageService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"></service>
 
-        </service>
+        <activity android:name=".gsonorder.GsonOrder2Activity"></activity>
     </application>
 
 </manifest>
