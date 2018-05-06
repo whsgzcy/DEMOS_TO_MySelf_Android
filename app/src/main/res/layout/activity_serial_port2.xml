@@ -77,6 +77,30 @@
         android:layout_height="wrap_content"
         android:text="灯带" />
 
+    <Button
+        android:id="@+id/f05"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="f05" />
+
+    <Button
+        android:id="@+id/f5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="f5" />
+
+    <Button
+        android:id="@+id/f06"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="f06" />
+
+    <Button
+        android:id="@+id/f6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="f6" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

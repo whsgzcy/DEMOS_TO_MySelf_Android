@@ -24,11 +24,29 @@
 
     <TextView
         android:id="@+id/test"
-        android:layout_width="@dimen/x250"
-        android:layout_height="@dimen/y50"
-        android:layout_marginTop="@dimen/y440"
-        android:layout_marginLeft="@dimen/x650"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="505dp"
+        android:layout_marginLeft="549dp"
         android:background="@color/blue"
         />
+
+    <!--<TextView-->
+        <!--android:id="@+id/test"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:layout_marginTop="594dp"-->
+        <!--android:layout_marginLeft="549dp"-->
+        <!--android:background="@color/blue"-->
+        <!--/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/test"-->
+        <!--android:layout_width="@dimen/x250"-->
+        <!--android:layout_height="@dimen/y50"-->
+        <!--android:layout_marginTop="@dimen/y440"-->
+        <!--android:layout_marginLeft="@dimen/x650"-->
+        <!--android:background="@color/blue"-->
+        <!--/>-->
 
 </RelativeLayout>

@@ -37,7 +37,6 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
-    <uses-permission android:name="android.permission.INJECT_EVENTS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -45,6 +44,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.hardware.usb.host" />
+    <uses-permission android:name="android.hardware.usb.accessory" />
 
     <uses-feature
         android:name="android.hardware.usb.host"
@@ -69,14 +70,19 @@
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" /> -->
-            <!-- </intent-filter> -->
+             <intent-filter>
+             <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+             </intent-filter>
 
 
             <!-- <meta-data -->
             <!-- android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" -->
             <!-- android:resource="@xml/device_filter" /> -->
+
+
+             <meta-data
+             android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+             android:resource="@xml/device_filter" />
         </activity>
         <activity android:name=".json.Json2Activity" />
         <activity android:name=".notification.Notification2Activity" />
@@ -229,10 +235,10 @@
         <activity android:name=".openanim.OpenAnim2Activity" />
         <activity android:name=".test.Test2Activity" />
         <activity android:name=".aidl.client.BindingActivity" />
-        <activity android:name=".usb2serialp.UsbSerialp2Activity"></activity>
-        <activity android:name=".usb2serialtry.DeviceListActivity"></activity>
-        <activity android:name=".usb2serialtry.SerialConsoleActivity"></activity>
-        <activity android:name=".usb2serialtry.CustomSerialConsoleActivity"></activity>
+        <activity android:name=".usb2serialp.UsbSerialp2Activity" />
+        <activity android:name=".usb2serialtry.DeviceListActivity" />
+        <activity android:name=".usb2serialtry.SerialConsoleActivity" />
+        <activity android:name=".usb2serialtry.CustomSerialConsoleActivity" />
 
         <service
             android:name=".aidl.server.RemoteService"
@@ -246,9 +252,10 @@
         <service
             android:name=".usb2serialp.LoraMessageService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
-        <activity android:name=".gsonorder.GsonOrder2Activity"></activity>
+        <activity android:name=".gsonorder.GsonOrder2Activity" />
+        <activity android:name=".instruction.Instrument2Activity"></activity>
     </application>
 
 </manifest>

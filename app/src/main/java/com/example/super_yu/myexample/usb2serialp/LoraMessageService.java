@@ -1,6 +1,7 @@
 package com.example.super_yu.myexample.usb2serialp;
 
 import android.annotation.SuppressLint;
+import android.app.Instrumentation;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -14,7 +15,11 @@ import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.SystemClock;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.widget.Toast;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -146,9 +151,12 @@ public class LoraMessageService extends Service {
                     connection = null;
                     device = null;
                 }
-                if (!keep)
+                if (!keep) {
+                    Toast.makeText(LoraMessageService.this, "33", Toast.LENGTH_SHORT).show();
                     break;
+                }
             }
+            Toast.makeText(LoraMessageService.this, "44", Toast.LENGTH_SHORT).show();
             if (!keep) {
                 // There is no USB devices connected (but usb host were listed). Send an intent to MainActivity.
                 Intent intent = new Intent(ACTION_NO_USB);
@@ -227,7 +235,7 @@ public class LoraMessageService extends Service {
                 if (granted) {
                     Intent intent = new Intent(ACTION_USB_PERMISSION_GRANTED);
                     arg0.sendBroadcast(intent);
-                    connection = usbManager.openDevice(device);
+//                    connection = usbManager.openDevice(device);
                     new ConnectionThread().start();
                 } else // User not accepted our USB connection. Send an Intent to the Main Activity
                 {
@@ -236,7 +244,8 @@ public class LoraMessageService extends Service {
                 }
             } else if (arg1.getAction().equals(ACTION_USB_ATTACHED)) {
                 if (!serialPortConnected)
-                    findSerialPortDevice(); // A USB device has been attached. Try to open it as a Serial port
+                    // A USB device has been attached. Try to open it as a Serial port
+                    findSerialPortDevice();
             } else if (arg1.getAction().equals(ACTION_USB_DETACHED)) {
                 // Usb device was disconnected. send an intent to the Main Activity
                 Intent intent = new Intent(ACTION_USB_DISCONNECTED);
@@ -270,6 +279,9 @@ public class LoraMessageService extends Service {
     private class ConnectionThread extends Thread {
         @Override
         public void run() {
+
+            connection = usbManager.openDevice(device);
+
             serialPort = UsbSerialDevice.createUsbSerialDevice(device, connection);
             if (serialPort != null) {
                 if (serialPort.syncOpen()) {
@@ -358,7 +370,7 @@ public class LoraMessageService extends Service {
                     System.arraycopy(buffer, 0, received, 0, n);
 
                     Log.d("t", "n = " + n);
-                } else if(bytes.length > 0){
+                } else if (bytes.length > 0) {
 
                     Message message = new Message();
                     message.what = 1;

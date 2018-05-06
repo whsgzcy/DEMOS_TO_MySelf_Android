@@ -61,6 +61,7 @@ public class UsbSerialPortTopIO {
             if (null != mConnectListener)
                 mConnectListener.OnConnectStatusCallBack(false);
         } else {
+
             final UsbManager usbManager = (UsbManager) mContext.getSystemService(Context.USB_SERVICE);
 
             UsbDeviceConnection connection = usbManager.openDevice(sPort.getDriver().getDevice());
@@ -72,7 +73,7 @@ public class UsbSerialPortTopIO {
 
             try {
                 sPort.open(connection);
-                sPort.setParameters(115200, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
+                sPort.setParameters(9600, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
 
             } catch (IOException e) {
                 if (null != mConnectListener)

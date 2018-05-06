@@ -21,9 +21,9 @@ public class XY2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xy2);
 
-        ImmersionBar mImmersionBar = ImmersionBar.with(XY2Activity.this);
-        mImmersionBar.init();
-        mImmersionBar.hideBar(BarHide.FLAG_HIDE_BAR).init();
+//        ImmersionBar mImmersionBar = ImmersionBar.with(XY2Activity.this);
+//        mImmersionBar.init();
+//        mImmersionBar.hideBar(BarHide.FLAG_HIDE_BAR).init();
 
 //        DisplayMetrics metrics = getResources().getDisplayMetrics();
 //        int width = metrics.widthPixels;

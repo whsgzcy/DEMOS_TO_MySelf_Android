@@ -1,6 +1,7 @@
 package com.example.super_yu.myexample.usb2serialp;
 
 import android.app.Activity;
+import android.app.Instrumentation;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -8,10 +9,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.util.Log;
-import android.view.View;
+import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -20,9 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.super_yu.myexample.R;
-import com.example.super_yu.myexample.xy.XY2Activity;
-import com.iwant.tt.super_immserionbar_library.BarHide;
-import com.iwant.tt.super_immserionbar_library.ImmersionBar;
+import com.example.super_yu.myexample.instruction.Instrument2Activity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,10 +46,10 @@ public class UsbSerialp2Activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 隐藏标题栏
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        // 隐藏状态栏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        // 隐藏标题栏
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        // 隐藏状态栏
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_usb_serialp2);
         ButterKnife.bind(this);
         // 注册广播
@@ -70,6 +69,8 @@ public class UsbSerialp2Activity extends Activity {
 //        ImmersionBar mImmersionBar = ImmersionBar.with(UsbSerialp2Activity.this);
 //        mImmersionBar.init();
 //        mImmersionBar.hideBar(BarHide.FLAG_HIDE_BAR).init();
+
+        clickThread.start();
     }
 
     @OnClick(R.id.send)
@@ -143,6 +144,46 @@ public class UsbSerialp2Activity extends Activity {
             }
         }
     };
+
+
+    Thread clickThread = new Thread() {
+
+        @Override
+        public void run() {
+            super.run();
+            try {
+
+                Thread.sleep(10000);
+
+                Instrumentation mInst = new Instrumentation();
+//                //按键事件
+//                mInst.sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+                //触摸按下
+                mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 1138, 1216, 0));
+                //触摸抬起
+                mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 1138, 1216, 0));
+
+                Thread.sleep(3000);
+                Instrumentation mInsts = new Instrumentation();
+                //按键事件
+//                mInsts.sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+                //触摸按下
+                mInsts.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 1138, 1216, 0));
+                //触摸抬起
+                mInsts.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 1138, 1216, 0));
+
+            } catch (Exception e) {
+
+            }
+
+        }
+    };
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Toast.makeText(UsbSerialp2Activity.this, "x = " + ev.getX() + " y = " + ev.getY(), Toast.LENGTH_SHORT).show();
+        return super.dispatchTouchEvent(ev);
+    }
 
     @Override
     protected void onDestroy() {

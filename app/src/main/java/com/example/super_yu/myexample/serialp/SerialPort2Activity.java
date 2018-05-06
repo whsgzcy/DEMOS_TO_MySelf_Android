@@ -1,5 +1,6 @@
 package com.example.super_yu.myexample.serialp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -53,6 +54,11 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
     private TextView tnnn;
 
     private TextView ttime;
+
+    private Button mF05;
+    private Button mF5;
+    private Button mF06;
+    private Button mF6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,6 +196,15 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
         yellow.setOnClickListener(this);
         green.setOnClickListener(this);
 
+        mF05 = (Button) findViewById(R.id.f05);
+        mF5 = (Button) findViewById(R.id.f5);
+        mF06 = (Button) findViewById(R.id.f06);
+        mF6 = (Button) findViewById(R.id.f6);
+
+        mF05.setOnClickListener(this);
+        mF5.setOnClickListener(this);
+        mF06.setOnClickListener(this);
+        mF6.setOnClickListener(this);
     }
 
     long aa_time = 0;
@@ -210,6 +225,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
     int cnnn = 0;
     int cflag = 0;
 
+    @SuppressLint("HandlerLeak")
     Handler mHandler = new Handler() {
 
         @Override
@@ -440,7 +456,27 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                 } else {
                     mIsLight = true;
                 }
+                break;
 
+            case R.id.f05:
+                byte[] super05 = HexToByte("05");
+                int lsuper05 = super05.length;
+                int nsuper05 = mSerialPort.write(super05, lsuper05);
+                break;
+            case R.id.f5:
+                byte[] superf5 = HexToByte("f5");
+                int lsuperf5 = superf5.length;
+                int nsuperf5 = mSerialPort.write(superf5, lsuperf5);
+                break;
+            case R.id.f06:
+                byte[] super06 = HexToByte("06");
+                int lsuper06 = super06.length;
+                int nsuper06 = mSerialPort.write(super06, lsuper06);
+                break;
+            case R.id.f6:
+                byte[] superf6 = HexToByte("f6");
+                int lsuperf6 = superf6.length;
+                int nsuperf6 = mSerialPort.write(superf6, lsuperf6);
                 break;
         }
     }
