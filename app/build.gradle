@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 
-
 android {
 
     compileSdkVersion 26
@@ -34,8 +33,6 @@ android {
         }
     }
 }
-
-
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -87,4 +84,7 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
 
     compile 'com.codezjx.library:andlinker:0.7.1'
+
+    compile 'org.apache.httpcomponents:httpcore:4.4.4'
+
 }

@@ -247,6 +247,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Instrumentation" />
+
+            <Button
+                android:id="@+id/sd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="sd to read config file" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

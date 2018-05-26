@@ -367,7 +367,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                 int b = mSerialPort.write(c, l);
                 Log.d(TAG, "SerialPort2Activity send = " + b);
 
-                mSend.setClickable(false);
+//                mSend.setClickable(false);
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {

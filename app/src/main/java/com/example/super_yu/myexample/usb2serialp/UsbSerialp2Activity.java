@@ -13,15 +13,12 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.super_yu.myexample.R;
-import com.example.super_yu.myexample.instruction.Instrument2Activity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -26,6 +26,7 @@ import com.example.super_yu.myexample.openanim.OpenAnim2Activity;
 import com.example.super_yu.myexample.product.Data2Activity;
 import com.example.super_yu.myexample.recylerview.RefreshRecyclerview2Activity;
 import com.example.super_yu.myexample.remedia.Remarker2Activity;
+import com.example.super_yu.myexample.sd.SD2Activity;
 import com.example.super_yu.myexample.serialp.SerialPort2Activity;
 import com.example.super_yu.myexample.shareprefen.SharePrefence2Activity;
 import com.example.super_yu.myexample.shijun.ofo.Indicator.IndicatorActivity;
@@ -270,7 +271,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         Button iflytekBtn = (Button) findViewById(R.id.speech);
         iflytekBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -296,7 +296,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button btn_pwd=(Button) findViewById(R.id.btn_pwd);
+        Button btn_pwd = (Button) findViewById(R.id.btn_pwd);
         btn_pwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -398,6 +398,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Instrument2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button sd_click = (Button) findViewById(R.id.sd);
+        sd_click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SD2Activity.class);
                 startActivity(intent);
             }
         });

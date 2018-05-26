@@ -1,6 +1,7 @@
 package com.example.super_yu.myexample.common;
 
 import android.content.Context;
+import android.os.Environment;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -20,6 +21,23 @@ import java.util.List;
 
 public class FileUtil
 {
+
+    /**
+     * 获取SD卡路径
+     * @return
+     */
+    public static String getSDPath() {
+        String sdPath = null;
+        // 判断sd卡是否存在
+        boolean sdCardExit = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+        if (sdCardExit) {
+            // 获取根目录
+            sdPath = Environment.getExternalStorageDirectory().toString();
+        }else{
+            sdPath = Environment.getDataDirectory().toString();
+        }
+        return sdPath;
+    }
 
     /**
      * 删除文件
