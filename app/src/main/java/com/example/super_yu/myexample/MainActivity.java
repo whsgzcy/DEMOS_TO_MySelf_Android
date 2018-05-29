@@ -15,6 +15,7 @@ import com.example.super_yu.myexample.common.FileUtils;
 import com.example.super_yu.myexample.customview.CustomView2Activity;
 import com.example.super_yu.myexample.daemon.DefaultExceptionHandler;
 import com.example.super_yu.myexample.daemon.OnePxMain2Activity;
+import com.example.super_yu.myexample.device.BarCode2Activity;
 import com.example.super_yu.myexample.dialog.Dialog2Activity;
 import com.example.super_yu.myexample.eventbus.EventBus2Activity;
 import com.example.super_yu.myexample.files.SFiles2Activity;
@@ -415,6 +416,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, content + "", Toast.LENGTH_SHORT).show();
 //                Intent intent = new Intent(MainActivity.this, SD2Activity.class);
 //                startActivity(intent);
+            }
+        });
+
+        Button code_click = (Button) findViewById(R.id.device);
+        code_click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BarCode2Activity.class);
+                startActivity(intent);
             }
         });
     }
