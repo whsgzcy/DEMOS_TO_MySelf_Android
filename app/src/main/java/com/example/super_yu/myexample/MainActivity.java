@@ -411,11 +411,11 @@ public class MainActivity extends AppCompatActivity {
         sd_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String filePath = FileUtils.getSDPath() + File.separator + "fileUtilDir" + File.separator + "file.txt";
-                String content = FileUtils.readFile(filePath);
-                Toast.makeText(MainActivity.this, content + "", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(MainActivity.this, SD2Activity.class);
-//                startActivity(intent);
+//                String filePath = FileUtils.getSDPath() + File.separator + "fileUtilDir" + File.separator + "file.txt";
+//                String content = FileUtils.readFile(filePath);
+//                Toast.makeText(MainActivity.this, content + "", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, SD2Activity.class);
+                startActivity(intent);
             }
         });
 
