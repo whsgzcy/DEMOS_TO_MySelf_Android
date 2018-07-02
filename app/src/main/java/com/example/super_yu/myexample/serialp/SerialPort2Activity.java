@@ -228,6 +228,7 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
     @SuppressLint("HandlerLeak")
     Handler mHandler = new Handler() {
 
+        @SuppressLint("SetTextI18n")
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -256,16 +257,17 @@ public class SerialPort2Activity extends AppCompatActivity implements View.OnCli
                         long a_time = System.currentTimeMillis();
                         if (aa_time == 0) return;
                         long time = a_time - aa_time;
-                        if (time < 50) {
-                            n++;
-                            tn.setText("<50ms " + n);
-                        } else if (time >= 50 && time < 100) {
-                            nn++;
-                            tnn.setText("<100ms " + nn);
-                        } else if (time >= 100) {
-                            nnn++;
-                            tnnn.setText(">100ms " + nnn);
-                        }
+                        // 可加入判断依据
+//                        if (time < 50) {
+//                            n++;
+//                            tn.setText("<50ms " + n);
+//                        } else if (time >= 50 && time < 100) {
+//                            nn++;
+//                            tnn.setText("<100ms " + nn);
+//                        } else if (time >= 100) {
+//                            nnn++;
+//                            tnnn.setText(">100ms " + nnn);
+//                        }
                         Log.d(TAG, "A time = " + time);
                         aa_time = 0;
                     }
